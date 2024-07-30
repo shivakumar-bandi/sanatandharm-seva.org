@@ -86,12 +86,46 @@
 .navbar a:hover {
   color: #eb4b4b;
 }
-.team{
+
+.team {
   background-color: #ecf4f4;
 }
-#updates{
+
+#updates {
   color: white;
 }
-#team{
+
+#team {
   color: white;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+  }
+
+  .navbar-item {
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+
+  .navbar a {
+    margin-left: 0;
+    margin-bottom: 10px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    height: auto; /* Allow height to adjust based on content */
+  }
+
+  .navbar a {
+    font-size: 14px;
+  }
 }
