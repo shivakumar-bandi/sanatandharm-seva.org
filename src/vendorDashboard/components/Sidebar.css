@@ -105,6 +105,7 @@
     flex-direction: column;
     align-items: flex-start;
     padding: 10px;
+    height: auto; /* Allow height to adjust based on content */
   }
 
   .navbar-item {
@@ -118,13 +119,14 @@
     margin-bottom: 10px;
     font-size: 16px;
   }
+
+  .navbar-item.show .dropdown-menu {
+    position: static;
+    box-shadow: none;
+  }
 }
 
 @media (max-width: 480px) {
-  .navbar {
-    height: auto; /* Allow height to adjust based on content */
-  }
-
   .navbar a {
     font-size: 14px;
   }
