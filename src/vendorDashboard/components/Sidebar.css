@@ -8,6 +8,7 @@
   height: 150px; /* Increased height for better visibility */
   position: relative;
   z-index: 1000; /* Ensure the navbar is on top */
+  flex-wrap: wrap; /* Allow items to wrap in smaller screens */
 }
 
 /* Navbar item styling */
@@ -102,32 +103,30 @@
 /* Responsive styles */
 @media (max-width: 768px) {
   .navbar {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 10px;
+    justify-content: space-between; /* Ensure items are spread out */
     height: auto; /* Allow height to adjust based on content */
   }
 
   .navbar-item {
-    width: 100%;
-    justify-content: center;
-    margin-bottom: 10px;
+    flex: 1 1 auto; /* Allow items to shrink and grow */
+    margin: 5px; /* Adjust margin for spacing */
+  }
+
+  .dropdown-menu {
+    width: 100%; /* Full width for dropdown items */
   }
 
   .navbar a {
-    margin-left: 0;
-    margin-bottom: 10px;
-    font-size: 16px;
-  }
-
-  .navbar-item.show .dropdown-menu {
-    position: static;
-    box-shadow: none;
+    font-size: 14px; /* Adjust font size for smaller screens */
   }
 }
 
 @media (max-width: 480px) {
+  .navbar-item {
+    margin: 2px; /* Less margin for very small screens */
+  }
+
   .navbar a {
-    font-size: 14px;
+    font-size: 12px; /* Adjust font size for very small screens */
   }
 }
