@@ -2,20 +2,21 @@
 .navbar {
   display: flex;
   align-items: center;
-  justify-content: space-around; /* Add space between items */
   background-color: rgb(217, 79, 179); /* Purple background color */
   padding: 10px;
   color: white;
-  height: 60px; /* Reduced height for better responsiveness */
+  height: 150px; /* Increased height for better visibility */
   position: relative;
   z-index: 1000; /* Ensure the navbar is on top */
-  flex-wrap: wrap; /* Allow wrapping for smaller screens */
 }
 
 /* Navbar item styling */
 .navbar-item {
   position: relative;
   margin: 0 10px;
+  height: 100%;
+  display: flex;
+  align-items: center;
 }
 
 /* Dropdown button styling */
@@ -75,7 +76,7 @@
 
 /* Additional items styling */
 .navbar a {
-  color: white;
+  color: rgb(11, 11, 11);
   text-decoration: none;
   margin-left: 15px;
   font-size: 16px;
@@ -85,32 +86,12 @@
 .navbar a:hover {
   color: #eb4b4b;
 }
-
-/* Media queries for responsiveness */
-@media (max-width: 768px) {
-  .navbar {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .navbar-item {
-    margin: 5px 0;
-  }
+.team{
+  background-color: #ecf4f4;
 }
-
-@media (max-width: 480px) {
-  .navbar {
-    height: auto; /* Adjust height for smaller screens */
-    padding: 5px;
-  }
-
-  .dropdown-toggle {
-    font-size: 14px;
-    padding: 8px;
-  }
-
-  .navbar a {
-    font-size: 14px;
-    margin-left: 10px;
-  }
+#updates{
+  color: white;
+}
+#team{
+  color: white;
 }
