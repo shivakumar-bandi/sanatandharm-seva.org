@@ -80,7 +80,6 @@ const LandingPage = ({ handleCreateArticle, handleUpdateArticle }) => {
         ShowLoginHandler={() => navigate('/login')} 
         ShowRegister={() => navigate('/register')} 
       />
-      <div className="landingSection">
         <Sidebar 
           ShowArticle={() => navigate('/add-article')} 
           ShowEvent={() => navigate('/add-event')} 
@@ -91,6 +90,8 @@ const LandingPage = ({ handleCreateArticle, handleUpdateArticle }) => {
           ShowTeam={() => navigate('/team')}
           ShowUpdates={() => navigate('/updates')}
         />
+      <div className="landingSection">
+      
         <div className="mainContent">
           <IndividualIntervalsExample 
             navigateToArticle={navigateToArticle}
