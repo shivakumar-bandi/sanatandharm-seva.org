@@ -78,7 +78,6 @@
 .navbar a {
   color: rgb(11, 11, 11);
   text-decoration: none;
-  margin-left: 15px;
   font-size: 16px;
   transition: color 0.3s ease;
 }
