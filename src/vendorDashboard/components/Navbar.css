@@ -1,77 +1,93 @@
-.navSection {
-  height: 80px;
+/* Navbar container styling */
+.navbar {
   display: flex;
-  justify-content: space-between;
-  background-color: rgb(116, 79, 217);
+  flex-wrap: wrap; /* Allows items to wrap on smaller screens */
   align-items: center;
+  background-color: rgb(217, 79, 179); /* Purple background color */
+  padding: 10px;
   color: white;
-  padding: 0 20px;
+  position: relative;
+  z-index: 1000; /* Ensure the navbar is on top */
 }
 
-.dashboardIcon {
+/* Navbar item styling */
+.navbar-item {
+  position: relative;
+  margin: 0 10px;
   display: flex;
   align-items: center;
+  flex: 1; /* Allows items to distribute evenly */
 }
 
-.dashboardIconImage {
-  font-size: 24px;
-  color: white;
+/* Dropdown button styling */
+.dropdown-toggle {
+  background-color: #444;
+  border: none;
+  color: rgb(255, 255, 255);
+  padding: 10px;
   cursor: pointer;
-  transition: color 0.3s;
+  font-size: 16px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
 }
 
-.dashboardIconImage:hover {
-  color: #ff9933; /* Hover effect color */
+.dropdown-toggle:hover {
+  background-color: #555555;
 }
 
-.logo {
-  display: flex;
-  align-items: center; /* Align items vertically */
+/* Dropdown menu styling */
+.dropdown-menu {
+  position: absolute;
+  top: 100%; /* Ensure the menu is below the button */
+  left: 0;
+  background-color: #6c2be6;
+  border: 1px solid #555;
+  border-radius: 4px;
+  display: none; /* Initially hidden; use JS to show when needed */
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000; /* Ensure the dropdown menu is on top */
 }
 
-.logo img {
-  height: 50px;
-  margin-right: 10px;
-  border-radius: 50px;
-  margin-top: 8px;
-  background-color: #ff9933; /* Saffron color */
-  color: #fff; /* White text */
-  display: inline-block;
-  overflow: hidden;
+/* Show dropdown menu when active */
+.navbar-item.show .dropdown-menu {
+  display: flex; /* Display the menu when the dropdown is active */
 }
 
-.logo h1 {
-  font-family: 'Arial', sans-serif;
-  font-size: 24px;
-  margin-top: 10px;
-  text-transform: uppercase;
-  background: linear-gradient(to right, #ff9933, #ffffff, #138808); /* Indian flag tricolor for text */
-  -webkit-background-clip: text; /* Ensures gradient applies to text */
-  -webkit-text-fill-color: transparent; /* Hides original text color for webkit browsers */
+/* Dropdown menu items styling */
+.dropdown-menu li {
+  margin: 0;
 }
 
-.animated-text {
-  font-family: 'Arial', sans-serif;
-  font-size: 24px;
-  margin-top: 10px;
-  text-transform: uppercase;
-  animation: revealText 5s forwards; /* Animation duration and fill mode */
-  animation-delay: 1s; /* Delay before animation starts */
-  opacity: 0; /* Start with text hidden */
-  white-space: nowrap; /* Prevent text from wrapping */
+.dropdown-menu a {
+  display: block;
+  padding: 10px;
+  color: white;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
 }
 
-@keyframes revealText {
-  0% {
-    opacity: 0;
-    transform: translateX(-100%);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0%);
-  }
+.dropdown-menu a:hover {
+  background-color: #123a7e;
 }
 
+/* Additional items styling */
+.navbar a {
+  color: rgb(11, 11, 11);
+  text-decoration: none;
+  margin-left: 15px;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+  color: #eb4b4b;
+}
+
+/* Styles for the auth section */
 .userAuth {
   display: flex;
   align-items: center;
@@ -93,4 +109,51 @@
 
 .authIcon {
   margin-right: 5px; /* Space between icon and text */
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar-item {
+    margin: 5px 0;
+    width: 100%;
+  }
+
+  .dropdown-menu {
+    width: 100%;
+    position: relative;
+  }
+
+  .dropdown-toggle {
+    width: 100%;
+    text-align: left;
+  }
+
+  .userAuth {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .authItem {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    height: auto; /* Allow height to adjust based on content */
+  }
+
+  .navbar-item {
+    margin: 5px 0;
+  }
+
+  .authItem {
+    font-size: 14px;
+  }
 }
