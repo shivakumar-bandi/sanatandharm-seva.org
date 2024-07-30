@@ -7,7 +7,6 @@
   position: relative;
   z-index: 1000;
   flex-wrap: wrap;
-  margin-bottom: 10px; /* Added margin to separate the navbars */
 }
 
 .navbar-item {
