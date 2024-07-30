@@ -35,7 +35,7 @@ const LandingPage = ({ handleCreateArticle, handleUpdateArticle }) => {
     {
       image: './axios/14420.png',
       title: 'Vedic',
-      description: 'Description for  Vedic',
+      description: 'Description for Vedic',
     },
     {
       image: './axios/1280.webp',
@@ -50,7 +50,7 @@ const LandingPage = ({ handleCreateArticle, handleUpdateArticle }) => {
     {
       image: './axios/12802.jpg',
       title: 'Help People',
-      description: 'Description for Socity',
+      description: 'Description for Society',
     },
     {
       image: './axios/12263.jpg',
@@ -61,16 +61,6 @@ const LandingPage = ({ handleCreateArticle, handleUpdateArticle }) => {
       image: './axios/12803.jpg',
       title: 'Motivation',
       description: 'Description for Motivation',
-    },
-    {
-      image: './axios/1657.jpg',
-      title: 'Our Culture',
-      description: 'Description for Culture',
-    },
-    {
-      image: './axios/veda.jpg',
-      title: 'Vedas & Vedic',
-      description: 'Description for Vedas & Vedic',
     },
     {
       image: './axios/1657.jpg',
@@ -98,8 +88,8 @@ const LandingPage = ({ handleCreateArticle, handleUpdateArticle }) => {
           ShowArticlesTable={() => navigate('/article-list')} 
           ShowEventList={() => navigate('/event-list')} 
           ShowFestivalList={() => navigate('/festival-list')}
-          ShowTeam ={()=>navigate('/team')}
-          ShowUpdates ={()=>navigate('/updates')}
+          ShowTeam={() => navigate('/team')}
+          ShowUpdates={() => navigate('/updates')}
         />
         <div className="mainContent">
           <IndividualIntervalsExample 
@@ -108,19 +98,19 @@ const LandingPage = ({ handleCreateArticle, handleUpdateArticle }) => {
             navigateToFestival={navigateToFestival}
           />
           <div className="contentSection">
-        <YouTubeLive />
-        <LatestArticles />
-       </div>
-      <div className="contentSection veda-yoga">
-      <VedhasCard />
-      <YogasCard />
-      </div>
-      <div>
-        <CardContainer cards={cards}/>
-      </div>
-      <Footer showDonation ={()=>navigate('/donation')} />
-      <Footer2/>
-      <TestToast/>
+            <YouTubeLive />
+            <LatestArticles />
+          </div>
+          <div className="contentSection veda-yoga">
+            <VedhasCard />
+            <YogasCard />
+          </div>
+          <div>
+            <CardContainer cards={cards} />
+          </div>
+          <Footer showDonation={() => navigate('/donation')} />
+          <Footer2 />
+          <TestToast />
         </div>
       </div>
     </>

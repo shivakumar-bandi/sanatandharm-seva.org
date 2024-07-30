@@ -1,11 +1,27 @@
+.landingSection {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.sidebar {
+  flex: 1;
+}
+
+.mainContent {
+  flex: 3;
+  padding: 20px;
+}
+
 .contentSection {
   display: flex;
-  margin-top: 20px;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .veda-yoga {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .veda-yoga .vedhas-card,
@@ -19,5 +35,29 @@
   align-items: stretch;
 }
 
-/* Ensure the cards have the same height */
+/* Responsive styles for mobile devices */
+@media (max-width: 768px) {
+  .landingSection {
+    flex-direction: column;
+  }
 
+  .contentSection {
+    flex-direction: column;
+    margin-top: 20px;
+  }
+
+  .contentSection > * {
+    margin-bottom: 20px;
+  }
+
+  .veda-yoga {
+    flex-direction: column;
+    margin-top: 20px;
+  }
+
+  .veda-yoga .vedhas-card,
+  .veda-yoga .yogas-card {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
