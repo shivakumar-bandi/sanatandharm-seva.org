@@ -1,17 +1,14 @@
-/* Navbar container styling */
 .navbar {
   display: flex;
   align-items: center;
-  background-color: rgb(217, 79, 179); /* Purple background color */
+  background-color: rgb(217, 79, 179);
   padding: 10px;
   color: white;
-  height: 150px; /* Increased height for better visibility */
   position: relative;
-  z-index: 1000; /* Ensure the navbar is on top */
-  flex-wrap: wrap; /* Allow items to wrap in smaller screens */
+  z-index: 1000;
+  flex-wrap: wrap;
 }
 
-/* Navbar item styling */
 .navbar-item {
   position: relative;
   margin: 0 10px;
@@ -20,11 +17,10 @@
   align-items: center;
 }
 
-/* Dropdown button styling */
 .dropdown-toggle {
   background-color: #444;
   border: none;
-  color: rgb(255, 255, 255);
+  color: white;
   padding: 10px;
   cursor: pointer;
   font-size: 16px;
@@ -33,32 +29,29 @@
 }
 
 .dropdown-toggle:hover {
-  background-color: #555555;
+  background-color: #555;
 }
 
-/* Dropdown menu styling */
 .dropdown-menu {
   position: absolute;
-  top: 100%; /* Ensure the menu is below the button */
+  top: 100%;
   left: 0;
   background-color: #6c2be6;
   border: 1px solid #555;
   border-radius: 4px;
-  display: none; /* Initially hidden; use JS to show when needed */
+  display: none;
   flex-direction: column;
   padding: 0;
   margin: 0;
   list-style: none;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  z-index: 1000; /* Ensure the dropdown menu is on top */
+  z-index: 1000;
 }
 
-/* Show dropdown menu when active */
 .navbar-item.show .dropdown-menu {
-  display: flex; /* Display the menu when the dropdown is active */
+  display: flex;
 }
 
-/* Dropdown menu items styling */
 .dropdown-menu li {
   margin: 0;
 }
@@ -75,7 +68,6 @@
   background-color: #123a7e;
 }
 
-/* Additional items styling */
 .navbar a {
   color: rgb(11, 11, 11);
   text-decoration: none;
@@ -88,45 +80,35 @@
   color: #eb4b4b;
 }
 
-.team {
-  background-color: #ecf4f4;
-}
-
-#updates {
+#updates, #team {
   color: white;
 }
 
-#team {
-  color: white;
-}
-
-/* Responsive styles */
 @media (max-width: 768px) {
   .navbar {
-    justify-content: space-between; /* Ensure items are spread out */
-    height: auto; /* Allow height to adjust based on content */
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .navbar-item {
-    flex: 1 1 auto; /* Allow items to shrink and grow */
-    margin: 5px; /* Adjust margin for spacing */
+    margin: 5px 0;
   }
 
   .dropdown-menu {
-    width: 100%; /* Full width for dropdown items */
+    width: 100%;
   }
 
   .navbar a {
-    font-size: 14px; /* Adjust font size for smaller screens */
+    font-size: 14px;
   }
 }
 
 @media (max-width: 480px) {
   .navbar-item {
-    margin: 2px; /* Less margin for very small screens */
+    margin: 2px 0;
   }
 
   .navbar a {
-    font-size: 12px; /* Adjust font size for very small screens */
+    font-size: 12px;
   }
 }

@@ -1,9 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react';
-import './Sidebar.css';
+import './Navbar.css';
 import { useNavigate } from 'react-router-dom';
 import { useUser } from '../contexts/UserContext';
 
-const Navbar = ({ShowUpdates,ShowTeam, ShowArticle, ShowEvent, ShowFestival, ShowArticlesTable,ShowEventList,  ShowFestivalList}) => {
+const Navbar = ({ ShowUpdates, ShowTeam }) => {
   const [dropdownVisible, setDropdownVisible] = useState('');
   const dropdownRef = useRef(null);
   const navigate = useNavigate();
@@ -30,9 +30,7 @@ const Navbar = ({ShowUpdates,ShowTeam, ShowArticle, ShowEvent, ShowFestival, Sho
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-
   const canEditOrDelete = user && user.email === 'nanishiva2022001@gmail.com' && user.role === 'admin';
-
 
   return (
     <nav className="navbar" ref={dropdownRef}>
@@ -41,10 +39,10 @@ const Navbar = ({ShowUpdates,ShowTeam, ShowArticle, ShowEvent, ShowFestival, Sho
           Articles
         </button>
         <ul className="dropdown-menu">
-        {canEditOrDelete && (
-          <li><a href="#" onClick={() => navigate('/add-article')}>Add New Article</a></li>
-        )}
-          <li><a href="#"  onClick={() => navigate('/article-list')}>View Articles</a></li>
+          {canEditOrDelete && (
+            <li><a href="#" onClick={() => navigate('/add-article')}>Add New Article</a></li>
+          )}
+          <li><a href="#" onClick={() => navigate('/article-list')}>View Articles</a></li>
         </ul>
       </div>
 
@@ -53,10 +51,10 @@ const Navbar = ({ShowUpdates,ShowTeam, ShowArticle, ShowEvent, ShowFestival, Sho
           Events
         </button>
         <ul className="dropdown-menu">
-        {canEditOrDelete && (
-          <li><a href="#" onClick={() => navigate('/add-event')}>Add New Event</a></li>
-        )}
-          <li><a href="#"  onClick={() => navigate('/event-list')}>Show Events</a></li>
+          {canEditOrDelete && (
+            <li><a href="#" onClick={() => navigate('/add-event')}>Add New Event</a></li>
+          )}
+          <li><a href="#" onClick={() => navigate('/event-list')}>Show Events</a></li>
         </ul>
       </div>
 
@@ -65,9 +63,9 @@ const Navbar = ({ShowUpdates,ShowTeam, ShowArticle, ShowEvent, ShowFestival, Sho
           Festivals
         </button>
         <ul className="dropdown-menu">
-        {canEditOrDelete && (
-          <li><a href="#" onClick={() => navigate('/add-festival')}>Add New Festival</a></li>
-        )}
+          {canEditOrDelete && (
+            <li><a href="#" onClick={() => navigate('/add-festival')}>Add New Festival</a></li>
+          )}
           <li><a href="#" onClick={() => navigate('/festival-list')}>Show Festival</a></li>
         </ul>
       </div>
@@ -75,9 +73,9 @@ const Navbar = ({ShowUpdates,ShowTeam, ShowArticle, ShowEvent, ShowFestival, Sho
       <div id='updates' className="navbar-item">
         <a href="#" onClick={ShowUpdates}>Updates</a>
       </div>
-      
+
       <div id='team' className="navbar-item">
-    <a href="#" onClick={ShowTeam}>teamMembers</a>
+        <a href="#" onClick={ShowTeam}>teamMembers</a>
       </div>
     </nav>
   );
