@@ -1,39 +1,51 @@
+/* General footer styling */
 .footer {
   display: flex;
-  justify-content: space-around;
+  flex-wrap: wrap; /* Allow wrapping for mobile view */
+  justify-content: space-between; /* Space out the sections evenly */
   padding: 20px;
   background-color: #f9f9f9;
 }
 
+/* Footer section styling */
 .footer-section {
-  flex: 1;
+  flex: 1 1 30%; /* Allow sections to grow and shrink, with a base width of 30% */
   padding: 10px;
+  box-sizing: border-box; /* Include padding in the element's total width */
 }
 
+/* Footer section headers */
 .footer-section h4 {
   margin-bottom: 10px;
 }
 
+/* List styling */
 .footer-section ul {
   list-style-type: none;
   padding: 0;
+  margin: 0;
 }
 
+/* List items styling */
 .footer-section ul li {
   margin-bottom: 5px;
 }
 
+/* Link styling */
 .footer-section ul li a {
   text-decoration: none;
   color: #333;
 }
 
+/* QR code image styling */
 .qr-code {
-  width: 150px;
-  height: 150px;
+  width: 100%; /* Full width on smaller screens */
+  max-width: 150px; /* Maximum width on larger screens */
+  height: auto;
   margin-bottom: 10px;
 }
 
+/* Donate button styling */
 .donate-button {
   background-color: #ff6347;
   color: #fff;
@@ -47,6 +59,7 @@
   background-color: #ff4500;
 }
 
+/* Social icons styling */
 .social-icons a {
   margin-right: 10px;
   color: #333;
@@ -57,14 +70,44 @@
   color: #ff4500;
 }
 
+/* App Store image styling */
 .app-store img {
   width: 150px;
   height: auto;
   margin-top: 10px;
 }
 
-/* Ensure paragraph tags are visible and styled properly */
+/* Paragraph styling */
 .footer-section p {
   margin: 10px 0;
   color: #333;
+}
+
+/* Responsive styles for mobile devices */
+@media (max-width: 768px) {
+  .footer {
+    flex-direction: column; /* Stack sections vertically on smaller screens */
+    align-items: center; /* Center items horizontally */
+  }
+
+  .footer-section {
+    width: 100%; /* Full width on smaller screens */
+    margin-bottom: 20px; /* Space between sections */
+  }
+
+  .qr-code {
+    max-width: 100%; /* Ensure QR code fits within the container */
+  }
+}
+
+/* Styles for larger screens */
+@media (min-width: 769px) {
+  .footer {
+    flex-direction: row; /* Arrange sections in a row */
+  }
+
+  .footer-section {
+    width: auto; /* Allow sections to take up as much space as needed */
+    margin-bottom: 0; /* Remove margin on the bottom */
+  }
 }

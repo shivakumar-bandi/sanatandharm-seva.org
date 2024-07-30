@@ -76,6 +76,7 @@ const LandingPage = ({ handleCreateArticle, handleUpdateArticle }) => {
 
   return (
     <>
+    <div className="landingSection">
       <Navbar 
         ShowLoginHandler={() => navigate('/login')} 
         ShowRegister={() => navigate('/register')} 
@@ -90,7 +91,7 @@ const LandingPage = ({ handleCreateArticle, handleUpdateArticle }) => {
           ShowTeam={() => navigate('/team')}
           ShowUpdates={() => navigate('/updates')}
         />
-      <div className="landingSection">
+      
       
         <div className="mainContent">
           <IndividualIntervalsExample 

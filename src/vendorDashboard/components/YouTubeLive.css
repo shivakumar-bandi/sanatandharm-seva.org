@@ -1,4 +1,28 @@
-/* YouTubeLive.css */
+/* Ensure global styles are properly set */
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevent horizontal overflow */
+}
+
+/* Container for the whole application */
+.app-container {
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+  padding: 20px; /* Add padding as needed */
+}
+
+/* Below content styling */
+.below-content {
+  padding: 20px;
+  background-color: #f8f9fa; /* Example background color */
+  margin-top: 20px; /* Add margin to separate from the carousel */
+  width: 100%;
+  overflow-x: hidden; /* Prevent horizontal overflow */
+}
+
+/* Responsive styling for the YouTube live stream */
 .youtube-live {
   background-color: #fff;
   padding: 20px;
@@ -7,10 +31,30 @@
   flex: 1;
   margin: 10px; /* Changed to margin to allow space around the component */
   text-align: center;
+  box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
 }
 
 .youtube-live h2 {
   margin-bottom: 15px;
   background-color: rgb(192, 236, 126);
   color: red;
+}
+
+.youtube-live iframe {
+  width: 100%;
+  height: 360px; /* Default height */
+  border: none;
+  border-radius: 8px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .youtube-live {
+    padding: 10px; /* Adjust padding for smaller screens */
+    margin: 5px; /* Adjust margin for smaller screens */
+  }
+
+  .youtube-live iframe {
+    height: 240px; /* Adjust height for smaller screens */
+  }
 }

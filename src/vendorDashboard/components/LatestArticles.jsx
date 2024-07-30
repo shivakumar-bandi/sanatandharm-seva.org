@@ -15,7 +15,7 @@ const LatestArticles = () => {
       </div>
       <div className="article">
         <img src="./axios/th (10).jpeg" alt="Article 3" />
-        <p><a href="#article3">Sanatan Dharma latest article 3 Lorem ipsum, atque eos eum facere hic, voluptatem culpa totam sit. Cumque!...</a></p>
+        <p><a href="#article3">Sanatan Dharma latest article 3 Lorem ipsum, . Cumque!...</a></p>
       </div>
     </div>
   );

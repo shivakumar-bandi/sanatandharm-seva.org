@@ -1,38 +1,136 @@
+/* Ensure the body and html do not overflow */
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevent horizontal overflow */
+}
+
+/* Landing section styling */
 .landingSection {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  margin: 0; /* Remove any default margin */
+  padding: 0; /* Remove any default padding */
 }
 
-.sidebar {
-  flex: 1;
-}
-
+/* Main content styling */
 .mainContent {
-  flex: 3;
-  padding: 20px;
+  flex: 1;
+  padding: 0; /* Remove any padding */
+  margin: 0 auto; /* Center the main content */
+  width: 100%;
+  max-width: 1200px; /* Optional: constrain the max width */
 }
 
+/* Content section styling */
 .contentSection {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  margin: 0; /* Remove any default margin */
+  padding: 0; /* Remove any default padding */
 }
 
+/* Veda-yoga section styling */
 .veda-yoga {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  margin: 0; /* Remove any default margin */
+  padding: 0; /* Remove any default padding */
 }
 
+/* Card styling */
 .veda-yoga .vedhas-card,
 .veda-yoga .yogas-card {
-  width: 48%;
-  height: 48%;
+  width: 48%; /* Ensure cards fit within the container */
+  height: auto; /* Adjust height based on content */
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: stretch;
+}
+
+/* Carousel container styles */
+.custom-carousel {
+  width: 100%;
+  max-width: 100vw; /* Ensure the carousel does not exceed viewport width */
+  overflow: hidden; /* Prevent horizontal overflow */
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+}
+
+/* Carousel item styles */
+.custom-carousel .carousel-item {
+  width: 100%; /* Full width of the container */
+  overflow: hidden; /* Prevent overflow */
+  margin: 0; /* Remove default margin */
+}
+
+/* Image styles */
+.custom-carousel .carousel-item img {
+  width: 100%; /* Ensure the image fits the width of the container */
+  height: auto; /* Maintain aspect ratio */
+  object-fit: cover; /* Cover the container */
+  display: block; /* Remove any extra space below the image */
+}
+
+/* Caption styles */
+.custom-carousel .carousel-caption {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5); /* Dark background for text visibility */
+  padding: 10px;
+  border-radius: 5px; /* Rounded corners */
+  max-width: 90%; /* Limit caption width */
+  box-sizing: border-box; /* Include padding in width calculation */
+  margin: 0; /* Remove default margin */
+}
+
+/* Caption text styles */
+.custom-carousel .carousel-caption h2 {
+  font-size: 1.5rem; /* Adjust font size */
+  margin-bottom: 10px;
+  text-shadow: 2px 2px #ff0000;
+}
+
+.custom-carousel .carousel-caption p {
+  font-size: 1rem; /* Adjust font size */
+  margin-bottom: 15px;
+  text-shadow: 2px 2px #d000ff;
+}
+
+/* Carousel image container styles */
+.carousel-image-container {
+  position: relative;
+  width: 100%; /* Full width */
+  height: auto; /* Adjust height based on aspect ratio */
+  overflow: hidden; /* Prevent overflow */
+  margin: 0; /* Remove default margin */
+}
+
+/* Overlay text styles */
+.carousel-text-overlay {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 1rem; /* Adjust font size */
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  box-sizing: border-box; /* Include padding in width calculation */
+}
+
+.carousel-image-container:hover .carousel-text-overlay {
+  background-color: rgba(0, 0, 0, 0.7); /* Darken background on hover */
 }
 
 /* Responsive styles for mobile devices */
@@ -43,7 +141,7 @@
 
   .contentSection {
     flex-direction: column;
-    margin-top: 20px;
+    margin: 0; /* Remove any default margin */
   }
 
   .contentSection > * {
@@ -52,12 +150,29 @@
 
   .veda-yoga {
     flex-direction: column;
-    margin-top: 20px;
+    margin: 0; /* Remove any default margin */
   }
 
   .veda-yoga .vedhas-card,
   .veda-yoga .yogas-card {
     width: 100%;
     margin-bottom: 20px;
+  }
+
+  .custom-carousel .carousel-caption {
+    padding: 5px;
+    max-width: 95%; /* Ensure caption does not overflow */
+  }
+
+  .custom-carousel .carousel-caption h2 {
+    font-size: 1.2rem;
+  }
+
+  .custom-carousel .carousel-caption p {
+    font-size: 0.9rem;
+  }
+
+  .carousel-text-overlay {
+    font-size: 0.9rem;
   }
 }

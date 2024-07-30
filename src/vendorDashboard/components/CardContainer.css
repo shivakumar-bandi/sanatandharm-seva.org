@@ -2,7 +2,15 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  padding: 20px;
+  padding: 20px 0; /* Remove padding */
   background-color: #f9f9f9;
   gap: 20px; /* Add some space between the cards */
+}
+
+/* Ensure cards take full width on mobile */
+@media (max-width: 768px) {
+  .card-container {
+    padding: 0; /* Remove padding on mobile */
+    gap: 10px; /* Reduce gap on mobile */
+  }
 }

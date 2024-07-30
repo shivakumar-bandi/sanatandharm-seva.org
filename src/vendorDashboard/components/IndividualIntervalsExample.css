@@ -1,30 +1,131 @@
+/* Ensure the body and html do not overflow */
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevent horizontal overflow */
+}
+
+/* Carousel container styles */
+.custom-carousel {
+  width: 100%;
+  max-width: 100vw; /* Ensure the carousel does not exceed viewport width */
+  overflow: hidden; /* Prevent horizontal overflow */
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+  position: relative; /* Ensure absolute positioning works */
+}
+
+/* Carousel item styles */
 .custom-carousel .carousel-item {
-  height: 500px !important; /* Adjust as needed */
-  position: relative; /* Ensure the caption can be positioned absolutely */
+  width: 100%; /* Full width of the container */
+  height: 400px; /* Default height for larger screens */
+  position: relative; /* Ensure positioning for the caption */
+  overflow: hidden; /* Prevent overflow */
+  margin: 0; /* Remove default margin */
 }
 
+/* Image styles */
 .custom-carousel .carousel-item img {
-  height: 100% !important;
-  object-fit: cover !important;
+  width: 100%; /* Ensure the image fits the width of the container */
+  height: 100%; /* Make the image fill the height of the container */
+  object-fit: cover; /* Cover the container */
+  display: block; /* Remove any extra space below the image */
 }
 
+/* Caption styles */
 .custom-carousel .carousel-caption {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); /* Center the caption */
   text-align: center;
   color: white; /* Adjust color for better readability */
+  background-color: rgba(0, 0, 0, 0.5); /* Dark background for text visibility */
+  padding: 10px;
+  border-radius: 5px; /* Rounded corners */
+  max-width: 90%; /* Limit caption width */
+  box-sizing: border-box; /* Include padding in width calculation */
+  margin: 0; /* Remove default margin */
+  width: 90%; /* Ensure caption is responsive */
 }
 
+/* Caption text styles */
 .custom-carousel .carousel-caption h2 {
-  font-size: 3rem;
-  margin-bottom: 20px;
+  font-size: 1.5rem; /* Adjust font size */
+  margin-bottom: 10px;
   text-shadow: 2px 2px #ff0000;
 }
 
 .custom-carousel .carousel-caption p {
-  font-size: 1.2rem;
-  margin-bottom: 30px;
+  font-size: 1rem; /* Adjust font size */
+  margin-bottom: 15px;
   text-shadow: 2px 2px #d000ff;
+}
+
+/* Carousel indicators (dots) positioning */
+.carousel-indicators {
+  position: absolute; /* Position indicators absolutely */
+  top: calc(100% - 30px); /* Position indicators at the bottom of the carousel */
+  left: 50%;
+  transform: translateX(-50%); /* Center indicators horizontally */
+  display: flex; /* Align indicators in a row */
+  justify-content: center; /* Center indicators horizontally */
+  width: auto; /* Auto width for the indicators */
+  padding: 0;
+  margin: 0;
+}
+
+/* Style for each indicator */
+.carousel-indicators li {
+  background-color: rgba(255, 255, 255, 0.5); /* Adjust color */
+}
+
+/* Active indicator style */
+.carousel-indicators .active {
+  background-color: #fff; /* Active indicator color */
+}
+
+/* Carousel controls (left and right arrows) */
+.carousel-control-prev,
+.carousel-control-next {
+  display: none; /* Hide the left and right arrows */
+}
+
+/* Responsive styles for mobile devices */
+@media (max-width: 768px) {
+  .custom-carousel .carousel-item {
+    height: 300px; /* Adjust height for smaller screens */
+  }
+
+  .custom-carousel .carousel-caption {
+    padding: 5px;
+    max-width: 95%; /* Ensure caption does not overflow */
+    font-size: 0.9rem; /* Adjust font size */
+  }
+
+  .custom-carousel .carousel-caption h2 {
+    font-size: 1.2rem; /* Adjust font size */
+  }
+
+  .custom-carousel .carousel-caption p {
+    font-size: 0.9rem; /* Adjust font size */
+  }
+
+  .carousel-text-overlay {
+    font-size: 0.9rem; /* Adjust font size */
+  }
+
+  /* Adjust indicator position for mobile devices */
+  .carousel-indicators {
+    top: calc(100% - 20px); /* Move indicators slightly lower for mobile */
+  }
+}
+
+/* Additional styling to ensure the below content is not affected */
+.below-content {
+  padding: 20px;
+  background-color: #f8f9fa; /* Example background color */
+  margin-top: 20px; /* Add margin to separate from the carousel */
+  width: 100%;
+  overflow-x: hidden; /* Prevent horizontal overflow */
 }

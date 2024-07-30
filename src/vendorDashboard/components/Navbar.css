@@ -6,6 +6,7 @@
   align-items: center;
   color: white;
   padding: 0 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
 .dashboardIcon {
@@ -33,11 +34,8 @@
   height: 50px;
   margin-right: 10px;
   border-radius: 50px;
-  margin-top: 8px;
   background-color: #ff9933; /* Saffron color */
-  color: #fff; /* White text */
   display: inline-block;
-  overflow: hidden;
 }
 
 .logo h1 {
@@ -46,8 +44,8 @@
   margin-top: 10px;
   text-transform: uppercase;
   background: linear-gradient(to right, #ff9933, #ffffff, #138808); /* Indian flag tricolor for text */
-  -webkit-background-clip: text; /* Ensures gradient applies to text */
-  -webkit-text-fill-color: transparent; /* Hides original text color for webkit browsers */
+  -webkit-background-clip: text; /* Gradient text */
+  -webkit-text-fill-color: transparent; /* Text color */
 }
 
 .animated-text {
@@ -55,9 +53,9 @@
   font-size: 24px;
   margin-top: 10px;
   text-transform: uppercase;
-  animation: revealText 5s forwards; /* Animation duration and fill mode */
+  animation: revealText 5s forwards; /* Animation */
   animation-delay: 1s; /* Delay before animation starts */
-  opacity: 0; /* Start with text hidden */
+  opacity: 0; /* Initial opacity */
   white-space: nowrap; /* Prevent text from wrapping */
 }
 
@@ -101,6 +99,7 @@
     flex-direction: column;
     align-items: flex-start;
     padding: 10px;
+    height: auto; /* Allow height to adjust based on content */
   }
 
   .dashboardIcon, .logo, .userAuth {
@@ -115,6 +114,7 @@
 
   .userAuth {
     flex-direction: column;
+    align-items: flex-start;
   }
 
   .authItem {
@@ -124,11 +124,11 @@
 }
 
 @media (max-width: 480px) {
-  .navSection {
-    height: auto; /* Allow height to adjust based on content */
+  .logo h1 {
+    font-size: 18px; /* Adjust font size for smaller screens */
   }
 
   .authItem {
-    font-size: 14px;
+    font-size: 14px; /* Adjust font size for smaller screens */
   }
 }

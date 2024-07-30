@@ -6,9 +6,19 @@
   margin: 10px;
   padding: 20px;
   text-align: center;
-  flex: 1 1 220px; /* Allows flexbox to manage the width */
+  flex: 1 1 calc(33.333% - 20px); /* Adjust for three cards per row with gap */
   min-width: 220px;
   max-width: 300px;
+  box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
+}
+
+/* Ensure cards take full width on mobile */
+@media (max-width: 768px) {
+  .card {
+    flex: 1 1 calc(100% - 20px); /* Take full width on smaller screens */
+    margin: 10px 0; /* Adjust margin for better spacing */
+    max-width: 100%; /* Ensure no card exceeds 100% width */
+  }
 }
 
 .card img {
