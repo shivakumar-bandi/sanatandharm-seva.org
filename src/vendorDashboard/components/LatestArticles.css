@@ -1,0 +1,46 @@
+.latest-articles {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  flex: 1;
+  margin-left: 10px;
+  text-align: center;
+  color: #333; /* Darker text color for better contrast */
+}
+
+.latest-articles h2 {
+  margin-bottom: 15px;
+  background-color: rgb(192, 236, 126);
+  color: red;
+}
+
+.article {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  background-color: #f9f9f9; /* Light background for text container */
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.article img {
+  border: 2px solid gray;
+  width: 70px;
+  height: 70px;
+  margin-right: 10px;
+}
+
+.article p {
+  margin: 0;
+  color: #333; /* Ensure the paragraph text is visible */
+}
+
+.article a {
+  color: blue; /* Make the link color blue */
+  text-decoration: none; /* Remove underline from link */
+}
+
+.article a:hover {
+  text-decoration: none; /* No underline on hover */
+}

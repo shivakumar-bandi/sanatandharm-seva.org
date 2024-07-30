@@ -1,0 +1,82 @@
+/* Container for the form */
+.edit-festival-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  /* Header styling */
+  .edit-festival-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  /* Form styling */
+  .edit-festival-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  /* Label styling */
+  .edit-festival-container label {
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  /* Input and textarea styling */
+  .edit-festival-container input[type="text"],
+  .edit-festival-container input[type="date"],
+  .edit-festival-container textarea,
+  .edit-festival-container input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+  }
+  
+  /* Focus styling */
+  .edit-festival-container input:focus,
+  .edit-festival-container textarea:focus {
+    border-color: #0056b3;
+    outline: none;
+  }
+  
+  /* Button styling */
+  .edit-festival-container button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #0056b3;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  /* Button hover and focus effects */
+  .edit-festival-container button:hover,
+  .edit-festival-container button:focus {
+    background-color: #003d7a;
+    transform: scale(1.05);
+  }
+  
+  /* Animation for fade-in effect */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  

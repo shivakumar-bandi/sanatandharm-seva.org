@@ -1,0 +1,21 @@
+/* CarouselComponent.css */
+
+.carousel-item img {
+    height: 300px; /* Adjust the height as needed */
+    object-fit: cover; /* Ensure image covers the container */
+  }
+  
+  .carousel-caption {
+    background-color: rgba(0, 0, 0, 0.5); /* Dark background for text visibility */
+    padding: 10px;
+  }
+  
+  .carousel-text-overlay {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    padding: 5px;
+  }
+  

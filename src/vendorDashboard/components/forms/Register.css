@@ -1,0 +1,88 @@
+/* Register.css */
+
+.registerSection {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  min-height: 100vh;
+  background-color: #f0f0f0;
+}
+
+.authForm {
+  width: 100%;
+  max-width: 50%;
+  border: 1px solid gray;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.authForm label {
+  width: 100%;
+  max-width: 55%;
+  font-weight: 400;
+  margin-bottom: 5px;
+}
+
+.authForm input {
+  width: 100%;
+  max-width: 55%;
+  height: 1.4rem;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.passwordField {
+  width: 100%;
+  max-width: 55%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.passwordInput {
+  width: 100%;
+  height: 1.4rem;
+}
+
+.passwordToggleIcon {
+  position: relative;
+
+  cursor: pointer;
+}
+
+.passwordToggleIcon:hover {
+  color: #007bff;
+}
+
+.animated-text {
+  font-family: 'Arial', sans-serif;
+  font-size: 24px;
+  margin-top: 10px;
+  text-transform: uppercase;
+  animation: revealText 5s forwards;
+  animation-delay: 1s;
+  opacity: 0;
+  white-space: nowrap;
+  background: linear-gradient(to right, #ff9933, #ffffff, #138808);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@keyframes revealText {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}

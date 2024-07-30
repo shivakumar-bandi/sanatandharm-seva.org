@@ -1,0 +1,32 @@
+.footer2 {
+    background-color: #0066cc;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    position: relative;
+  }
+  
+  .footer2-content p {
+    margin: 0;
+    line-height: 1.5;
+    font-size: 1.2em;
+    color: orangered;
+  }
+  
+  .scroll-to-top {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background-color: #fff;
+    color: #0066cc;
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .scroll-to-top:hover {
+    background-color: #f0f0f0;
+  }
+  

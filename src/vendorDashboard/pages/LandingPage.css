@@ -1,0 +1,23 @@
+.contentSection {
+  display: flex;
+  margin-top: 20px;
+}
+
+.veda-yoga {
+  display: flex;
+  justify-content: space-between;
+}
+
+.veda-yoga .vedhas-card,
+.veda-yoga .yogas-card {
+  width: 48%;
+  height: 48%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+/* Ensure the cards have the same height */
+

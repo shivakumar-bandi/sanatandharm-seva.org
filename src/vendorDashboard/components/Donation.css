@@ -1,0 +1,78 @@
+.donation-container {
+  text-align: center;
+  padding: 2rem;
+  background: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.donation-container h1 {
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.donation-container p {
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+.donation-methods {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.donation-method {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1rem;
+  width: 200px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.donation-method:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.icon {
+  font-size: 3rem;
+  color: #007bff; /* You can change the color as needed */
+  margin-bottom: 1rem;
+}
+
+h3 {
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+p {
+  color: #666;
+}
+
+.go-home-button {
+  background-color: #007bff; /* Primary color to match the icon */
+  color: #fff; /* White text color */
+  border: none; /* Remove default border */
+  padding: 0.5rem 1rem; /* Add padding */
+  font-size: 1rem; /* Font size */
+  display: flex; /* Flexbox for icon and text alignment */
+  align-items: center; /* Center icon and text vertically */
+  border-radius: 8px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  margin-bottom: 2rem; /* Space below the button */
+  transition: background-color 0.3s ease; /* Smooth background color transition */
+}
+
+.go-home-button:hover {
+  background-color: #0056b3; /* Darker shade for hover effect */
+}
+
+.home-icon {
+  font-size: 1.5rem; /* Icon size */
+  margin-right: 0.5rem; /* Space between icon and text */
+}

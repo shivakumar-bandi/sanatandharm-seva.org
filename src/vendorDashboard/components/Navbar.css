@@ -1,0 +1,96 @@
+.navSection {
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(116, 79, 217);
+  align-items: center;
+  color: white;
+  padding: 0 20px;
+}
+
+.dashboardIcon {
+  display: flex;
+  align-items: center;
+}
+
+.dashboardIconImage {
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.dashboardIconImage:hover {
+  color: #ff9933; /* Hover effect color */
+}
+
+.logo {
+  display: flex;
+  align-items: center; /* Align items vertically */
+}
+
+.logo img {
+  height: 50px;
+  margin-right: 10px;
+  border-radius: 50px;
+  margin-top: 8px;
+  background-color: #ff9933; /* Saffron color */
+  color: #fff; /* White text */
+  display: inline-block;
+  overflow: hidden;
+}
+
+.logo h1 {
+  font-family: 'Arial', sans-serif;
+  font-size: 24px;
+  margin-top: 10px;
+  text-transform: uppercase;
+  background: linear-gradient(to right, #ff9933, #ffffff, #138808); /* Indian flag tricolor for text */
+  -webkit-background-clip: text; /* Ensures gradient applies to text */
+  -webkit-text-fill-color: transparent; /* Hides original text color for webkit browsers */
+}
+
+.animated-text {
+  font-family: 'Arial', sans-serif;
+  font-size: 24px;
+  margin-top: 10px;
+  text-transform: uppercase;
+  animation: revealText 5s forwards; /* Animation duration and fill mode */
+  animation-delay: 1s; /* Delay before animation starts */
+  opacity: 0; /* Start with text hidden */
+  white-space: nowrap; /* Prevent text from wrapping */
+}
+
+@keyframes revealText {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}
+
+.userAuth {
+  display: flex;
+  align-items: center;
+}
+
+.authItem {
+  margin-left: 20px;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  color: white;
+  text-decoration: none;
+}
+
+.authItem:hover {
+  color: #ff9933; /* Hover effect color */
+}
+
+.authIcon {
+  margin-right: 5px; /* Space between icon and text */
+}

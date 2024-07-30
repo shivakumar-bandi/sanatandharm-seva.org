@@ -1,0 +1,27 @@
+.carousel-image-container {
+  position: relative;
+  height: 100%; /* Full height of the parent container */
+}
+
+.carousel-image-container img {
+  height: 100%; /* Make the image fill the height of the container */
+  width: 100%;
+  object-fit: cover; /* Ensure the image covers the container */
+}
+
+.carousel-text-overlay {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  padding: 10px;
+  border-radius: 5px; /* Rounded corners for the overlay */
+  font-size: 1.2rem; /* Adjust font size for better readability */
+  font-weight: bold; /* Make text stand out */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Shadow for better text visibility */
+}
+
+.carousel-image-container:hover .carousel-text-overlay {
+  background-color: rgba(0, 0, 0, 0.7); /* Darken background on hover */
+}

@@ -1,0 +1,60 @@
+.welcome-page {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff; /* White text color for contrast */
+}
+
+.welcome-page::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('/axios/ramsita.jpg') no-repeat center center;
+  background-size: cover;
+  opacity: 0.4; /* Adjust opacity for a lighter background */
+  z-index: 0; /* Place the background image behind the content */
+}
+
+.welcome-content {
+  position: relative;
+  z-index: 1; /* Ensure the text is above the background image */
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background for better text contrast */
+  padding: 20px; /* Padding around the text */
+  border-radius: 10px; /* Rounded corners for a softer look */
+}
+
+.animated-text {
+  font-size: 3rem; /* Adjust font size as needed */
+  margin-bottom: 1rem;
+  color: #ffeb3b; /* Bright yellow for better visibility */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Text shadow for better contrast */
+  animation: fadeInOut 3s ease-in-out infinite; /* Add animation */
+}
+
+@keyframes fadeInOut {
+  0%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+h1 {
+  font-size: 2.5rem; /* Adjust font size as needed */
+  color: #ffeb3b; /* Bright yellow for better visibility */
+}
+
+p {
+  font-size: 1.2rem; /* Adjust font size as needed */
+  color: #ffffff; /* Ensure paragraph text is visible */
+  margin-top: 0;
+}

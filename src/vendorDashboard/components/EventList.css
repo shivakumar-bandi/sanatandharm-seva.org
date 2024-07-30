@@ -1,0 +1,19 @@
+.event-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Three columns by default */
+    gap: 20px; /* Gap between cards */
+    padding: 20px; /* Padding around the grid */
+  }
+  
+  @media (max-width: 768px) {
+    .event-list {
+      grid-template-columns: repeat(2, 1fr); /* Two columns on smaller screens */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .event-list {
+      grid-template-columns: 1fr; /* One column on very small screens */
+    }
+  }
+  

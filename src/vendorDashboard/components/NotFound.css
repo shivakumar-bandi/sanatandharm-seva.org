@@ -1,0 +1,63 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Container Styles */
+  .notfound-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to right, #ff7e5f, #feb47b);
+    animation: gradientAnimation 10s ease infinite;
+  }
+  
+  .notfound-content {
+    text-align: center;
+    color: #fff;
+  }
+  
+  .notfound-title {
+    font-size: 10rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  .notfound-message {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    animation: fadeIn 2s ease-in-out;
+  }
+  
+  .go-home-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #333;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    animation: fadeIn 3s ease-in-out;
+  }
+  
+  .go-home-button:hover {
+    background-color: #555;
+  }
+  
+  /* Keyframes for animations */
+  @keyframes gradientAnimation {
+    0% { background: linear-gradient(to right, #ff7e5f, #feb47b); }
+    50% { background: linear-gradient(to right, #feb47b, #ff7e5f); }
+    100% { background: linear-gradient(to right, #ff7e5f, #feb47b); }
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
