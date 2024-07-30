@@ -1,15 +1,16 @@
+/* Navbar container styling */
 .navbar {
   display: flex;
   align-items: center;
-  background-color: rgb(216, 70, 175);
+  background-color: rgb(217, 79, 179); /* Purple background color */
   padding: 10px;
   color: white;
+  height: 150px; /* Increased height for better visibility */
   position: relative;
-  z-index: 1000;
-  flex-wrap: wrap;
-  background-color: #eb4b4b;
+  z-index: 1000; /* Ensure the navbar is on top */
 }
 
+/* Navbar item styling */
 .navbar-item {
   position: relative;
   margin: 0 10px;
@@ -18,10 +19,11 @@
   align-items: center;
 }
 
+/* Dropdown button styling */
 .dropdown-toggle {
   background-color: #444;
   border: none;
-  color: white;
+  color: rgb(255, 255, 255);
   padding: 10px;
   cursor: pointer;
   font-size: 16px;
@@ -30,29 +32,32 @@
 }
 
 .dropdown-toggle:hover {
-  background-color: #555;
+  background-color: #555555;
 }
 
+/* Dropdown menu styling */
 .dropdown-menu {
   position: absolute;
-  top: 100%;
+  top: 100%; /* Ensure the menu is below the button */
   left: 0;
   background-color: #6c2be6;
   border: 1px solid #555;
   border-radius: 4px;
-  display: none;
+  display: none; /* Initially hidden; use JS to show when needed */
   flex-direction: column;
   padding: 0;
   margin: 0;
   list-style: none;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  z-index: 1000;
+  z-index: 1000; /* Ensure the dropdown menu is on top */
 }
 
+/* Show dropdown menu when active */
 .navbar-item.show .dropdown-menu {
-  display: flex;
+  display: flex; /* Display the menu when the dropdown is active */
 }
 
+/* Dropdown menu items styling */
 .dropdown-menu li {
   margin: 0;
 }
@@ -69,8 +74,9 @@
   background-color: #123a7e;
 }
 
+/* Additional items styling */
 .navbar a {
-  color: white;
+  color: rgb(11, 11, 11);
   text-decoration: none;
   margin-left: 15px;
   font-size: 16px;
@@ -80,36 +86,12 @@
 .navbar a:hover {
   color: #eb4b4b;
 }
-
-#updates, #team {
+.team{
+  background-color: #ecf4f4;
+}
+#updates{
   color: white;
 }
-
-@media (max-width: 768px) {
-  .navbar {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .navbar-item {
-    margin: 5px 0;
-  }
-
-  .dropdown-menu {
-    width: 100%;
-  }
-
-  .navbar a {
-    font-size: 14px;
-  }
-}
-
-@media (max-width: 480px) {
-  .navbar-item {
-    margin: 2px 0;
-  }
-
-  .navbar a {
-    font-size: 12px;
-  }
+#team{
+  color: white;
 }
