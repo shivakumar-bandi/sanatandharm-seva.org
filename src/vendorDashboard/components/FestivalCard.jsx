@@ -1,11 +1,11 @@
 import React from 'react';
 import './FestivalCard.css';
 import { useUser } from '../contexts/UserContext';
-import { useNavigate } from 'react-router-dom'; 
+import { useNavigate } from 'react-router-dom';
+import { API_URL } from '../data/apiPath'; // Ensure this path is correct
 
 const FestivalCard = ({ festival, onEdit, onDelete }) => {
   const { user } = useUser();
-
   const navigate = useNavigate();
 
   const canEditOrDelete = user && user.email === 'nanishiva2022001@gmail.com' && user.role === 'admin';
@@ -14,7 +14,7 @@ const FestivalCard = ({ festival, onEdit, onDelete }) => {
     <div className="event-card">
       {festival.image && (
         <img
-          src={`http://localhost:5000/uploads/${festival.image}`}
+          src={`${API_URL}/uploads/${festival.image}`}
           alt={festival.title}
         />
       )}
@@ -24,11 +24,10 @@ const FestivalCard = ({ festival, onEdit, onDelete }) => {
       <p>Location: {festival.location}</p>
       {canEditOrDelete && (
         <>
-      <button onClick={() => onEdit(festival)}>Edit</button>
-      <button onClick={() => onDelete(festival._id)}>Delete</button>
-      </>
+          <button onClick={() => onEdit(festival)}>Edit</button>
+          <button onClick={() => onDelete(festival._id)}>Delete</button>
+        </>
       )}
-    
     </div>
   );
 };
