@@ -3,14 +3,14 @@ import axios from 'axios';
 import { useUser } from '../contexts/UserContext';
 import './ArticleTable.css';
 import { API_URL } from '../data/apiPath';
-import { useNavigate } from 'react-router-dom'; // I
+import { useNavigate } from 'react-router-dom';
 
-const ArticleTable = ({ header, onEdit, onDelete,onSubmit}) => {
+const ArticleTable = ({ header, onEdit, onDelete, onSubmit }) => {
   const [articles, setArticles] = useState([]);
   const [errorMessage, setErrorMessage] = useState('');
   const { user } = useUser();
-
   const navigate = useNavigate();
+
   useEffect(() => {
     const fetchArticles = async () => {
       try {
@@ -22,7 +22,6 @@ const ArticleTable = ({ header, onEdit, onDelete,onSubmit}) => {
         setErrorMessage('Error fetching articles.');
       }
     };
-
     fetchArticles();
   }, []);
 
@@ -37,14 +36,6 @@ const ArticleTable = ({ header, onEdit, onDelete,onSubmit}) => {
       }
     }
   };
-  const handleUpdateArticle = async (id, formData) => {
-    try {
-        await axios.put(`${API_URL}/api/articles/${id}`, formData);
-        navigate('/article-list');
-    } catch (error) {
-        console.error('Error updating article:', error.response ? error.response.data : error.message);
-    }
-};
 
   const canEditOrDelete = user && user.email === 'nanishiva2022001@gmail.com' && user.role === 'admin';
 
@@ -93,7 +84,7 @@ const ArticleTable = ({ header, onEdit, onDelete,onSubmit}) => {
                     <td>
                       {canEditOrDelete && (
                         <>
-                          <button onClick={() => handleEdit(article._id)}>Edit</button>
+                          <button onClick={() => onEdit(article._id)}>Edit</button>
                           <button onClick={() => handleDelete(article._id)}>Delete</button>
                         </>
                       )}
