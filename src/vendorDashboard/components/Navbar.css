@@ -2,8 +2,8 @@
   height: 80px;
   display: flex;
   justify-content: space-between;
-  background-color: rgb(116, 79, 217);
   align-items: center;
+  background-color: rgb(116, 79, 217);
   color: white;
   padding: 0 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
@@ -28,6 +28,8 @@
 .logo {
   display: flex;
   align-items: center; /* Align items vertically */
+  flex: 1; /* Take up remaining space */
+  margin-right: 20px; /* Add space between logo and auth section */
 }
 
 .logo img {
@@ -41,7 +43,7 @@
 .logo h1 {
   font-family: 'Arial', sans-serif;
   font-size: 24px;
-  margin-top: 10px;
+  margin: 0;
   text-transform: uppercase;
   background: linear-gradient(to right, #ff9933, #ffffff, #138808); /* Indian flag tricolor for text */
   -webkit-background-clip: text; /* Gradient text */
@@ -51,7 +53,6 @@
 .animated-text {
   font-family: 'Arial', sans-serif;
   font-size: 24px;
-  margin-top: 10px;
   text-transform: uppercase;
   animation: revealText 5s forwards; /* Animation */
   animation-delay: 1s; /* Delay before animation starts */
@@ -132,11 +133,10 @@
     font-size: 14px; /* Adjust font size for smaller screens */
   }
 }
+
 /* Navbar.css */
 
 /* Default light mode styles */
-
-
 .dashboardIconImage.light {
   color: #000;
 }
