@@ -13,7 +13,7 @@ import Footer from '../components/Footer';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import Footer2 from '../components/Footer2';
 import TestToast from '../components/Simple';
-import { ThemeProvider } from '../contexts/ThemeContext';
+import { TuseTheme } from '../contexts/ThemeContext';
 
 const LandingPage = ({ handleCreateArticle, handleUpdateArticle }) => {
   const navigate = useNavigate();
