@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Sidebar from '../components/Sidebar';
@@ -13,11 +13,9 @@ import Footer from '../components/Footer';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import Footer2 from '../components/Footer2';
 import TestToast from '../components/Simple';
-import { ThemeProvider } from '../contexts/ThemeContext';
-import { useTheme } from '../contexts/ThemeContext';
+
 const LandingPage = ({ handleCreateArticle, handleUpdateArticle }) => {
   const navigate = useNavigate();
-  const { isDarkMode } = useTheme();
 
   const navigateToArticle = () => navigate('/article-list');
   const navigateToEvent = () => navigate('/event-list');
@@ -75,10 +73,7 @@ const LandingPage = ({ handleCreateArticle, handleUpdateArticle }) => {
       description: 'Description for Vedas & Vedic',
     },
   ];
-  
-  useEffect(() => {
-    document.body.className = isDarkMode ? 'dark' : 'light';
-  }, [isDarkMode]);
+
   return (
     <>
     <div className="landingSection">
@@ -120,7 +115,6 @@ const LandingPage = ({ handleCreateArticle, handleUpdateArticle }) => {
           <TestToast />
         </div>
       </div>
-   
     </>
   );
 };

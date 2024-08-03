@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Navbar.css';
 import { FaSignInAlt, FaUserPlus, FaHome } from 'react-icons/fa';
 import { FaSun, FaMoon } from 'react-icons/fa'; 
 import { useTheme } from '../contexts/ThemeContext'; // Import ThemeContext
-
+import { ThemeProvider } from '../contexts/ThemeContext';
 const Navbar = ({ ShowLoginHandler, ShowRegister }) => {
   const { isDarkMode, toggleTheme } = useTheme(); // Use ThemeContext
 
+  useEffect(() => {
+    document.body.className = isDarkMode ? 'dark' : 'light';
+  }, [isDarkMode]);
+  
   return (
     <div className={`navSection ${isDarkMode ? 'dark' : 'light'}`}>
       <div className="dashboardIcon">
