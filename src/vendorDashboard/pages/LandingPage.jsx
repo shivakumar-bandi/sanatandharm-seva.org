@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Sidebar from '../components/Sidebar';
@@ -15,7 +15,12 @@ import Footer2 from '../components/Footer2';
 import TestToast from '../components/Simple';
 
 const LandingPage = ({ handleCreateArticle, handleUpdateArticle }) => {
+  const [isDarkMode, setIsDarkMode] = useState(false);
   const navigate = useNavigate();
+
+  const toggleDarkMode = () => {
+    setIsDarkMode(!isDarkMode);
+  };
 
   const navigateToArticle = () => navigate('/article-list');
   const navigateToEvent = () => navigate('/event-list');
@@ -76,10 +81,12 @@ const LandingPage = ({ handleCreateArticle, handleUpdateArticle }) => {
 
   return (
     <>
-    <div className="landingSection">
+    <div className={`landingSection ${isDarkMode ? 'dark' : 'light'}`}>
       <Navbar 
         ShowLoginHandler={() => navigate('/login')} 
         ShowRegister={() => navigate('/register')} 
+        isDarkMode={isDarkMode}
+        toggleDarkMode={toggleDarkMode}
       />
         <Sidebar 
           ShowArticle={() => navigate('/add-article')} 
@@ -91,7 +98,6 @@ const LandingPage = ({ handleCreateArticle, handleUpdateArticle }) => {
           ShowTeam={() => navigate('/team')}
           ShowUpdates={() => navigate('/updates')}
         />
-      
       
         <div className="mainContent">
           <IndividualIntervalsExample 

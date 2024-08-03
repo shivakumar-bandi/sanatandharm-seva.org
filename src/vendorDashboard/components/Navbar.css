@@ -132,3 +132,18 @@
     font-size: 14px; /* Adjust font size for smaller screens */
   }
 }
+.navSection.dark {
+  background-color: #333;
+  color: #fff;
+}
+
+.navSection.light {
+  background-color: #f8f9fa;
+  color: #000;
+}
+
+.authItem .authIcon {
+  margin-right: 5px;
+}
+
+/* Add other styles as needed */

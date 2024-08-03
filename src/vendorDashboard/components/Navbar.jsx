@@ -1,10 +1,10 @@
 import React from 'react';
 import './Navbar.css';
-import { FaSignInAlt, FaUserPlus, FaHome } from 'react-icons/fa'; // Import icons
+import { FaSignInAlt, FaUserPlus, FaHome, FaMoon, FaSun } from 'react-icons/fa'; // Import icons
 
-const Navbar = ({ ShowLoginHandler, ShowRegister }) => {
+const Navbar = ({ ShowLoginHandler, ShowRegister, isDarkMode, toggleDarkMode }) => {
   return (
-    <div className="navSection">
+    <div className={`navSection ${isDarkMode ? 'dark' : 'light'}`}>
       <div className="dashboardIcon">
         <FaHome className="dashboardIconImage" /> 
       </div>
@@ -18,6 +18,9 @@ const Navbar = ({ ShowLoginHandler, ShowRegister }) => {
         </span>
         <span className="authItem" onClick={ShowRegister}>
           <FaUserPlus className="authIcon" /> Register
+        </span>
+        <span className="authItem" onClick={toggleDarkMode}>
+          {isDarkMode ? <FaSun className="authIcon" /> : <FaMoon className="authIcon" />} Dark Mode
         </span>
       </div>
     </div>

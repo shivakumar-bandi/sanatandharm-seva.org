@@ -176,3 +176,14 @@ html, body {
     font-size: 0.9rem;
   }
 }
+.landingSection.dark {
+  background-color: #121212;
+  color: #fff;
+}
+
+.landingSection.light {
+  background-color: #fff;
+  color: #000;
+}
+
+/* Add other styles as needed */
