@@ -135,10 +135,7 @@
 /* Navbar.css */
 
 /* Default light mode styles */
-.navSection {
-  background-color: #fff;
-  color: #000;
-}
+
 
 .dashboardIconImage.light {
   color: #000;
@@ -146,10 +143,6 @@
 
 .authIcon.light {
   color: #000;
-}
-
-.themeToggle {
-  cursor: pointer;
 }
 
 /* Dark mode styles */
@@ -164,4 +157,8 @@
 
 .authIcon.dark {
   color: #fff;
+}
+
+.themeToggle {
+  cursor: pointer;
 }
