@@ -13,11 +13,12 @@ import Footer from '../components/Footer';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import Footer2 from '../components/Footer2';
 import TestToast from '../components/Simple';
+import { ThemeProvider } from '../contexts/ThemeContext';
 
 const LandingPage = ({ handleCreateArticle, handleUpdateArticle }) => {
   const navigate = useNavigate();
   const { isDarkMode } = useTheme();
-  
+
   const navigateToArticle = () => navigate('/article-list');
   const navigateToEvent = () => navigate('/event-list');
   const navigateToFestival = () => navigate('/festival-list');
