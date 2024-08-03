@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Sidebar from '../components/Sidebar';
@@ -75,6 +75,7 @@ const LandingPage = ({ handleCreateArticle, handleUpdateArticle }) => {
       description: 'Description for Vedas & Vedic',
     },
   ];
+  
   useEffect(() => {
     document.body.className = isDarkMode ? 'dark' : 'light';
   }, [isDarkMode]);
