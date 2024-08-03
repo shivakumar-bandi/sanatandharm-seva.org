@@ -9,7 +9,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>
       <UserProvider> {/* Wrap App with UserProvider */}
-        <App />
+      <ThemeProvider>
+      <App />
+    </ThemeProvider>
       </UserProvider>
     </BrowserRouter>
   </React.StrictMode>
