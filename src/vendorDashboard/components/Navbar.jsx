@@ -1,14 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Navbar.css';
-import { FaSignInAlt, FaUserPlus, FaHome } from 'react-icons/fa';
-import { FaSun, FaMoon } from 'react-icons/fa'; // Import sun and moon icons
+import { FaSignInAlt, FaUserPlus, FaHome, FaSun, FaMoon } from 'react-icons/fa';
+import { useTheme } from '../contexts/ThemeContext'; // Adjust the path as necessary
 
 const Navbar = ({ ShowLoginHandler, ShowRegister }) => {
-  const [isDarkMode, setIsDarkMode] = useState(false);
-
-  const toggleTheme = () => {
-    setIsDarkMode(prevMode => !prevMode);
-  };
+  const { isDarkMode, toggleTheme } = useTheme();
 
   return (
     <div className={`navSection ${isDarkMode ? 'dark' : 'light'}`}>

@@ -23,6 +23,7 @@ import Donation from './vendorDashboard/components/Donation';
 import Team from './vendorDashboard/components/Team';
 import Updates from './vendorDashboard/components/Updates';
 
+
 const App = () => {
     const navigate = useNavigate();
 
@@ -97,8 +98,11 @@ const App = () => {
             <Route path="/donation" element={<Donation />} />
             <Route path= "/team" element={<Team/>}/>
             <Route path='/updates' element={<Updates/>}/>
+            
         </Routes>
+       
     );
+    
 }
 
 export default App;
