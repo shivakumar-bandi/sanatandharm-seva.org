@@ -132,3 +132,36 @@
     font-size: 14px; /* Adjust font size for smaller screens */
   }
 }
+/* Navbar.css */
+
+/* Default light mode styles */
+.navSection {
+  background-color: #fff;
+  color: #000;
+}
+
+.dashboardIconImage.light {
+  color: #000;
+}
+
+.authIcon.light {
+  color: #000;
+}
+
+.themeToggle {
+  cursor: pointer;
+}
+
+/* Dark mode styles */
+.navSection.dark {
+  background-color: #333;
+  color: #fff;
+}
+
+.dashboardIconImage.dark {
+  color: #fff;
+}
+
+.authIcon.dark {
+  color: #fff;
+}

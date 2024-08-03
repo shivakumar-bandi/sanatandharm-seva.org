@@ -1,12 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Navbar.css';
-import { FaSignInAlt, FaUserPlus, FaHome } from 'react-icons/fa'; // Import icons
+import { FaSignInAlt, FaUserPlus, FaHome } from 'react-icons/fa';
+import { FaSun, FaMoon } from 'react-icons/fa'; // Import sun and moon icons
 
 const Navbar = ({ ShowLoginHandler, ShowRegister }) => {
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  const toggleTheme = () => {
+    setIsDarkMode(prevMode => !prevMode);
+  };
+
   return (
-    <div className="navSection">
+    <div className={`navSection ${isDarkMode ? 'dark' : 'light'}`}>
       <div className="dashboardIcon">
-        <FaHome className="dashboardIconImage" /> 
+        <FaHome className={`dashboardIconImage ${isDarkMode ? 'dark' : 'light'}`} />
       </div>
       <div className="logo">
         <img src="./WhatsApp.jpg" alt="Sanatana Dharm Logo" />
@@ -14,11 +21,14 @@ const Navbar = ({ ShowLoginHandler, ShowRegister }) => {
       </div>
       <div className="userAuth">
         <span className="authItem" onClick={ShowLoginHandler}>
-          <FaSignInAlt className="authIcon" /> Login
+          <FaSignInAlt className={`authIcon ${isDarkMode ? 'dark' : 'light'}`} /> Login
         </span>
         <span className="authItem" onClick={ShowRegister}>
-          <FaUserPlus className="authIcon" /> Register
+          <FaUserPlus className={`authIcon ${isDarkMode ? 'dark' : 'light'}`} /> Register
         </span>
+      </div>
+      <div className="themeToggle" onClick={toggleTheme}>
+        {isDarkMode ? <FaSun /> : <FaMoon />}
       </div>
     </div>
   );
