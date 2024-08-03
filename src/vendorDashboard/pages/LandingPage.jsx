@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Sidebar from '../components/Sidebar';
@@ -13,15 +13,9 @@ import Footer from '../components/Footer';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import Footer2 from '../components/Footer2';
 import TestToast from '../components/Simple';
-import { useTheme } from '../contexts/ThemeContext';
 
 const LandingPage = ({ handleCreateArticle, handleUpdateArticle }) => {
   const navigate = useNavigate();
-  const { isDarkMode } = useTheme();
-
-  useEffect(() => {
-    document.body.className = isDarkMode ? 'dark' : 'light';
-  }, [isDarkMode]);
 
   const navigateToArticle = () => navigate('/article-list');
   const navigateToEvent = () => navigate('/event-list');
@@ -81,43 +75,47 @@ const LandingPage = ({ handleCreateArticle, handleUpdateArticle }) => {
   ];
 
   return (
-    <div className={`landingSection ${isDarkMode ? 'dark' : 'light'}`}>
-      <Navbar
-        ShowLoginHandler={() => navigate('/login')}
-        ShowRegister={() => navigate('/register')}
+    <>
+    <div className="landingSection">
+      <Navbar 
+        ShowLoginHandler={() => navigate('/login')} 
+        ShowRegister={() => navigate('/register')} 
       />
-      <Sidebar
-        ShowArticle={() => navigate('/add-article')}
-        ShowEvent={() => navigate('/add-event')}
-        ShowFestival={() => navigate('/add-festival')}
-        ShowArticlesTable={() => navigate('/article-list')}
-        ShowEventList={() => navigate('/event-list')}
-        ShowFestivalList={() => navigate('/festival-list')}
-        ShowTeam={() => navigate('/team')}
-        ShowUpdates={() => navigate('/updates')}
-      />
-      <div className="mainContent">
-        <IndividualIntervalsExample
-          navigateToArticle={navigateToArticle}
-          navigateToEvent={navigateToEvent}
-          navigateToFestival={navigateToFestival}
+        <Sidebar 
+          ShowArticle={() => navigate('/add-article')} 
+          ShowEvent={() => navigate('/add-event')} 
+          ShowFestival={() => navigate('/add-festival')} 
+          ShowArticlesTable={() => navigate('/article-list')} 
+          ShowEventList={() => navigate('/event-list')} 
+          ShowFestivalList={() => navigate('/festival-list')}
+          ShowTeam={() => navigate('/team')}
+          ShowUpdates={() => navigate('/updates')}
         />
-        <div className="contentSection">
-          <YouTubeLive />
-          <LatestArticles />
+      
+      
+        <div className="mainContent">
+          <IndividualIntervalsExample 
+            navigateToArticle={navigateToArticle}
+            navigateToEvent={navigateToEvent}
+            navigateToFestival={navigateToFestival}
+          />
+          <div className="contentSection">
+            <YouTubeLive />
+            <LatestArticles />
+          </div>
+          <div className="contentSection veda-yoga">
+            <VedhasCard />
+            <YogasCard />
+          </div>
+          <div>
+            <CardContainer cards={cards} />
+          </div>
+          <Footer showDonation={() => navigate('/donation')} />
+          <Footer2 />
+          <TestToast />
         </div>
-        <div className="contentSection veda-yoga">
-          <VedhasCard />
-          <YogasCard />
-        </div>
-        <div>
-          <CardContainer cards={cards} />
-        </div>
-        <Footer showDonation={() => navigate('/donation')} />
-        <Footer2 />
-        <TestToast />
       </div>
-    </div>
+    </>
   );
 };
 
