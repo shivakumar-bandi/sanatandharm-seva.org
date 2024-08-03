@@ -5,7 +5,10 @@ import { useTheme } from '../contexts/ThemeContext'; // Import ThemeContext
 import './Sidebar.css';
 import './ThemeContext.css'; // Import theme context CSS
 
-const Navbar = ({ShowUpdates, ShowTeam, ShowArticle, ShowEvent, ShowFestival, ShowArticlesTable, ShowEventList, ShowFestivalList}) => {
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; // Import FontAwesomeIcon component
+import { faHome, faSun, faMoon } from '@fortawesome/free-solid-svg-icons'; // Import icons
+
+const Navbar = ({ ShowUpdates, ShowTeam, ShowArticle, ShowEvent, ShowFestival, ShowArticlesTable, ShowEventList, ShowFestivalList }) => {
   const [dropdownVisible, setDropdownVisible] = useState('');
   const dropdownRef = useRef(null);
   const navigate = useNavigate();
@@ -37,8 +40,13 @@ const Navbar = ({ShowUpdates, ShowTeam, ShowArticle, ShowEvent, ShowFestival, Sh
 
   return (
     <nav className={`navbar ${isDarkMode ? 'dark-mode' : 'light-mode'}`} ref={dropdownRef}>
+      <div className="navbar-item">
+        <FontAwesomeIcon icon={faHome} />
+      </div>
+      
       <button onClick={toggleTheme} className="themeToggle">
-        {isDarkMode ? 'Light Mode' : 'Dark Mode'}
+        <FontAwesomeIcon icon={isDarkMode ? faSun : faMoon} />
+        {isDarkMode ? ' Light Mode' : ' Dark Mode'}
       </button>
 
       <div className={`navbar-item ${dropdownVisible === 'article' ? 'show' : ''}`}>
