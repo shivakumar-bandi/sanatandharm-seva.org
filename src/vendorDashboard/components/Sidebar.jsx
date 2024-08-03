@@ -1,19 +1,13 @@
 import React, { useState, useRef, useEffect } from 'react';
+import './Sidebar.css';
 import { useNavigate } from 'react-router-dom';
 import { useUser } from '../contexts/UserContext';
-import { useTheme } from '../contexts/ThemeContext'; // Import ThemeContext
-import './Sidebar.css';
-import './ThemeContext.css'; // Import theme context CSS
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; // Import FontAwesomeIcon component
-import { faHome, faSun, faMoon } from '@fortawesome/free-solid-svg-icons'; // Import icons
-
-const Navbar = ({ ShowUpdates, ShowTeam, ShowArticle, ShowEvent, ShowFestival, ShowArticlesTable, ShowEventList, ShowFestivalList }) => {
+const Navbar = ({ShowUpdates,ShowTeam, ShowArticle, ShowEvent, ShowFestival, ShowArticlesTable,ShowEventList,  ShowFestivalList}) => {
   const [dropdownVisible, setDropdownVisible] = useState('');
   const dropdownRef = useRef(null);
   const navigate = useNavigate();
   const { user } = useUser();
-  const { isDarkMode, toggleTheme } = useTheme(); // Use ThemeContext
 
   const toggleDropdown = (dropdownName) => {
     setDropdownVisible(prev => (prev === dropdownName ? '' : dropdownName));
@@ -36,28 +30,21 @@ const Navbar = ({ ShowUpdates, ShowTeam, ShowArticle, ShowEvent, ShowFestival, S
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
+
   const canEditOrDelete = user && user.email === 'nanishiva2022001@gmail.com' && user.role === 'admin';
 
-  return (
-    <nav className={`navbar ${isDarkMode ? 'dark-mode' : 'light-mode'}`} ref={dropdownRef}>
-      <div className="navbar-item">
-        <FontAwesomeIcon icon={faHome} />
-      </div>
-      
-      <button onClick={toggleTheme} className="themeToggle">
-        <FontAwesomeIcon icon={isDarkMode ? faSun : faMoon} />
-        {isDarkMode ? ' Light Mode' : ' Dark Mode'}
-      </button>
 
+  return (
+    <nav className="navbar" ref={dropdownRef}>
       <div className={`navbar-item ${dropdownVisible === 'article' ? 'show' : ''}`}>
         <button onClick={() => toggleDropdown('article')} className="dropdown-toggle">
           Articles
         </button>
         <ul className="dropdown-menu">
-          {canEditOrDelete && (
-            <li><a href="#" onClick={() => navigate('/add-article')}>Add New Article</a></li>
-          )}
-          <li><a href="#" onClick={() => navigate('/article-list')}>View Articles</a></li>
+        {canEditOrDelete && (
+          <li><a href="#" onClick={() => navigate('/add-article')}>Add New Article</a></li>
+        )}
+          <li><a href="#"  onClick={() => navigate('/article-list')}>View Articles</a></li>
         </ul>
       </div>
 
@@ -66,10 +53,10 @@ const Navbar = ({ ShowUpdates, ShowTeam, ShowArticle, ShowEvent, ShowFestival, S
           Events
         </button>
         <ul className="dropdown-menu">
-          {canEditOrDelete && (
-            <li><a href="#" onClick={() => navigate('/add-event')}>Add New Event</a></li>
-          )}
-          <li><a href="#" onClick={() => navigate('/event-list')}>Show Events</a></li>
+        {canEditOrDelete && (
+          <li><a href="#" onClick={() => navigate('/add-event')}>Add New Event</a></li>
+        )}
+          <li><a href="#"  onClick={() => navigate('/event-list')}>Show Events</a></li>
         </ul>
       </div>
 
@@ -78,9 +65,9 @@ const Navbar = ({ ShowUpdates, ShowTeam, ShowArticle, ShowEvent, ShowFestival, S
           Festivals
         </button>
         <ul className="dropdown-menu">
-          {canEditOrDelete && (
-            <li><a href="#" onClick={() => navigate('/add-festival')}>Add New Festival</a></li>
-          )}
+        {canEditOrDelete && (
+          <li><a href="#" onClick={() => navigate('/add-festival')}>Add New Festival</a></li>
+        )}
           <li><a href="#" onClick={() => navigate('/festival-list')}>Show Festival</a></li>
         </ul>
       </div>
@@ -90,7 +77,7 @@ const Navbar = ({ ShowUpdates, ShowTeam, ShowArticle, ShowEvent, ShowFestival, S
       </div>
       
       <div id='team' className="navbar-item">
-        <a href="#" onClick={ShowTeam}>Team Members</a>
+    <a href="#" onClick={ShowTeam}>teamMembers</a>
       </div>
     </nav>
   );

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Navbar.css';
 import { FaSignInAlt, FaUserPlus, FaHome } from 'react-icons/fa';
-import { FaSun, FaMoon } from 'react-icons/fa'; // Import sun and moon icons
+import { FaSun, FaMoon } from 'react-icons/fa'; // Import new icons
 
 const Navbar = ({ ShowLoginHandler, ShowRegister }) => {
   const [isDarkMode, setIsDarkMode] = useState(false);
