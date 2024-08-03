@@ -13,8 +13,8 @@ import Footer from '../components/Footer';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import Footer2 from '../components/Footer2';
 import TestToast from '../components/Simple';
-import { TuseTheme } from '../contexts/ThemeContext';
-
+import { ThemeProvider } from '../contexts/ThemeContext';
+import { useTheme } from '../contexts/ThemeContext';
 const LandingPage = ({ handleCreateArticle, handleUpdateArticle }) => {
   const navigate = useNavigate();
   const { isDarkMode } = useTheme();
