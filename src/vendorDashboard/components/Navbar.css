@@ -1,15 +1,17 @@
-/* Navbar.css */
-
-/* Default light mode styles */
 .navSection {
   height: 80px;
   display: flex;
   justify-content: space-between;
-  background-color: rgb(116, 79, 217); /* Keep default background color */
+  background-color: rgb(116, 79, 217);
   align-items: center;
   color: white;
   padding: 0 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.dashboardIcon {
+  display: flex;
+  align-items: center;
 }
 
 .dashboardIconImage {
@@ -21,6 +23,11 @@
 
 .dashboardIconImage:hover {
   color: #ff9933; /* Hover effect color */
+}
+
+.logo {
+  display: flex;
+  align-items: center; /* Align items vertically */
 }
 
 .logo img {
@@ -125,11 +132,10 @@
     font-size: 14px; /* Adjust font size for smaller screens */
   }
 }
+/* Navbar.css */
 
-/* Light and dark mode styles */
-.navSection.light {
-  background-color: rgb(116, 79, 217); /* Keep default background color */
-}
+/* Default light mode styles */
+
 
 .dashboardIconImage.light {
   color: #000;
@@ -139,6 +145,7 @@
   color: #000;
 }
 
+/* Dark mode styles */
 .navSection.dark {
   background-color: #333;
   color: #fff;
