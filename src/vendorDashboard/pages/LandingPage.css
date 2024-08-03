@@ -176,3 +176,13 @@ html, body {
     font-size: 0.9rem;
   }
 }
+/* LandingPage.css */
+.light {
+  background-color: #ffffff; /* Light theme background color */
+  color: #000000; /* Light theme text color */
+}
+
+.dark {
+  background-color: #000000; /* Dark theme background color */
+  color: #ffffff; /* Dark theme text color */
+}
