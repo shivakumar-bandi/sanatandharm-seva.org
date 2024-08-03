@@ -2,11 +2,16 @@
   height: 80px;
   display: flex;
   justify-content: space-between;
-  background-color: rgb(116, 79, 217);
+  background-color: rgb(116, 79, 217); /* Default background color */
   align-items: center;
   color: white;
   padding: 0 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.navSection.dark {
+  background-color: #333;
+  color: #fff;
 }
 
 .dashboardIcon {
@@ -132,14 +137,15 @@
     font-size: 14px; /* Adjust font size for smaller screens */
   }
 }
+
 .navSection.dark {
   background-color: #333;
   color: #fff;
 }
 
 .navSection.light {
-  background-color: #f8f9fa;
-  color: #000;
+  background-color: rgb(116, 79, 217);
+  color: #fff;
 }
 
 .authItem .authIcon {

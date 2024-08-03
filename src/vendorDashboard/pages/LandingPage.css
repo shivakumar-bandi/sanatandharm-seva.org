@@ -177,13 +177,14 @@ html, body {
   }
 }
 .landingSection.dark {
-  
+  background-color: #121212; /* Dark mode background color */
   color: #fff;
 }
 
 .landingSection.light {
-  background-color: #fff;
+  background-color: #fff; /* Light mode background color */
   color: #000;
 }
 
 /* Add other styles as needed */
+

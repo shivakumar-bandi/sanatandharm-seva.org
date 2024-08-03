@@ -4,7 +4,7 @@ import { FaSignInAlt, FaUserPlus, FaHome, FaMoon, FaSun } from 'react-icons/fa';
 
 const Navbar = ({ ShowLoginHandler, ShowRegister, isDarkMode, toggleDarkMode }) => {
   return (
-    <div className={`navSection ${isDarkMode ? 'dark' : 'light'}`}>
+    <div className={`navSection ${isDarkMode ? 'dark' : ''}`}>
       <div className="dashboardIcon">
         <FaHome className="dashboardIconImage" /> 
       </div>
@@ -20,7 +20,7 @@ const Navbar = ({ ShowLoginHandler, ShowRegister, isDarkMode, toggleDarkMode }) 
           <FaUserPlus className="authIcon" /> Register
         </span>
         <span className="authItem" onClick={toggleDarkMode}>
-          {isDarkMode ? <FaSun className="authIcon" /> : <FaMoon className="authIcon" />} Dark Mode
+          {isDarkMode ? <FaSun className="authIcon" /> : <FaMoon className="authIcon" />} 
         </span>
       </div>
     </div>
