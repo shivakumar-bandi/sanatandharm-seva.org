@@ -16,7 +16,8 @@ import TestToast from '../components/Simple';
 
 const LandingPage = ({ handleCreateArticle, handleUpdateArticle }) => {
   const navigate = useNavigate();
-
+  const { isDarkMode } = useTheme();
+  
   const navigateToArticle = () => navigate('/article-list');
   const navigateToEvent = () => navigate('/event-list');
   const navigateToFestival = () => navigate('/festival-list');
@@ -73,7 +74,9 @@ const LandingPage = ({ handleCreateArticle, handleUpdateArticle }) => {
       description: 'Description for Vedas & Vedic',
     },
   ];
-
+  useEffect(() => {
+    document.body.className = isDarkMode ? 'dark' : 'light';
+  }, [isDarkMode]);
   return (
     <>
     <div className="landingSection">

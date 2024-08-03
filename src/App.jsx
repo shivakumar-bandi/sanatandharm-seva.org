@@ -26,6 +26,7 @@ import Updates from './vendorDashboard/components/Updates';
 
 const App = () => {
     const navigate = useNavigate();
+    
 
     const fetchFestivals = async () => {
         try {
@@ -81,6 +82,7 @@ const App = () => {
         console.log('Edit mode set to:', mode);
     };
 
+    
     return (
         <Routes>
             <Route path="/" element={<LandingPage handleCreateArticle={handleCreateArticle} handleUpdateArticle={handleUpdateArticle} />} />

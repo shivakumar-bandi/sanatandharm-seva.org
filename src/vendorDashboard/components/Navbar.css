@@ -1,5 +1,3 @@
-/* Navbar.css */
-
 .navSection {
   height: 80px;
   display: flex;
@@ -134,34 +132,22 @@
     font-size: 14px; /* Adjust font size for smaller screens */
   }
 }
-
-/* Light and dark mode styles */
-.navSection.light {
-  background-color: rgb(116, 79, 217);
-  color: white;
+/* Default light mode styles */
+body.light {
+  background-color: #ffffff;
+  color: #000000;
 }
 
-.navSection.dark {
-  background-color: #333;
-  color: #fff;
+body.dark {
+  background-color: #333333;
+  color: #ffffff;
 }
 
-.dashboardIconImage.light {
-  color: #000;
+/* Additional global styles */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  transition: background-color 0.3s, color 0.3s;
 }
 
-.dashboardIconImage.dark {
-  color: #fff;
-}
-
-.authIcon.light {
-  color: #000;
-}
-
-.authIcon.dark {
-  color: #fff;
-}
-
-.themeToggle {
-  cursor: pointer;
-}
+/* Apply to other elements as needed */
