@@ -1,5 +1,5 @@
 import React from 'react';
-import './EventCard.css'; // Ensure this file exists and is properly styled
+import './EventCard.css'; // Ensure this file is properly styled
 import { useUser } from '../contexts/UserContext';
 import { useNavigate } from 'react-router-dom';
 import { API_URL } from '../data/apiPath';
@@ -18,10 +18,10 @@ const EventCard = ({ event, onEdit, onDelete }) => {
       <p>Date: {new Date(event.date).toLocaleDateString()}</p>
       <p>Location: {event.location}</p>
       {canEditOrDelete && (
-        <>
+        <div className="event-card-actions">
           <button onClick={() => onEdit(event)}>Edit</button>
           <button onClick={() => onDelete(event._id)}>Delete</button>
-        </>
+        </div>
       )}
     </div>
   );
