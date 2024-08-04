@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
-import './Register.css';
+import './base.css';
+import './form.css';
+import './animations.css';
+import './colors.css';
 import { API_URL } from '../../data/apiPath';
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -47,7 +50,7 @@ const Register = () => {
 
   return (
     <div className="registerSection">
-      <form className="authForm" onSubmit={handleSubmit}>
+      <form className="authForm animated-form" onSubmit={handleSubmit}>
         <h2 className="animated-text">సనాతన ధర్మ్ సేవా సమితి</h2>
         <h3>Register</h3>
         <label>Username</label>
