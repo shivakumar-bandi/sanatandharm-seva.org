@@ -1,34 +1,72 @@
-.event-card {
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Center-align content */
-    overflow: hidden; /* Ensure content doesn't overflow */
-  }
-  
-  .event-card img {
-    width: 100%; /* Make the image fill the card's width */
-    height: 200px; /* Fixed height to maintain aspect ratio */
-    object-fit: cover; /* Cover ensures the image covers the container */
-    display: block;
-    margin-bottom: 10px;
-  }
-  
-  .event-card h3 {
-    margin: 0;
-    font-size: 1.5em;
-    text-align: center; /* Center-align the title */
-  }
-  
-  .event-card p {
-    margin: 5px 0;
-    text-align: center; /* Center-align the text */
-  }
-  
-  .event-card button {
-    margin: 5px;
-  }
-  
+.festival-card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.festival-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.festival-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+  border-radius: 8px;
+  transition: opacity 0.3s ease;
+}
+
+.festival-card img:hover {
+  opacity: 0.8;
+}
+
+.festival-card-content {
+  text-align: center;
+}
+
+.festival-card h3 {
+  margin: 0;
+  font-size: 1.5em;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.festival-card h3:hover {
+  color: #007bff;
+}
+
+.festival-card p {
+  margin: 5px 0;
+  color: #666;
+}
+
+.festival-card-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.festival-card button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.festival-card button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
