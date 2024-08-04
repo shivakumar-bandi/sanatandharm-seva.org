@@ -9,6 +9,7 @@
     background: linear-gradient(to right, #ff9933, #ffffff, #138808);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    text-align: center; /* Center the text */
   }
   
   @keyframes revealText {
