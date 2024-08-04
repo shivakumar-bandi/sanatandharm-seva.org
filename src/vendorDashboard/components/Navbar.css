@@ -1,3 +1,11 @@
+/* Ensure the body and html do not overflow */
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevent horizontal overflow */
+}
+
+/* Navbar section styling */
 .navSection {
   height: 80px;
   display: flex;
@@ -11,6 +19,11 @@
 
 .navSection.dark {
   background-color: #333;
+  color: #fff;
+}
+
+.navSection.light {
+  background-color: rgb(116, 79, 217);
   color: #fff;
 }
 
@@ -137,19 +150,3 @@
     font-size: 14px; /* Adjust font size for smaller screens */
   }
 }
-
-.navSection.dark {
-  background-color: #333;
-  color: #fff;
-}
-
-.navSection.light {
-  background-color: rgb(116, 79, 217);
-  color: #fff;
-}
-
-.authItem .authIcon {
-  margin-right: 5px;
-}
-
-/* Add other styles as needed */

@@ -4,7 +4,7 @@ import { FaSignInAlt, FaUserPlus, FaHome, FaMoon, FaSun } from 'react-icons/fa';
 
 const Navbar = ({ ShowLoginHandler, ShowRegister, isDarkMode, toggleDarkMode }) => {
   return (
-    <div className={`navSection ${isDarkMode ? 'dark' : ''}`}>
+    <div className={`navSection ${isDarkMode ? 'dark' : 'light'}`}>
       <div className="dashboardIcon">
         <FaHome className="dashboardIconImage" /> 
       </div>
