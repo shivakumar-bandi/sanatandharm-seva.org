@@ -80,7 +80,6 @@ const LandingPage = ({ handleCreateArticle, handleUpdateArticle }) => {
   ];
 
   return (
-    <>
     <div className={`landingSection ${isDarkMode ? 'dark' : 'light'}`}>
       <Navbar 
         ShowLoginHandler={() => navigate('/login')} 
@@ -88,40 +87,38 @@ const LandingPage = ({ handleCreateArticle, handleUpdateArticle }) => {
         isDarkMode={isDarkMode}
         toggleDarkMode={toggleDarkMode}
       />
-        <Sidebar 
-          ShowArticle={() => navigate('/add-article')} 
-          ShowEvent={() => navigate('/add-event')} 
-          ShowFestival={() => navigate('/add-festival')} 
-          ShowArticlesTable={() => navigate('/article-list')} 
-          ShowEventList={() => navigate('/event-list')} 
-          ShowFestivalList={() => navigate('/festival-list')}
-          ShowTeam={() => navigate('/team')}
-          ShowUpdates={() => navigate('/updates')}
+      <Sidebar 
+        ShowArticle={() => navigate('/add-article')} 
+        ShowEvent={() => navigate('/add-event')} 
+        ShowFestival={() => navigate('/add-festival')} 
+        ShowArticlesTable={() => navigate('/article-list')} 
+        ShowEventList={() => navigate('/event-list')} 
+        ShowFestivalList={() => navigate('/festival-list')}
+        ShowTeam={() => navigate('/team')}
+        ShowUpdates={() => navigate('/updates')}
+      />
+      <div className="mainContent">
+        <IndividualIntervalsExample 
+          navigateToArticle={navigateToArticle}
+          navigateToEvent={navigateToEvent}
+          navigateToFestival={navigateToFestival}
         />
-      
-        <div className="mainContent">
-          <IndividualIntervalsExample 
-            navigateToArticle={navigateToArticle}
-            navigateToEvent={navigateToEvent}
-            navigateToFestival={navigateToFestival}
-          />
-          <div className="contentSection">
-            <YouTubeLive />
-            <LatestArticles />
-          </div>
-          <div className="contentSection veda-yoga">
-            <VedhasCard />
-            <YogasCard />
-          </div>
-          <div>
-            <CardContainer cards={cards} />
-          </div>
-          <Footer showDonation={() => navigate('/donation')} />
-          <Footer2 />
-          <TestToast />
+        <div className="contentSection">
+          <YouTubeLive />
+          <LatestArticles />
         </div>
+        <div className="contentSection veda-yoga">
+          <VedhasCard />
+          <YogasCard />
+        </div>
+        <div>
+          <CardContainer cards={cards} />
+        </div>
+        <Footer showDonation={() => navigate('/donation')} />
+        <Footer2 />
+        <TestToast />
       </div>
-    </>
+    </div>
   );
 };
 
