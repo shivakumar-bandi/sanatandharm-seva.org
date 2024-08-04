@@ -9,6 +9,7 @@ import { useUser } from '../contexts/UserContext';
 const EventList = ({ eventheader, onEdit }) => {
   console.log('Rendering EventList');
   const [events, setEvents] = useState([]);
+  const [loading, setLoading] = useState(true);
   const { user } = useUser();
   const navigate = useNavigate();
 
@@ -17,8 +18,10 @@ const EventList = ({ eventheader, onEdit }) => {
       try {
         const response = await axios.get(`${API_URL}/api/events/events`);
         setEvents(response.data);
+        setLoading(false); // Stop loading after data is fetched
       } catch (error) {
         console.error('Error fetching events:', error);
+        setLoading(false);
       }
     };
     fetchEvents();
@@ -46,14 +49,18 @@ const EventList = ({ eventheader, onEdit }) => {
         )}
       </div>
       <div className="event-list">
-        {events.map(event => (
-          <EventCard
-            key={event._id}
-            event={event}
-            onEdit={onEdit}
-            onDelete={handleDelete}
-          />
-        ))}
+        {loading ? (
+          <div className="loading">Loading...</div>
+        ) : (
+          events.map(event => (
+            <EventCard
+              key={event._id}
+              event={event}
+              onEdit={onEdit}
+              onDelete={handleDelete}
+            />
+          ))
+        )}
       </div>
     </>
   );
