@@ -59,60 +59,69 @@ const AddEvent = ({ eventToEdit, onEditSuccess }) => {
   };
 
   return (
-    <form className="add-event-form" onSubmit={handleSubmit}>
-      <h2>{eventToEdit ? 'Edit Event' : 'Add New Event'}</h2>
-      {loading && <div className="loading-spinner"></div>}
-      {successMessage && <div className="popup-message success-message">{successMessage}</div>}
-      {errorMessage && <div className="popup-message error-message">{errorMessage}</div>}
-      <div className="form-group">
-        <label htmlFor="title">Title:</label>
-        <input
-          type="text"
-          id="title"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          required
-        />
-      </div>
-      <div className="form-group">
-        <label htmlFor="description">Description:</label>
-        <textarea
-          id="description"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-          required
-        ></textarea>
-      </div>
-      <div className="form-group">
-        <label htmlFor="date">Date:</label>
-        <input
-          type="date"
-          id="date"
-          value={date}
-          onChange={(e) => setDate(e.target.value)}
-          required
-        />
-      </div>
-      <div className="form-group">
-        <label htmlFor="location">Location:</label>
-        <input
-          type="text"
-          id="location"
-          value={location}
-          onChange={(e) => setLocation(e.target.value)}
-          required
-        />
-      </div>
-      <div className="form-group">
-        <label htmlFor="image">Image:</label>
-        <input
-          id="image"
-          type="file"
-          onChange={(e) => setImage(e.target.files[0])}
-        />
-      </div>
-      <button type="submit">{eventToEdit ? 'Update Event' : 'Add Event'}</button>
-    </form>
+    <div className="card">
+      <form className="add-event-form" onSubmit={handleSubmit}>
+        <h2 className="card-title">{eventToEdit ? 'Edit Event' : 'Add New Event'}</h2>
+        {loading && <div className="loading-spinner"></div>}
+        {successMessage && <div className="popup-message success-message">{successMessage}</div>}
+        {errorMessage && <div className="popup-message error-message">{errorMessage}</div>}
+        <div className="form-group">
+          <label htmlFor="title">Title:</label>
+          <input
+            className="form-control"
+            type="text"
+            id="title"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="description">Description:</label>
+          <textarea
+            className="form-control"
+            id="description"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            required
+          ></textarea>
+        </div>
+        <div className="form-group">
+          <label htmlFor="date">Date:</label>
+          <input
+            className="form-control"
+            type="date"
+            id="date"
+            value={date}
+            onChange={(e) => setDate(e.target.value)}
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="location">Location:</label>
+          <input
+            className="form-control"
+            type="text"
+            id="location"
+            value={location}
+            onChange={(e) => setLocation(e.target.value)}
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="image">Image:</label>
+          <input
+            className="form-control"
+            id="image"
+            type="file"
+            onChange={(e) => setImage(e.target.files[0])}
+          />
+        </div>
+        <button className="btn-primary" type="submit">
+          {eventToEdit ? 'Update Event' : 'Add Event'}
+        </button>
+      </form>
+    </div>
   );
 };
 
