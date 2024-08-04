@@ -11,10 +11,10 @@ const AddEvent = ({ eventToEdit, onEditSuccess }) => {
   const [image, setImage] = useState(null);
   const [successMessage, setSuccessMessage] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (eventToEdit) {
-      console.log('Editing event:', eventToEdit);
       setTitle(eventToEdit.title);
       setDescription(eventToEdit.description);
       setDate(eventToEdit.date);
@@ -25,7 +25,7 @@ const AddEvent = ({ eventToEdit, onEditSuccess }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    setLoading(true);
     const formData = new FormData();
     formData.append('title', title);
     formData.append('description', description);
@@ -38,37 +38,32 @@ const AddEvent = ({ eventToEdit, onEditSuccess }) => {
     try {
       let response;
       if (eventToEdit && eventToEdit._id) {
-        console.log(`Updating event with ID: ${eventToEdit._id}`);
         response = await axios.put(`${API_URL}/api/events/events/${eventToEdit._id}`, formData, {
-          headers: {
-            'Content-Type': 'multipart/form-data',
-          },
+          headers: { 'Content-Type': 'multipart/form-data' },
         });
       } else {
-        console.log('Creating new event');
         response = await axios.post(`${API_URL}/api/events/events`, formData, {
-          headers: {
-            'Content-Type': 'multipart/form-data',
-          },
+          headers: { 'Content-Type': 'multipart/form-data' },
         });
       }
 
-      console.log('Response data:', response.data);
       setSuccessMessage(eventToEdit ? 'Event updated successfully!' : 'Event added successfully!');
       setErrorMessage('');
-      onEditSuccess(response.data); // Pass the updated event data
+      onEditSuccess(response.data);
     } catch (error) {
-      console.error('Error details:', error.response || error.message);
-      setErrorMessage('There was an error processing the event. Please try again.');
+      setErrorMessage(error.response?.data?.message || 'There was an error processing the event. Please try again.');
       setSuccessMessage('');
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
     <form className="add-event-form" onSubmit={handleSubmit}>
       <h2>{eventToEdit ? 'Edit Event' : 'Add New Event'}</h2>
-      {successMessage && <div className="success-message">{successMessage}</div>}
-      {errorMessage && <div className="error-message">{errorMessage}</div>}
+      {loading && <div className="loading-spinner"></div>}
+      {successMessage && <div className="popup-message success-message">{successMessage}</div>}
+      {errorMessage && <div className="popup-message error-message">{errorMessage}</div>}
       <div className="form-group">
         <label htmlFor="title">Title:</label>
         <input
