@@ -1,12 +1,9 @@
-
 import React, { useState } from 'react';
 import './Register.css';
 import { API_URL } from '../../data/apiPath';
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
-
-
 
 const Register = () => {
   const [username, setUserName] = useState("");
@@ -51,7 +48,6 @@ const Register = () => {
   return (
     <div className="registerSection">
       <form className="authForm" onSubmit={handleSubmit}>
-        
         <h2 className="animated-text">సనాతన ధర్మ్ సేవా సమితి</h2>
         <h3>Register</h3>
         <label>Username</label>
