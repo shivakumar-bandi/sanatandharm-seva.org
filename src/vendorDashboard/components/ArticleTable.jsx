@@ -84,8 +84,8 @@ const ArticleTable = ({ header, onEdit, onDelete, onSubmit }) => {
                     <td>
                       {canEditOrDelete && (
                         <>
-                          <button onClick={() => onEdit(article._id)}>Edit</button>
-                          <button onClick={() => handleDelete(article._id)}>Delete</button>
+                          <button onClick={() => onEdit(article._id)} className="btn btn-warning">Edit</button>
+                          <button onClick={() => handleDelete(article._id)} className="btn btn-danger">Delete</button>
                         </>
                       )}
                     </td>
