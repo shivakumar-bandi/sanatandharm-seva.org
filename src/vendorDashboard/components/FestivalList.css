@@ -1,50 +1,18 @@
-.festival-list {
+.event-list {
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* Three columns by default */
   gap: 20px; /* Gap between cards */
   padding: 20px; /* Padding around the grid */
-  transition: all 0.3s ease;
-}
-
-.festival-list:hover {
-  background-color: #f8f9fa;
 }
 
 @media (max-width: 768px) {
-  .festival-list {
+  .event-list {
     grid-template-columns: repeat(2, 1fr); /* Two columns on smaller screens */
   }
 }
 
 @media (max-width: 480px) {
-  .festival-list {
+  .event-list {
     grid-template-columns: 1fr; /* One column on very small screens */
   }
-}
-
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px;
-  background: #007bff;
-  color: #fff;
-  border-radius: 10px;
-  margin-bottom: 20px;
-}
-
-.header .btn-primary {
-  background: linear-gradient(45deg, #007bff, #0056b3);
-  border: none;
-  padding: 10px 20px;
-  color: #fff;
-  font-weight: bold;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background 0.3s ease, transform 0.3s ease;
-}
-
-.header .btn-primary:hover {
-  background: linear-gradient(45deg, #0056b3, #004085);
-  transform: scale(1.05);
 }
