@@ -4,7 +4,7 @@ import './VedhasCard.css';
 const VedhasCard = () => {
   return (
     <div className="vedhas-card">
-      <img src="./axios/veda.jpg" alt="Vedas" width="30%"/>
+      <img src="./axios/veda.jpg" alt="Vedas" />
       <h3>Vedas & Vedic</h3>
     </div>
   );
