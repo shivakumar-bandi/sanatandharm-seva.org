@@ -12,8 +12,8 @@ function IndividualIntervalsExample({ navigateToArticle, navigateToEvent, naviga
           text="First slide" 
         />
         <Carousel.Caption>
-        <h2>The Human Body Is The Temple Of God</h2>
-        <p>One who introduces the light of awareness...</p>
+          <h2>The Human Body Is The Temple Of God</h2>
+          <p>One who introduces the light of awareness...</p>
           <span>Click to view articles</span>
         </Carousel.Caption>
       </Carousel.Item>
@@ -23,8 +23,8 @@ function IndividualIntervalsExample({ navigateToArticle, navigateToEvent, naviga
           text="Second slide" 
         />
         <Carousel.Caption>
-        <h2>The whole mantra AUM</h2>
-        <p>Individuality, Independence, Courage, Overpowering the mind. In old traditional Sanskrit scriptures...</p>
+          <h2>The whole mantra AUM</h2>
+          <p>Individuality, Independence, Courage, Overpowering the mind. In old traditional Sanskrit scriptures...</p>
           <span>Click to view events</span>
         </Carousel.Caption>
       </Carousel.Item>
@@ -34,8 +34,8 @@ function IndividualIntervalsExample({ navigateToArticle, navigateToEvent, naviga
           text="Third slide" 
         />
         <Carousel.Caption>
-        <h2>We Have The Power Today To Change Tomorrow</h2>
-        <p>SanatanaDharma is the final eternal way...</p>
+          <h2>We Have The Power Today To Change Tomorrow</h2>
+          <p>SanatanaDharma is the final eternal way...</p>
           <span>Click to view festivals</span>
         </Carousel.Caption>
       </Carousel.Item>
