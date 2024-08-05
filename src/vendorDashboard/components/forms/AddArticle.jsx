@@ -30,7 +30,9 @@ const AddArticle = ({ onSubmit, articleToEdit, onUpdate }) => {
         response = await onSubmit(formData);
       }
 
-      if (response.status === 200 || response.status === 201) {
+      console.log('API Response:', response);  // Add this line to debug the response
+
+      if (response && (response.status === 200 || response.status === 201)) {
         setSuccessMessage('Article processed successfully!');
         setUploadedImageUrl(`https://backend-project-jmxk.onrender.com/${response.data.article.image}`);
         setErrorMessage('');
