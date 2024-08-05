@@ -30,7 +30,7 @@ const App = () => {
 
     const fetchFestivals = async () => {
         try {
-            const response = await axios.get(${API_URL}/api/festivals);
+            const response = await axios.get(`${API_URL}/api/festivals`);
             console.log('Fetched festivals:', response.data);
         } catch (error) {
             console.error('Error fetching festivals:', error.response ? error.response.data : error.message);
@@ -39,7 +39,7 @@ const App = () => {
 
     const handleCreateArticle = async (formData) => {
         try {
-            await axios.post(${API_URL}/api/articles, formData);
+            await axios.post(`${API_URL}/api/articles`, formData);
             navigate('/article-list');
         } catch (error) {
             console.error('Error creating article:', error.response ? error.response.data : error.message);
@@ -48,7 +48,7 @@ const App = () => {
 
     const handleUpdateArticle = async (id, formData) => {
         try {
-            await axios.put(${API_URL}/api/articles/${id}, formData);
+            await axios.put(`${API_URL}/api/articles/${id}`, formData);
             navigate('/article-list');
         } catch (error) {
             console.error('Error updating article:', error.response ? error.response.data : error.message);
@@ -57,7 +57,7 @@ const App = () => {
 
     const handleCreateEvent = async (formData) => {
         try {
-            await axios.post(${API_URL}/api/events, formData);
+            await axios.post(`${API_URL}/api/events`, formData);
             navigate('/event-list');
         } catch (error) {
             console.error('Error creating event:', error.response ? error.response.data : error.message);
@@ -66,7 +66,7 @@ const App = () => {
 
     const handleUpdateEvent = async (id, formData) => {
         try {
-            await axios.put(${API_URL}/api/events/${id}, formData);
+            await axios.put(`${API_URL}/api/events/${id}`, formData);
             navigate('/event-list');
         } catch (error) {
             console.error('Error updating event:', error.response ? error.response.data : error.message);
