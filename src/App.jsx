@@ -40,21 +40,30 @@ const App = () => {
 
     const handleCreateArticle = async (formData) => {
         try {
-            await axios.post(`${API_URL}/api/articles`, formData);
-            navigate('/article-list');
+            const response = await axios.post(`${API_URL}/api/articles`, formData);
+            if (response.status === 200 || response.status === 201) {
+                navigate('/article-list');
+            } else {
+                console.error('Unexpected response status:', response.status);
+            }
         } catch (error) {
             console.error('Error creating article:', error.response ? error.response.data : error.message);
         }
     };
-
+    
     const handleUpdateArticle = async (id, formData) => {
         try {
-            await axios.put(`${API_URL}/api/articles/${id}`, formData);
-            navigate('/article-list');
+            const response = await axios.put(`${API_URL}/api/articles/${id}`, formData);
+            if (response.status === 200) {
+                navigate('/article-list');
+            } else {
+                console.error('Unexpected response status:', response.status);
+            }
         } catch (error) {
             console.error('Error updating article:', error.response ? error.response.data : error.message);
         }
     };
+    
 
     const handleCreateEvent = async (formData) => {
         try {
