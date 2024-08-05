@@ -5,7 +5,7 @@ import './ArticleTable.css';
 import { API_URL } from '../data/apiPath';
 import { useNavigate } from 'react-router-dom';
 
-const ArticleTable = ({ header, onEdit, onDelete, onSubmit }) => {
+const ArticleTable = ({ header, onEdit, onDelete }) => {
   const [articles, setArticles] = useState([]);
   const [errorMessage, setErrorMessage] = useState('');
   const { user } = useUser();

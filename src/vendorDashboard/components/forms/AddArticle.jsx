@@ -34,7 +34,9 @@ const AddArticle = ({ onSubmit, articleToEdit, onUpdate }) => {
 
       if (response && (response.status === 200 || response.status === 201)) {
         setSuccessMessage('Article processed successfully!');
-        setUploadedImageUrl(`https://backend-project-jmxk.onrender.com/${response.data.article.image}`);
+        if (response.data.article.image) {
+          setUploadedImageUrl(`https://backend-project-jmxk.onrender.com/uploads/${response.data.article.image}`);
+        }
         setErrorMessage('');
       } else {
         throw new Error('Unexpected response status');
