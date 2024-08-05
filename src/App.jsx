@@ -4,6 +4,7 @@ import axios from 'axios';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+import { API_URL } from './vendorDashboard/data/apiPath';
 
 const LandingPage = lazy(() => import('./vendorDashboard/pages/LandingPage'));
 const Login = lazy(() => import('./vendorDashboard/components/forms/Login'));
@@ -23,6 +24,8 @@ const FestivalHeader = lazy(() => import('./vendorDashboard/components/FestivalH
 const Donation = lazy(() => import('./vendorDashboard/components/Donation'));
 const Team = lazy(() => import('./vendorDashboard/components/Team'));
 const Updates = lazy(() => import('./vendorDashboard/components/Updates'));
+
+
 
 const App = () => {
     const navigate = useNavigate();
