@@ -66,12 +66,13 @@
 .table {
   width: 100%;
   border-collapse: collapse;
-  transition: all 0.3s ease;
+  overflow-x: auto; /* Added to allow horizontal scrolling on small screens */
 }
 
 .table th, .table td {
   border: 1px solid #ddd;
   padding: 8px;
+  word-break: break-word; /* Added to handle long words */
 }
 
 .table th {
@@ -120,8 +121,14 @@
 
 @media (max-width: 768px) {
   .card {
-    width: 100%;
+    width: calc(100% - 20px);
     margin: 10px;
+  }
+
+  .table {
+    display: block;
+    overflow-x: auto; /* Allow horizontal scrolling */
+    white-space: nowrap; /* Prevent text from wrapping */
   }
 }
 
