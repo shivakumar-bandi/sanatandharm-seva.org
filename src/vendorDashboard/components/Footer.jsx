@@ -4,10 +4,8 @@ import './Footer.css';
 import qrCodeImage from '../../assets/qrcode.png'; // Adjust based on actual structure
 import { FaTwitter, FaYoutube, FaPinterest, FaTelegram, FaInstagram, FaWhatsapp } from 'react-icons/fa';
 
-const Footer = ({showDonation}) => {
+const Footer = ({ showDonation }) => {
   const navigate = useNavigate();
-
-   
 
   return (
     <div className="footer">
@@ -33,16 +31,11 @@ const Footer = ({showDonation}) => {
         <h4>Follow Us</h4>
         <div className="social-icons">
           <a href="#"><FaTwitter /></a>
-          <a href="https://youtu.be/IcGRIMPoy_s" target='_blank' rel='noopener noreferrer'>
-            <FaYoutube /></a>
+          <a href="https://youtu.be/IcGRIMPoy_s" target='_blank' rel='noopener noreferrer'><FaYoutube /></a>
           <a href="#"><FaPinterest /></a>
           <a href="#"><FaTelegram /></a>
-          <a href="https://www.instagram.com/sanatandharm26378/" target="_blank" rel="noopener noreferrer">
-            <FaInstagram />
-          </a>
-          <a href="https://chat.whatsapp.com/G4eXDz6ksPF639KH7zgWIb" target="_blank" rel="noopener noreferrer">
-            <FaWhatsapp />
-          </a>
+          <a href="https://www.instagram.com/sanatandharm26378/" target="_blank" rel="noopener noreferrer"><FaInstagram /></a>
+          <a href="https://chat.whatsapp.com/G4eXDz6ksPF639KH7zgWIb" target="_blank" rel="noopener noreferrer"><FaWhatsapp /></a>
         </div>
       </div>
     </div>
