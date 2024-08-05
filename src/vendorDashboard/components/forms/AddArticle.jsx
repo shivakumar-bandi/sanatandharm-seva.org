@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './AddArticle.css';
 import { API_URL } from '../../data/apiPath';
 import axios from 'axios';
@@ -22,14 +22,22 @@ const AddArticle = ({ onSubmit, articleToEdit, onUpdate }) => {
     if (image) formData.append('image', image);
 
     try {
+      let response;
       if (articleToEdit) {
         console.log('Updating article with ID:', articleToEdit._id);
-        await onUpdate(articleToEdit._id, formData);
+        response = await onUpdate(articleToEdit._id, formData);
       } else {
-        await onSubmit(formData);
+        response = await onSubmit(formData);
       }
-      setSuccessMessage('Article processed successfully!');
-      setErrorMessage('');
+
+      if (response.status === 200 || response.status === 201) {
+        setSuccessMessage('Article processed successfully!');
+        setErrorMessage('');
+      } else {
+        throw new Error('Unexpected response status');
+      }
+
+      // Reset form fields
       setTitle('');
       setAuthor('');
       setContent('');
