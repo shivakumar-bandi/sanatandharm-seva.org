@@ -29,6 +29,16 @@ const API_URL = "https://backend-project-jmxk.onrender.com";
 const App = () => {
     const navigate = useNavigate();
 
+    const fetchFestivals = async () => {
+        try {
+            const response = await axios.get(${API_URL}/api/festivals);
+            console.log('Fetched festivals:', response.data);
+        } catch (error) {
+            console.error('Error fetching festivals:', error.response ? error.response.data : error.message);
+        }
+    };
+
+
     const handleCreateArticle = async (formData) => {
         try {
             await axios.post(`${API_URL}/api/articles`, formData);
