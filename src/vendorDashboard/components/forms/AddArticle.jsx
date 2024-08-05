@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import './AddArticle.css';
-import { API_URL } from '../../data/apiPath';
 import axios from 'axios';
 
 const AddArticle = ({ onSubmit, articleToEdit, onUpdate }) => {
@@ -10,6 +9,7 @@ const AddArticle = ({ onSubmit, articleToEdit, onUpdate }) => {
   const [image, setImage] = useState(null);
   const [successMessage, setSuccessMessage] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+  const [uploadedImageUrl, setUploadedImageUrl] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -32,6 +32,7 @@ const AddArticle = ({ onSubmit, articleToEdit, onUpdate }) => {
 
       if (response.status === 200 || response.status === 201) {
         setSuccessMessage('Article processed successfully!');
+        setUploadedImageUrl(`https://backend-project-jmxk.onrender.com/${response.data.article.image}`);
         setErrorMessage('');
       } else {
         throw new Error('Unexpected response status');
@@ -98,6 +99,12 @@ const AddArticle = ({ onSubmit, articleToEdit, onUpdate }) => {
           </div>
           <button type="submit" className="btn btn-primary">Submit</button>
         </form>
+        {uploadedImageUrl && (
+          <div>
+            <h5>Uploaded Image:</h5>
+            <img src={uploadedImageUrl} alt="Uploaded" style={{ maxWidth: '100%' }} />
+          </div>
+        )}
       </div>
     </div>
   );
