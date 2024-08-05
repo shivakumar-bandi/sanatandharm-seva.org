@@ -17,12 +17,12 @@ const FestivalList = lazy(() => import('./vendorDashboard/components/FestivalLis
 const NotFound = lazy(() => import('./vendorDashboard/components/NotFound'));
 const EditFestival = lazy(() => import('./vendorDashboard/components/EditFestival'));
 const Welcome = lazy(() => import('./vendorDashboard/components/Welcome'));
-const ArticleHead = lazy(() => import('./vendorDashboard/components/ArticleHead'));
-const EventHeader = lazy(() => import('./vendorDashboard/components/EventHeader'));
-const FestivalHeader = lazy(() => import('./vendorDashboard/components/FestivalHeader'));
 const Donation = lazy(() => import('./vendorDashboard/components/Donation'));
 const Team = lazy(() => import('./vendorDashboard/components/Team'));
 const Updates = lazy(() => import('./vendorDashboard/components/Updates'));
+const ArticleHead = lazy(() => import('./vendorDashboard/components/ArticleHead'));
+const EventHeader = lazy(() => import('./vendorDashboard/components/EventHeader'));
+const FestivalHeader = lazy(() => import('./vendorDashboard/components/FestivalHeader'));
 
 const API_URL = "https://backend-project-jmxk.onrender.com";
 
@@ -37,7 +37,6 @@ const App = () => {
             console.error('Error fetching festivals:', error.response ? error.response.data : error.message);
         }
     };
-
 
     const handleCreateArticle = async (formData) => {
         try {
@@ -109,6 +108,7 @@ const App = () => {
             </TransitionGroup>
         </Suspense>
     );
-}
+};
 
 export default App;
+

@@ -75,10 +75,10 @@ const ArticleTable = ({ header, onEdit, onDelete, onSubmit }) => {
                     <td>
                       {article.image && (
                         <img 
-                        src={`${API_URL}/uploads/${article.image}`} 
-                        alt={article.title} 
-                        style={{ width: '100px', height: 'auto' }} 
-                      />                      
+                          src={`${API_URL}/uploads/${article.image}`} 
+                          alt={article.title} 
+                          style={{ width: '100px', height: 'auto' }} 
+                        />
                       )}
                     </td>
                     <td>
