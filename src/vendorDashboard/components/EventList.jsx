@@ -16,7 +16,7 @@ const EventList = ({ eventheader, onEdit }) => {
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const response = await axios.get(`${API_URL}/api/events/events`);
+        const response = await axios.get(`${API_URL}/api/events`);
         setEvents(response.data);
         setLoading(false); // Stop loading after data is fetched
       } catch (error) {
@@ -30,7 +30,7 @@ const EventList = ({ eventheader, onEdit }) => {
   const handleDelete = async (id) => {
     if (window.confirm('Are you sure you want to delete this Event?')) {
       try {
-        await axios.delete(`${API_URL}/api/events/events/${id}`);
+        await axios.delete(`${API_URL}/api/events/${id}`);
         setEvents(events.filter(event => event._id !== id));
       } catch (error) {
         console.error('Error deleting event:', error);

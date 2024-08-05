@@ -4,7 +4,6 @@ import axios from 'axios';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import { API_URL } from './vendorDashboard/data/apiPath';
 
 const LandingPage = lazy(() => import('./vendorDashboard/pages/LandingPage'));
 const Login = lazy(() => import('./vendorDashboard/components/forms/Login'));
@@ -25,19 +24,10 @@ const Donation = lazy(() => import('./vendorDashboard/components/Donation'));
 const Team = lazy(() => import('./vendorDashboard/components/Team'));
 const Updates = lazy(() => import('./vendorDashboard/components/Updates'));
 
-
+const API_URL = "https://backend-project-jmxk.onrender.com";
 
 const App = () => {
     const navigate = useNavigate();
-
-    const fetchFestivals = async () => {
-        try {
-            const response = await axios.get(`${API_URL}/api/festivals`);
-            console.log('Fetched festivals:', response.data);
-        } catch (error) {
-            console.error('Error fetching festivals:', error.response ? error.response.data : error.message);
-        }
-    };
 
     const handleCreateArticle = async (formData) => {
         try {

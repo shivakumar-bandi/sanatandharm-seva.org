@@ -38,11 +38,11 @@ const AddEvent = ({ eventToEdit, onEditSuccess }) => {
     try {
       let response;
       if (eventToEdit && eventToEdit._id) {
-        response = await axios.put(`${API_URL}/api/events/events/${eventToEdit._id}`, formData, {
+        response = await axios.put(`${API_URL}/api/events/${eventToEdit._id}`, formData, {
           headers: { 'Content-Type': 'multipart/form-data' },
         });
       } else {
-        response = await axios.post(`${API_URL}/api/events/events`, formData, {
+        response = await axios.post(`${API_URL}/api/events`, formData, {
           headers: { 'Content-Type': 'multipart/form-data' },
         });
       }
