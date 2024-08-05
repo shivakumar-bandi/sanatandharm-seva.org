@@ -1,4 +1,3 @@
-// CardContainer.js
 import React from 'react';
 import Card from './Card';
 import './CardContainer.css';
