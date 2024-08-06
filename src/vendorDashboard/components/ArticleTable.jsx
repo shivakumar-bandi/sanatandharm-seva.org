@@ -75,7 +75,7 @@ const ArticleTable = ({ header, onEdit, onDelete }) => {
                     <td>
                       {article.image && (
                         <img 
-                          src={imageUrl ||`${API_URL}/uploads/${article.image}`} 
+                          src={`${API_URL}/uploads/${article.image}`} 
                           alt={article.title} 
                           style={{ width: '100px', height: 'auto' }} 
                         />
