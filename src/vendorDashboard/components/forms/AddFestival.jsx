@@ -54,7 +54,6 @@ const AddFestival = ({ festival, setEditMode, fetchFestivals }) => {
       fetchFestivals();
       setEditMode(false);
 
-      // Check if setEditMode is a function before calling it
       if (typeof setEditMode === 'function') {
         setEditMode(false);
       } else {
