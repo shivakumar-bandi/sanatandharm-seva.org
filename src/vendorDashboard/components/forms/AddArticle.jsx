@@ -35,7 +35,7 @@ const AddArticle = ({ onSubmit, articleToEdit, onUpdate }) => {
       if (response && (response.status === 200 || response.status === 201)) {
         setSuccessMessage('Article processed successfully!');
         if (response.data.article.image) {
-          setUploadedImageUrl(`https://backend-project-jmxk.onrender.com/uploads/${response.data.article.image}`);
+          setUploadedImageUrl(`${API_URL}/uploads/${response.data.article.image}`);
         }
         setErrorMessage('');
       } else {
@@ -66,10 +66,11 @@ const AddArticle = ({ onSubmit, articleToEdit, onUpdate }) => {
             <input 
               type="text" 
               name='title'
-              className="form-control" 
-              value={title} 
-              onChange={(e) => setTitle(e.target.value)} 
-              required 
+              className="form-control"
+              placeholder="Title"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              required
             />
           </div>
           <div className="form-group">
@@ -77,38 +78,46 @@ const AddArticle = ({ onSubmit, articleToEdit, onUpdate }) => {
             <input 
               type="text" 
               name='author'
-              className="form-control" 
-              value={author} 
-              onChange={(e) => setAuthor(e.target.value)} 
-              required 
+              className="form-control"
+              placeholder="Author"
+              value={author}
+              onChange={(e) => setAuthor(e.target.value)}
+              required
             />
           </div>
           <div className="form-group">
             <label>Content</label>
             <textarea 
-              className="form-control" 
+              className="form-control"
               name='content'
-              value={content} 
-              onChange={(e) => setContent(e.target.value)} 
-              required 
-            />
+              placeholder="Content"
+              rows="3"
+              value={content}
+              onChange={(e) => setContent(e.target.value)}
+              required
+            ></textarea>
           </div>
           <div className="form-group">
             <label>Image</label>
             <input 
               type="file" 
-              onChange={(e) => setImage(e.target.files[0])} 
-              className="form-control" 
+              name='image'
+              className="form-control-file"
+              onChange={(e) => setImage(e.target.files[0])}
             />
           </div>
-          <button type="submit" className="btn btn-primary">Submit</button>
+          {uploadedImageUrl && (
+            <div className="form-group">
+              <label>Uploaded Image</label>
+              <div>
+                <img src={uploadedImageUrl} alt="Uploaded" style={{ maxWidth: '100%', height: 'auto' }} />
+              </div>
+            </div>
+          )}
+          <button type="submit" className="btn btn-primary">
+            {articleToEdit ? 'Update Article' : 'Add Article'}
+          </button>
         </form>
-        {uploadedImageUrl && (
-          <div>
-            <h5>Uploaded Image:</h5>
-            <img src={uploadedImageUrl} alt="Uploaded" style={{ maxWidth: '100%' }} />
-          </div>
-        )}
       </div>
     </div>
   );
