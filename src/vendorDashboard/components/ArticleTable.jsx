@@ -3,14 +3,14 @@ import axios from 'axios';
 import { useUser } from '../contexts/UserContext';
 import './ArticleTable.css';
 import { API_URL } from '../data/apiPath';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'; // I
 
-const ArticleTable = ({ header, onEdit, onDelete }) => {
+const ArticleTable = ({ header, onEdit, onDelete}) => {
   const [articles, setArticles] = useState([]);
   const [errorMessage, setErrorMessage] = useState('');
   const { user } = useUser();
-  const navigate = useNavigate();
 
+  const navigate = useNavigate();
   useEffect(() => {
     const fetchArticles = async () => {
       try {
@@ -22,6 +22,7 @@ const ArticleTable = ({ header, onEdit, onDelete }) => {
         setErrorMessage('Error fetching articles.');
       }
     };
+
     fetchArticles();
   }, []);
 
@@ -37,6 +38,7 @@ const ArticleTable = ({ header, onEdit, onDelete }) => {
     }
   };
 
+
   const canEditOrDelete = user && user.email === 'nanishiva2022001@gmail.com' && user.role === 'admin';
 
   return (
@@ -44,7 +46,7 @@ const ArticleTable = ({ header, onEdit, onDelete }) => {
       <div className="header">
         {header}
         {canEditOrDelete && (
-          <button onClick={() => navigate('/add-article')} className="btn btn-primary">Add New Article</button>
+          <button onClick={onEdit} className="btn btn-primary">Add New Article</button>
         )}
       </div>
       <div className="card">
@@ -84,8 +86,8 @@ const ArticleTable = ({ header, onEdit, onDelete }) => {
                     <td>
                       {canEditOrDelete && (
                         <>
-                          <button onClick={() => onEdit(article)} className="btn btn-warning">Edit</button>
-                          <button onClick={() => handleDelete(article._id)} className="btn btn-danger">Delete</button>
+                          <button onClick={() => handleEdit(onEdit)}>Edit</button>
+                          <button onClick={() => handleDelete(article._id)}>Delete</button>
                         </>
                       )}
                     </td>

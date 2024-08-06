@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import './AddArticle.css';
+import { API_URL } from '../../data/apiPath';
 import axios from 'axios';
-import { API_URL } from '../data/apiPath';
+
 
 const AddArticle = ({ onSubmit, articleToEdit, onUpdate }) => {
   const [title, setTitle] = useState(articleToEdit ? articleToEdit.title : '');
@@ -10,34 +11,27 @@ const AddArticle = ({ onSubmit, articleToEdit, onUpdate }) => {
   const [image, setImage] = useState(null);
   const [successMessage, setSuccessMessage] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
-  const [uploadedImageUrl, setUploadedImageUrl] = useState('');
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log('Submitting article:', { title, author, content, image });
+  
     const formData = new FormData();
     formData.append('title', title);
     formData.append('author', author);
     formData.append('content', content);
     if (image) formData.append('image', image);
-
+  
     try {
-      let response;
       if (articleToEdit) {
-        response = await axios.put(`${API_URL}/api/articles/${articleToEdit._id}`, formData);
+        console.log('Updating article with ID:', articleToEdit._id);
+        await onUpdate(articleToEdit._id, formData);
       } else {
-        response = await axios.post(`${API_URL}/api/articles`, formData);
+        await onSubmit(formData);
       }
-
-      if (response.status === 200 || response.status === 201) {
-        setSuccessMessage('Article processed successfully!');
-        if (response.data.article.image) {
-          setUploadedImageUrl(`${API_URL}/uploads/${response.data.article.image}`);
-        }
-        setErrorMessage('');
-      } else {
-        throw new Error('Unexpected response status');
-      }
-
+      setSuccessMessage('Article processed successfully!');
+      setErrorMessage('');
       setTitle('');
       setAuthor('');
       setContent('');
@@ -48,6 +42,7 @@ const AddArticle = ({ onSubmit, articleToEdit, onUpdate }) => {
       setSuccessMessage('');
     }
   };
+  
 
   return (
     <div className="card">
@@ -60,6 +55,7 @@ const AddArticle = ({ onSubmit, articleToEdit, onUpdate }) => {
             <label>Title</label>
             <input 
               type="text" 
+              name='title'
               className="form-control" 
               value={title} 
               onChange={(e) => setTitle(e.target.value)} 
@@ -70,6 +66,7 @@ const AddArticle = ({ onSubmit, articleToEdit, onUpdate }) => {
             <label>Author</label>
             <input 
               type="text" 
+              name='author'
               className="form-control" 
               value={author} 
               onChange={(e) => setAuthor(e.target.value)} 
@@ -80,6 +77,7 @@ const AddArticle = ({ onSubmit, articleToEdit, onUpdate }) => {
             <label>Content</label>
             <textarea 
               className="form-control" 
+              name='content'
               value={content} 
               onChange={(e) => setContent(e.target.value)} 
               required 
@@ -95,12 +93,6 @@ const AddArticle = ({ onSubmit, articleToEdit, onUpdate }) => {
           </div>
           <button type="submit" className="btn btn-primary">Submit</button>
         </form>
-        {uploadedImageUrl && (
-          <div>
-            <h5>Uploaded Image:</h5>
-            <img src={uploadedImageUrl} alt="Uploaded" style={{ maxWidth: '100%' }} />
-          </div>
-        )}
       </div>
     </div>
   );
