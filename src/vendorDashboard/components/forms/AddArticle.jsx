@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { API_URL } from '../data/apiPath'; // Ensure this path is correct
+import { API_URL } from '../../data/apiPath';
 
 const AddArticle = () => {
     const [title, setTitle] = useState('');

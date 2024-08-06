@@ -16,10 +16,26 @@ import TestToast from '../components/Simple';
 
 const LandingPage = ({ handleCreateArticle, handleUpdateArticle }) => {
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // Add authentication state
   const navigate = useNavigate();
 
   const toggleDarkMode = () => {
     setIsDarkMode(!isDarkMode);
+  };
+
+  const handleLogin = () => {
+    setIsLoggedIn(true);
+    navigate('/login');
+  };
+
+  const handleRegister = () => {
+    setIsLoggedIn(true);
+    navigate('/register');
+  };
+
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+    // Perform any other logout logic like clearing tokens here
   };
 
   const navigateToArticle = () => navigate('/article-list');
@@ -82,8 +98,10 @@ const LandingPage = ({ handleCreateArticle, handleUpdateArticle }) => {
   return (
     <div className={`landingSection ${isDarkMode ? 'dark' : 'light'}`}>
       <Navbar 
-        ShowLoginHandler={() => navigate('/login')} 
-        ShowRegister={() => navigate('/register')} 
+        ShowLoginHandler={handleLogin} 
+        ShowRegister={handleRegister} 
+        isLoggedIn={isLoggedIn} // Pass authentication state
+        handleLogout={handleLogout} // Pass logout handler
         isDarkMode={isDarkMode}
         toggleDarkMode={toggleDarkMode}
       />
