@@ -36,7 +36,7 @@ const AddFestival = ({ festival, setEditMode, fetchFestivals }) => {
     if (image) {
       formData.append('image', image);
     }
-
+  
     try {
       if (festival && festival._id) {
         await axios.put(`${API_URL}/api/festivals/${festival._id}`, formData, {
@@ -49,11 +49,11 @@ const AddFestival = ({ festival, setEditMode, fetchFestivals }) => {
         });
         setSuccessMessage('Festival added successfully!');
       }
-
+  
       setErrorMessage('');
       fetchFestivals();
       setEditMode(false);
-
+  
       if (typeof setEditMode === 'function') {
         setEditMode(false);
       } else {
@@ -67,7 +67,6 @@ const AddFestival = ({ festival, setEditMode, fetchFestivals }) => {
       setSuccessMessage('');
     }
   };
-
   return (
     <div className="card">
       <h2 className="card-title">{festival ? 'Edit Festival' : 'Add Festival'}</h2>
