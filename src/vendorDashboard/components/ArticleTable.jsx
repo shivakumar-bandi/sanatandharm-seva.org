@@ -14,7 +14,7 @@ const ArticleTable = ({ header, onEdit, onDelete }) => {
   useEffect(() => {
     const fetchArticles = async () => {
       try {
-        const response = await axios.get(`${API_URL}/api/articles/`);
+        const response = await axios.get(`${API_URL}/api/articles`);
         setArticles(response.data);
         console.log('Articles fetched:', response.data);
       } catch (error) {
@@ -84,7 +84,7 @@ const ArticleTable = ({ header, onEdit, onDelete }) => {
                     <td>
                       {canEditOrDelete && (
                         <>
-                          <button onClick={() => onEdit(article._id)} className="btn btn-warning">Edit</button>
+                          <button onClick={() => onEdit(article)} className="btn btn-warning">Edit</button>
                           <button onClick={() => handleDelete(article._id)} className="btn btn-danger">Delete</button>
                         </>
                       )}

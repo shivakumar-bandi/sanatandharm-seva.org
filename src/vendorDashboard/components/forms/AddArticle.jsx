@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './AddArticle.css';
 import axios from 'axios';
+import { API_URL } from '../data/apiPath';
 
 const AddArticle = ({ onSubmit, articleToEdit, onUpdate }) => {
   const [title, setTitle] = useState(articleToEdit ? articleToEdit.title : '');
@@ -13,8 +14,6 @@ const AddArticle = ({ onSubmit, articleToEdit, onUpdate }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Submitting article:', { title, author, content, image });
-
     const formData = new FormData();
     formData.append('title', title);
     formData.append('author', author);
@@ -24,25 +23,21 @@ const AddArticle = ({ onSubmit, articleToEdit, onUpdate }) => {
     try {
       let response;
       if (articleToEdit) {
-        console.log('Updating article with ID:', articleToEdit._id);
-        response = await onUpdate(articleToEdit._id, formData);
+        response = await axios.put(`${API_URL}/api/articles/${articleToEdit._id}`, formData);
       } else {
-        response = await onSubmit(formData);
+        response = await axios.post(`${API_URL}/api/articles`, formData);
       }
 
-      console.log('API Response:', response);  // Add this line to debug the response
-
-      if (response && (response.status === 200 || response.status === 201)) {
+      if (response.status === 200 || response.status === 201) {
         setSuccessMessage('Article processed successfully!');
         if (response.data.article.image) {
-          setUploadedImageUrl(`https://backend-project-jmxk.onrender.com/uploads/${response.data.article.image}`);
+          setUploadedImageUrl(`${API_URL}/uploads/${response.data.article.image}`);
         }
         setErrorMessage('');
       } else {
         throw new Error('Unexpected response status');
       }
 
-      // Reset form fields
       setTitle('');
       setAuthor('');
       setContent('');
@@ -65,7 +60,6 @@ const AddArticle = ({ onSubmit, articleToEdit, onUpdate }) => {
             <label>Title</label>
             <input 
               type="text" 
-              name='title'
               className="form-control" 
               value={title} 
               onChange={(e) => setTitle(e.target.value)} 
@@ -76,7 +70,6 @@ const AddArticle = ({ onSubmit, articleToEdit, onUpdate }) => {
             <label>Author</label>
             <input 
               type="text" 
-              name='author'
               className="form-control" 
               value={author} 
               onChange={(e) => setAuthor(e.target.value)} 
@@ -87,7 +80,6 @@ const AddArticle = ({ onSubmit, articleToEdit, onUpdate }) => {
             <label>Content</label>
             <textarea 
               className="form-control" 
-              name='content'
               value={content} 
               onChange={(e) => setContent(e.target.value)} 
               required 
