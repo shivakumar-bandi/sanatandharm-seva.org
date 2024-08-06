@@ -14,7 +14,7 @@ const ArticleTable = ({ header, onEdit, onDelete }) => {
   useEffect(() => {
     const fetchArticles = async () => {
       try {
-        const response = await axios.get(`${API_URL}/api/articles`);
+        const response = await axios.get(`${API_URL}/api/articles/`);
         setArticles(response.data);
         console.log('Articles fetched:', response.data);
       } catch (error) {
