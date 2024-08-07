@@ -30,7 +30,7 @@ const App = () => {
 
     const fetchFestivals = async () => {
         try {
-            const response = await axios.get(`${API_URL}/api/festivals`);
+            const response = await axios.get(`${API_URL}/api/festivals/`);
             console.log('Fetched festivals:', response.data);
         } catch (error) {
             console.error('Error fetching festivals:', error.response ? error.response.data : error.message);
