@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import './AddArticle.css';
 import axios from 'axios';
+import { API_URL } from '../../data/apiPath';
+
 
 const AddArticle = ({ onSubmit, articleToEdit, onUpdate }) => {
   const [title, setTitle] = useState(articleToEdit ? articleToEdit.title : '');
