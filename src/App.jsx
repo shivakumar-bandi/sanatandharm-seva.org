@@ -1,5 +1,5 @@
-import React, { Suspense, lazy } from 'react';
-import { Routes, Route, useNavigate } from 'react-router-dom';
+import React, { Suspense, lazy, useEffect, useState } from 'react';
+import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -27,6 +27,29 @@ import { API_URL } from './vendorDashboard/data/apiPath';
 
 const App = () => {
     const navigate = useNavigate();
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+    useEffect(() => {
+        const token = localStorage.getItem('authToken');
+        if (token) {
+            setIsAuthenticated(true);
+            axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+        }
+    }, []);
+
+    const handleLoginSuccess = (token) => {
+        localStorage.setItem('authToken', token);
+        setIsAuthenticated(true);
+        axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+        navigate('/');
+    };
+
+    const handleLogout = () => {
+        localStorage.removeItem('authToken');
+        setIsAuthenticated(false);
+        delete axios.defaults.headers.common['Authorization'];
+        navigate('/login');
+    };
 
     const fetchFestivals = async () => {
         try {
@@ -91,25 +114,27 @@ const App = () => {
     };
 
     return (
-        <Suspense fallback={<div className="loading-spinner">Loading...</div>}>
-            <Routes>
-                <Route path="/" element={<LandingPage handleCreateArticle={handleCreateArticle} handleUpdateArticle={handleUpdateArticle} />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/register" element={<Register />} />
-                <Route path="/add-article" element={<AddArticle onSubmit={handleCreateArticle} onUpdate={handleUpdateArticle} />} />
-                <Route path="/article-list" element={<ArticleTable header={<ArticleHead />} onEdit={handleUpdateArticle} onDelete={handleCreateArticle} />} />
-                <Route path="/add-event" element={<AddEvent onSubmit={handleCreateEvent} onUpdate={handleUpdateEvent} onEditSuccess={handleEditSuccess} />} />
-                <Route path="/event-list" element={<EventList eventheader={<EventHeader />} />} />
-                <Route path="/add-festival" element={<AddFestival fetchFestivals={fetchFestivals} setEditMode={setEditMode} />} />
-                <Route path="/festival-list" element={<FestivalList festivalheader={<FestivalHeader />} onEdit={(id) => navigate(`/edit-festival/${id}`)} />} />
-                <Route path="/edit-festival/:id" element={<EditFestival fetchFestivals={fetchFestivals} />} />
-                <Route path="*" element={<NotFound />} />
-                <Route path="/welcome" element={<Welcome />} />
-                <Route path="/donation" element={<Donation />} />
-                <Route path="/team" element={<Team />} />
-                <Route path="/updates" element={<Updates />} />
-            </Routes>
-        </Suspense>
+        <Router>
+            <Suspense fallback={<div className="loading-spinner">Loading...</div>}>
+                <Routes>
+                    <Route path="/" element={<LandingPage handleCreateArticle={handleCreateArticle} handleUpdateArticle={handleUpdateArticle} />} />
+                    <Route path="/login" element={<Login onLoginSuccess={handleLoginSuccess} />} />
+                    <Route path="/register" element={<Register />} />
+                    <Route path="/add-article" element={<AddArticle onSubmit={handleCreateArticle} onUpdate={handleUpdateArticle} />} />
+                    <Route path="/article-list" element={<ArticleTable header={<ArticleHead />} onEdit={handleUpdateArticle} onDelete={handleCreateArticle} />} />
+                    <Route path="/add-event" element={<AddEvent onSubmit={handleCreateEvent} onUpdate={handleUpdateEvent} onEditSuccess={handleEditSuccess} />} />
+                    <Route path="/event-list" element={<EventList eventheader={<EventHeader />} />} />
+                    <Route path="/add-festival" element={<AddFestival fetchFestivals={fetchFestivals} setEditMode={setEditMode} />} />
+                    <Route path="/festival-list" element={<FestivalList festivalheader={<FestivalHeader />} onEdit={(id) => navigate(`/edit-festival/${id}`)} />} />
+                    <Route path="/edit-festival/:id" element={<EditFestival fetchFestivals={fetchFestivals} />} />
+                    <Route path="*" element={<NotFound />} />
+                    <Route path="/welcome" element={<Welcome />} />
+                    <Route path="/donation" element={<Donation />} />
+                    <Route path="/team" element={<Team />} />
+                    <Route path="/updates" element={<Updates />} />
+                </Routes>
+            </Suspense>
+        </Router>
     );
 };
 
