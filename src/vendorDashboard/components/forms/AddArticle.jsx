@@ -3,7 +3,6 @@ import './AddArticle.css';
 import axios from 'axios';
 import { API_URL } from '../../data/apiPath';
 
-
 const AddArticle = ({ onSubmit, articleToEdit, onUpdate }) => {
   const [title, setTitle] = useState(articleToEdit ? articleToEdit.title : '');
   const [author, setAuthor] = useState(articleToEdit ? articleToEdit.author : '');
@@ -32,7 +31,7 @@ const AddArticle = ({ onSubmit, articleToEdit, onUpdate }) => {
         response = await onSubmit(formData);
       }
 
-      console.log('API Response:', response);  // Add this line to debug the response
+      console.log('API Response:', response);
 
       if (response && (response.status === 200 || response.status === 201)) {
         setSuccessMessage('Article processed successfully!');
@@ -44,7 +43,6 @@ const AddArticle = ({ onSubmit, articleToEdit, onUpdate }) => {
         throw new Error('Unexpected response status');
       }
 
-      // Reset form fields
       setTitle('');
       setAuthor('');
       setContent('');

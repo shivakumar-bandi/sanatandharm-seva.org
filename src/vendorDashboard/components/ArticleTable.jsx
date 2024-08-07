@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useUser } from '../contexts/UserContext';
+import { useUser } from '../../contexts/UserContext';
 import './ArticleTable.css';
-import { API_URL } from '../data/apiPath';
-import { useNavigate } from 'react-router-dom'; // I
+import { API_URL } from '../../data/apiPath';
+import { useNavigate } from 'react-router-dom';
 
 const ArticleTable = ({ header, onEdit, onDelete}) => {
   const [articles, setArticles] = useState([]);
@@ -37,7 +37,6 @@ const ArticleTable = ({ header, onEdit, onDelete}) => {
       }
     }
   };
-
 
   const canEditOrDelete = user && user.email === 'nanishiva2022001@gmail.com' && user.role === 'admin';
 
@@ -77,16 +76,16 @@ const ArticleTable = ({ header, onEdit, onDelete}) => {
                     <td>
                       {article.image && (
                         <img 
-                        src={`${API_URL}/uploads/${article.image}`} 
-                        alt={article.title} 
-                        style={{ width: '100px', height: 'auto' }} 
-                      />                      
+                          src={`${API_URL}/uploads/${article.image}`} 
+                          alt={article.title} 
+                          style={{ width: '100px', height: 'auto' }} 
+                        />                      
                       )}
                     </td>
                     <td>
                       {canEditOrDelete && (
                         <>
-                          <button onClick={() => handleEdit(onEdit)}>Edit</button>
+                          <button onClick={() => onEdit(article)}>Edit</button>
                           <button onClick={() => handleDelete(article._id)}>Delete</button>
                         </>
                       )}
