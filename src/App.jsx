@@ -38,26 +38,6 @@ const App = () => {
         }
     };
 
-    const handleArticleSubmit = async (articleData) => {
-        try {
-          const response = await axios.post(`${API_URL}/api/articles`, articleData, {
-            headers: {
-              'Content-Type': 'multipart/form-data'
-            }
-          });
-          if (response.status === 201) {
-            navigate('/');
-            return response;
-          } else {
-            console.error('Failed to add article');
-            return null;
-          }
-        } catch (error) {
-          console.error('Error:', error);
-          return null;
-        }
-      };
-
     const handleCreateArticle = async (formData) => {
         try {
             const response = await axios.post(`${API_URL}/api/articles`, formData);
@@ -71,25 +51,18 @@ const App = () => {
         }
     };
     
-    const handleArticleUpdate = async (id, articleData) => {
+    const handleUpdateArticle = async (id, formData) => {
         try {
-          const response = await axios.put(`${API_URL}/api/articles/${id}`, articleData, {
-            headers: {
-              'Content-Type': 'multipart/form-data'
+            const response = await axios.put(`${API_URL}/api/articles/${id}`, formData);
+            if (response.status === 200) {
+                navigate('/article-list');
+            } else {
+                console.error('Unexpected response status:', response.status);
             }
-          });
-          if (response.status === 200) {
-            navigate('/');
-            return response;
-          } else {
-            console.error('Failed to update article');
-            return null;
-          }
         } catch (error) {
-          console.error('Error:', error);
-          return null;
+            console.error('Error updating article:', error.response ? error.response.data : error.message);
         }
-      };
+    };
     
 
     const handleCreateEvent = async (formData) => {
