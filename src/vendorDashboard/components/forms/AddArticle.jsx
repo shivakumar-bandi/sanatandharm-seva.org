@@ -3,6 +3,7 @@ import './AddArticle.css';
 import axios from 'axios';
 import { API_URL } from '../../data/apiPath';
 
+
 const AddArticle = ({ onSubmit, articleToEdit, onUpdate }) => {
   const [title, setTitle] = useState(articleToEdit ? articleToEdit.title : '');
   const [author, setAuthor] = useState(articleToEdit ? articleToEdit.author : '');
@@ -14,6 +15,8 @@ const AddArticle = ({ onSubmit, articleToEdit, onUpdate }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log('Submitting article:', { title, author, content, image });
+
     const formData = new FormData();
     formData.append('title', title);
     formData.append('author', author);
@@ -23,10 +26,13 @@ const AddArticle = ({ onSubmit, articleToEdit, onUpdate }) => {
     try {
       let response;
       if (articleToEdit) {
+        console.log('Updating article with ID:', articleToEdit._id);
         response = await onUpdate(articleToEdit._id, formData);
       } else {
         response = await onSubmit(formData);
       }
+
+      console.log('API Response:', response);  // Add this line to debug the response
 
       if (response && (response.status === 200 || response.status === 201)) {
         setSuccessMessage('Article processed successfully!');
@@ -44,6 +50,7 @@ const AddArticle = ({ onSubmit, articleToEdit, onUpdate }) => {
       setContent('');
       setImage(null);
     } catch (error) {
+      console.error('Error:', error);
       setErrorMessage('There was an error processing the article!');
       setSuccessMessage('');
     }
