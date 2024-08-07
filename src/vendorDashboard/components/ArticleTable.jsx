@@ -3,22 +3,20 @@ import axios from 'axios';
 import { useUser } from '../contexts/UserContext';
 import './ArticleTable.css';
 import { API_URL } from '../data/apiPath';
-import { useNavigate } from 'react-router-dom'; // I
+import { useNavigate } from 'react-router-dom';
 
-const ArticleTable = ({ header, onEdit, onDelete}) => {
+const ArticleTable = ({ header, onEdit, onDelete }) => {
   const [articles, setArticles] = useState([]);
   const [errorMessage, setErrorMessage] = useState('');
   const { user } = useUser();
-
   const navigate = useNavigate();
+
   useEffect(() => {
     const fetchArticles = async () => {
       try {
         const response = await axios.get(`${API_URL}/api/articles/`);
         setArticles(response.data);
-        console.log('Articles fetched:', response.data);
       } catch (error) {
-        console.error('Error fetching articles:', error);
         setErrorMessage('Error fetching articles.');
       }
     };
@@ -32,12 +30,10 @@ const ArticleTable = ({ header, onEdit, onDelete}) => {
         await axios.delete(`${API_URL}/api/articles/${id}`);
         setArticles(articles.filter(article => article._id !== id));
       } catch (error) {
-        console.error('Error deleting article:', error);
         setErrorMessage('Error deleting article.');
       }
     }
   };
-
 
   const canEditOrDelete = user && user.email === 'nanishiva2022001@gmail.com' && user.role === 'admin';
 
@@ -46,7 +42,7 @@ const ArticleTable = ({ header, onEdit, onDelete}) => {
       <div className="header">
         {header}
         {canEditOrDelete && (
-          <button onClick={onEdit} className="btn btn-primary">Add New Article</button>
+          <button onClick={() => navigate('/add-article')} className="btn btn-primary">Add New Article</button>
         )}
       </div>
       <div className="card">
@@ -77,16 +73,16 @@ const ArticleTable = ({ header, onEdit, onDelete}) => {
                     <td>
                       {article.image && (
                         <img 
-                        src={`${API_URL}/uploads/${article.image}`} 
-                        alt={article.title} 
-                        style={{ width: '100px', height: 'auto' }} 
-                      />                      
+                          src={`${API_URL}/uploads/${article.image}`} 
+                          alt={article.title} 
+                          style={{ width: '100px', height: 'auto' }} 
+                        />                      
                       )}
                     </td>
                     <td>
                       {canEditOrDelete && (
                         <>
-                          <button onClick={() => handleEdit(onEdit)}>Edit</button>
+                          <button onClick={() => navigate(`/add-article/${article._id}`)}>Edit</button>
                           <button onClick={() => handleDelete(article._id)}>Delete</button>
                         </>
                       )}
