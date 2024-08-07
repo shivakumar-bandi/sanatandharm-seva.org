@@ -1,7 +1,6 @@
 import React, { Suspense, lazy } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
@@ -63,7 +62,6 @@ const App = () => {
             console.error('Error updating article:', error.response ? error.response.data : error.message);
         }
     };
-    
 
     const handleCreateEvent = async (formData) => {
         try {
@@ -92,33 +90,27 @@ const App = () => {
         console.log('Edit mode set to:', mode);
     };
 
-
     return (
         <Suspense fallback={<div className="loading-spinner">Loading...</div>}>
-            <TransitionGroup>
-                <CSSTransition timeout={300} classNames="page">
-                    <Routes>
-                        <Route path="/" element={<LandingPage handleCreateArticle={handleCreateArticle} handleUpdateArticle={handleUpdateArticle} />} />
-                        <Route path="/login" element={<Login />} />
-                        <Route path="/register" element={<Register />} />
-                        <Route path="/add-article" element={<AddArticle onSubmit={handleCreateArticle} onUpdate={handleUpdateArticle} />} />
-                        <Route path="/article-list" element={<ArticleTable header={<ArticleHead />} onEdit={handleUpdateArticle} onDelete={handleCreateArticle}/>} />
-                        <Route path="/add-event" element={<AddEvent onSubmit={handleCreateEvent} onUpdate={handleUpdateEvent} onEditSuccess={handleEditSuccess}/>} />
-                        <Route path="/event-list" element={<EventList eventheader={<EventHeader />} />} />
-                        <Route path="/add-festival" element={<AddFestival fetchFestivals={fetchFestivals} setEditMode={setEditMode}/>} />
-                        <Route path="/festival-list" element={<FestivalList festivalheader={<FestivalHeader />} onEdit={(id) => navigate(`/edit-festival/${id}`)} />} />
-                        <Route path="/edit-festival/:id" element={<EditFestival fetchFestivals={fetchFestivals} />} />
-                        <Route path="*" element={<NotFound />} />
-                        <Route path="/welcome" element={<Welcome />} />
-                        <Route path="/donation" element={<Donation />} />
-                        <Route path="/team" element={<Team />} />
-                        <Route path="/updates" element={<Updates />} />
-                    </Routes>
-                </CSSTransition>
-            </TransitionGroup>
+            <Routes>
+                <Route path="/" element={<LandingPage handleCreateArticle={handleCreateArticle} handleUpdateArticle={handleUpdateArticle} />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/register" element={<Register />} />
+                <Route path="/add-article" element={<AddArticle onSubmit={handleCreateArticle} onUpdate={handleUpdateArticle} />} />
+                <Route path="/article-list" element={<ArticleTable header={<ArticleHead />} onEdit={handleUpdateArticle} onDelete={handleCreateArticle} />} />
+                <Route path="/add-event" element={<AddEvent onSubmit={handleCreateEvent} onUpdate={handleUpdateEvent} onEditSuccess={handleEditSuccess} />} />
+                <Route path="/event-list" element={<EventList eventheader={<EventHeader />} />} />
+                <Route path="/add-festival" element={<AddFestival fetchFestivals={fetchFestivals} setEditMode={setEditMode} />} />
+                <Route path="/festival-list" element={<FestivalList festivalheader={<FestivalHeader />} onEdit={(id) => navigate(`/edit-festival/${id}`)} />} />
+                <Route path="/edit-festival/:id" element={<EditFestival fetchFestivals={fetchFestivals} />} />
+                <Route path="*" element={<NotFound />} />
+                <Route path="/welcome" element={<Welcome />} />
+                <Route path="/donation" element={<Donation />} />
+                <Route path="/team" element={<Team />} />
+                <Route path="/updates" element={<Updates />} />
+            </Routes>
         </Suspense>
     );
 };
 
 export default App;
-
