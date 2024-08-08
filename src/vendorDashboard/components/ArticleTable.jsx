@@ -16,14 +16,7 @@ const ArticleTable = ({ header, onEdit, onDelete }) => {
       try {
         const response = await axios.get(`${API_URL}/api/articles/`);
         console.log('Fetched articles:', response.data);
-
-        // Check if response.data is an array
-        if (Array.isArray(response.data)) {
-          setArticles(response.data);
-        } else {
-          console.error('Expected an array but got:', response.data);
-          setErrorMessage('Unexpected response format.');
-        }
+        setArticles(response.data);
       } catch (error) {
         console.error('Error fetching articles:', error);
         setErrorMessage('Error fetching articles.');
@@ -92,14 +85,11 @@ const ArticleTable = ({ header, onEdit, onDelete }) => {
                     <td>{article.author}</td>
                     <td>
                       {article.image && (
-                        <>
-                          <img 
-                            src={`${API_URL}/uploads/${article.image}`} 
-                            alt={article.title} 
-                            style={{ width: '100px', height: 'auto' }} 
-                          />
-                          <div>{`${API_URL}/uploads/${article.image}`}</div> {/* Log the image URL */}
-                        </>
+                        <img 
+                          src={`${API_URL}/uploads/${article.image}`} 
+                          alt={article.title} 
+                          style={{ width: '100px', height: 'auto' }} 
+                        />
                       )}
                     </td>
                     <td>
