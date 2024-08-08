@@ -1,22 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useUser } from '../../contexts/UserContext';
-import './ArticleTable.css';
-import { API_URL } from '../../data/apiPath';
+import { useUser } from '../contexts/UserContext';
+import { API_URL } from '../data/apiPath';
 import { useNavigate } from 'react-router-dom';
+import './ArticleTable.css';
 
-const ArticleTable = ({ header, onEdit, onDelete}) => {
+const ArticleTable = ({ header, onEdit, onDelete }) => {
   const [articles, setArticles] = useState([]);
   const [errorMessage, setErrorMessage] = useState('');
   const { user } = useUser();
-
   const navigate = useNavigate();
+
   useEffect(() => {
     const fetchArticles = async () => {
       try {
         const response = await axios.get(`${API_URL}/api/articles/`);
+        console.log('Fetched articles:', response.data);
         setArticles(response.data);
-        console.log('Articles fetched:', response.data);
       } catch (error) {
         console.error('Error fetching articles:', error);
         setErrorMessage('Error fetching articles.');
@@ -26,10 +26,18 @@ const ArticleTable = ({ header, onEdit, onDelete}) => {
     fetchArticles();
   }, []);
 
+  const handleEdit = (id) => {
+    if (onEdit) {
+      onEdit(id);
+    }
+  };
+
   const handleDelete = async (id) => {
     if (window.confirm('Are you sure you want to delete this article?')) {
+      console.log('Deleting article with ID:', id);
       try {
         await axios.delete(`${API_URL}/api/articles/${id}`);
+        console.log('Article deleted:', id);
         setArticles(articles.filter(article => article._id !== id));
       } catch (error) {
         console.error('Error deleting article:', error);
@@ -39,13 +47,15 @@ const ArticleTable = ({ header, onEdit, onDelete}) => {
   };
 
   const canEditOrDelete = user && user.email === 'nanishiva2022001@gmail.com' && user.role === 'admin';
+  console.log('User:', user);
+  console.log('Can edit or delete:', canEditOrDelete);
 
   return (
     <div className="article-table">
       <div className="header">
         {header}
         {canEditOrDelete && (
-          <button onClick={onEdit} className="btn btn-primary">Add New Article</button>
+          <button onClick={() => navigate('/add-article')} className="btn btn-primary">Add New Article</button>
         )}
       </div>
       <div className="card">
@@ -75,17 +85,20 @@ const ArticleTable = ({ header, onEdit, onDelete}) => {
                     <td>{article.author}</td>
                     <td>
                       {article.image && (
-                        <img 
-                          src={`${API_URL}/uploads/${article.image}`} 
-                          alt={article.title} 
-                          style={{ width: '100px', height: 'auto' }} 
-                        />                      
+                        <>
+                          <img 
+                            src={`${API_URL}/uploads/${article.image}`} 
+                            alt={article.title} 
+                            style={{ width: '100px', height: 'auto' }} 
+                          />
+                          <div>{`${API_URL}/uploads/${article.image}`}</div> {/* Log the image URL */}
+                        </>
                       )}
                     </td>
                     <td>
                       {canEditOrDelete && (
                         <>
-                          <button onClick={() => onEdit(article)}>Edit</button>
+                          <button onClick={() => handleEdit(article._id)}>Edit</button>
                           <button onClick={() => handleDelete(article._id)}>Delete</button>
                         </>
                       )}

@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import './AddArticle.css';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { API_URL } from '../../data/apiPath';
+import './AddArticle.css';
 
 const AddArticle = ({ onSubmit, articleToEdit, onUpdate }) => {
   const [title, setTitle] = useState(articleToEdit ? articleToEdit.title : '');
@@ -10,12 +10,10 @@ const AddArticle = ({ onSubmit, articleToEdit, onUpdate }) => {
   const [image, setImage] = useState(null);
   const [successMessage, setSuccessMessage] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
-  const [uploadedImageUrl, setUploadedImageUrl] = useState('');
+  const [uploadedImageUrl, setUploadedImageUrl] = useState(articleToEdit && articleToEdit.image ? `${API_URL}/uploads/${articleToEdit.image}` : '');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Submitting article:', { title, author, content, image });
-
     const formData = new FormData();
     formData.append('title', title);
     formData.append('author', author);
@@ -25,28 +23,24 @@ const AddArticle = ({ onSubmit, articleToEdit, onUpdate }) => {
     try {
       let response;
       if (articleToEdit) {
-        console.log('Updating article with ID:', articleToEdit._id);
         response = await onUpdate(articleToEdit._id, formData);
       } else {
         response = await onSubmit(formData);
       }
 
-      console.log('API Response:', response);
-
-      if (response && (response.status === 200 || response.status === 201)) {
+      if (response.status === 200 || response.status === 201) {
         setSuccessMessage('Article processed successfully!');
-        if (response.data.article.image) {
+        if (response.data.article && response.data.article.image) {
           setUploadedImageUrl(`${API_URL}/uploads/${response.data.article.image}`);
         }
         setErrorMessage('');
+        setTitle('');
+        setAuthor('');
+        setContent('');
+        setImage(null);
       } else {
         throw new Error('Unexpected response status');
       }
-
-      setTitle('');
-      setAuthor('');
-      setContent('');
-      setImage(null);
     } catch (error) {
       console.error('Error:', error);
       setErrorMessage('There was an error processing the article!');
@@ -65,7 +59,6 @@ const AddArticle = ({ onSubmit, articleToEdit, onUpdate }) => {
             <label>Title</label>
             <input 
               type="text" 
-              name='title'
               className="form-control"
               placeholder="Title"
               value={title}
@@ -77,7 +70,6 @@ const AddArticle = ({ onSubmit, articleToEdit, onUpdate }) => {
             <label>Author</label>
             <input 
               type="text" 
-              name='author'
               className="form-control"
               placeholder="Author"
               value={author}
@@ -89,7 +81,6 @@ const AddArticle = ({ onSubmit, articleToEdit, onUpdate }) => {
             <label>Content</label>
             <textarea 
               className="form-control"
-              name='content'
               placeholder="Content"
               rows="3"
               value={content}
@@ -101,7 +92,6 @@ const AddArticle = ({ onSubmit, articleToEdit, onUpdate }) => {
             <label>Image</label>
             <input 
               type="file" 
-              name='image'
               className="form-control-file"
               onChange={(e) => setImage(e.target.files[0])}
             />
