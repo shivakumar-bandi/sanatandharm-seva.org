@@ -19,24 +19,24 @@
 }
 
 .video-card {
-    width: 80%; /* Reduced width for a smaller card */
-    max-width: 400px; /* Limit maximum width to a smaller size */
+    width: 80%; /* Adjust the width of the card as needed */
+    max-width: 400px; /* Limit maximum width */
     margin: 0 auto;
-    padding: 10px; /* Smaller padding */
+    padding: 0; /* Remove padding */
     background: rgba(0, 0, 0, 0.6);
-    border-radius: 10px; /* Slightly smaller border radius */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7); /* Slightly reduced shadow */
+    border-radius: 10px; /* Keep a slight border radius */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
     position: relative;
     overflow: hidden;
 }
 
 .video-frame {
     width: 100%;
-    height: auto;
-    max-height: 250px; /* Adjusted to smaller maximum height */
-    border: none;
-    border-radius: 8px; /* Slightly smaller border radius */
-    box-shadow: 0px 0px 8px rgba(255, 255, 255, 0.5); /* Reduced shadow effect */
+    height: 100%;
+    object-fit: cover; /* Ensures the video covers the entire card */
+    border-radius: 10px; /* Match the border radius of the card */
+    box-shadow: 0px 0px 8px rgba(255, 255, 255, 0.5);
+    display: block; /* Ensure the video behaves like a block-level element */
 }
 
 .videos-page::before {
