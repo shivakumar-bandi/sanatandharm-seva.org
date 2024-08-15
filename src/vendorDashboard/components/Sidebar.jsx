@@ -5,16 +5,14 @@ import './Sidebar.css';
 import { useNavigate } from 'react-router-dom';
 import { useUser } from '../contexts/UserContext';
 
-const Navbar = ({ ShowUpdates, ShowTeam }) => {
-  const [showVideos, setShowVideos] = useState(false);
+const Navbar = ({ ShowUpdates, ShowTeam, handleVideosClick }) => {
+  
   const [dropdownVisible, setDropdownVisible] = useState('');
   const dropdownRef = useRef(null);
   const navigate = useNavigate();
   const { user } = useUser();
 
-  const handleVideosClick = () => {
-    setShowVideos(!showVideos);
-  };
+
 
   const toggleDropdown = (dropdownName) => {
     setDropdownVisible(prev => (prev === dropdownName ? '' : dropdownName));
@@ -81,7 +79,7 @@ const Navbar = ({ ShowUpdates, ShowTeam }) => {
         <a href="#" onClick={ShowUpdates}>Updates</a>
       </div>
       <div id="videos" className="latest-videos">
-        <a href="#" onClick={() => navigate('/videos')}>Videos</a>
+        <a href="#" onClick={handleVideosClick}>Videos</a>
       </div>
       <div id='team' className="navbar-item">
         <a href="#" onClick={ShowTeam}>Team Members</a>
