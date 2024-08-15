@@ -25,7 +25,7 @@
    
     max-height: 200px;
     aspect-ratio: 9/16;
-    margin: 0 auto;
+    margin: 0 auto 30px auto;
     padding: 10px; /* Smaller padding */
     background: rgba(0, 0, 0, 0.6);
     border-radius: 10px; /* Slightly smaller border radius */
