@@ -20,7 +20,7 @@
 
 .video-card {
     width: 80%; /* Reduced width for a smaller card */
-    max-width: 300px; /* Limit maximum width to a smaller size */
+    max-width: 400px; /* Limit maximum width to a smaller size */
     aspect-ratio: 9/16;
     margin: 0 auto;
     padding: 10px; /* Smaller padding */
