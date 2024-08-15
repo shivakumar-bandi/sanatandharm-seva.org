@@ -116,7 +116,7 @@ const App = () => {
                 <Route path="/donation" element={<Donation />} />
                 <Route path="/team" element={<Team />} />
                 <Route path="/updates" element={<Updates />} />
-               <Route path='/videos' element={<VideosPage/>}/>
+               <Route path='/videos' element={<VideosPage videoIds={videoIds}/>}/>
             </Routes>
         </Suspense>
     );
