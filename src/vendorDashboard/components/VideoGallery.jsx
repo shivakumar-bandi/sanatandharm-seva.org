@@ -8,8 +8,13 @@ const VideoPage = ({ videoSrcs }) => {
     const handleScroll = () => {
       videoRefs.current.forEach((video) => {
         const rect = video.getBoundingClientRect();
-        if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
-          video.play();
+        const isFullyVisible = rect.top >= 0 && rect.bottom <= window.innerHeight;
+
+        if (isFullyVisible) {
+          video.play().catch((error) => {
+            // Autoplay may be blocked; you could handle this error gracefully if needed.
+            console.error("Video autoplay blocked:", error);
+          });
         } else {
           video.pause();
         }
@@ -17,6 +22,10 @@ const VideoPage = ({ videoSrcs }) => {
     };
 
     window.addEventListener('scroll', handleScroll);
+    
+    // Initial check when component mounts
+    handleScroll();
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
@@ -30,8 +39,10 @@ const VideoPage = ({ videoSrcs }) => {
             <video
               className="video-frame"
               ref={(el) => (videoRefs.current[index] = el)}
-              muted={false}
+              muted={true}  // Set muted to true for autoplay to work
               loop
+              playsInline
+              preload="auto"
             >
               <source src={src} type="video/mp4" />
               Your browser does not support the video tag.
