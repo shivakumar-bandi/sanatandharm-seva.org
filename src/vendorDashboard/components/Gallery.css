@@ -1,28 +1,38 @@
-/* VideosPage.css */
 .videos-page {
     background: black;
     background: radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 50%, rgba(255,0,0,0) 100%);
-    background: url('path/to/3d-animation.gif') no-repeat center center fixed;
     background-size: cover;
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-  
-  .videos-container {
+    flex-direction: column;
+    color: white;
+    font-family: 'Arial', sans-serif;
+}
+
+.videos-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-  }
-  
-  .video-card {
-    margin: 10px;
-  }
-  
-  .video-card iframe {
+    width: 100%;
+}
+
+.video-card {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.video-frame {
     width: 560px; /* Adjust size as needed */
     height: 315px; /* Adjust size as needed */
     border: none;
-  }
-  
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+}
+
+/* Text Styling */
+.video-title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}

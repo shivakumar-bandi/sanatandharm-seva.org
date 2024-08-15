@@ -30,6 +30,7 @@ const VideosPage = ({ videoIds = [] }) => {
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
                 title={`Video ${index + 1}`}
+                className="video-frame"
               ></iframe>
             </div>
           ))
