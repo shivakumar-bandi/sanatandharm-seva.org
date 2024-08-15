@@ -24,7 +24,7 @@
     margin: 0 auto;
     padding: 0; /* Remove padding */
     background: rgba(0, 0, 0, 0.6);
-    border-radius: 10px; /* Keep a slight border radius */
+    border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
     position: relative;
     overflow: hidden;
@@ -33,10 +33,10 @@
 .video-frame {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Ensures the video covers the entire card */
+    object-fit: fill; /* Force the video to fill the entire card, even if it distorts */
     border-radius: 10px; /* Match the border radius of the card */
     box-shadow: 0px 0px 8px rgba(255, 255, 255, 0.5);
-    display: block; /* Ensure the video behaves like a block-level element */
+    display: block;
 }
 
 .videos-page::before {
