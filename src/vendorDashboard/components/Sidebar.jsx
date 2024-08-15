@@ -3,7 +3,7 @@ import './Sidebar.css';
 import { useNavigate } from 'react-router-dom';
 import { useUser } from '../contexts/UserContext';
 
-const Navbar = ({ ShowUpdates, ShowTeam }) => {
+const Navbar = ({ ShowUpdates, ShowTeam ,showVideos}) => {
   const [dropdownVisible, setDropdownVisible] = useState('');
   const dropdownRef = useRef(null);
   const navigate = useNavigate();
@@ -74,7 +74,7 @@ const Navbar = ({ ShowUpdates, ShowTeam }) => {
         <a href="#" onClick={ShowUpdates}>Updates</a>
       </div>
       <div id="videos" className="latest-videos">
-        <a href="#">Vides</a>
+        <a href="#" onClick={showVideos}>Videos</a>
       </div>
       <div id='team' className="navbar-item">
         <a href="#" onClick={ShowTeam}>Team Members</a>

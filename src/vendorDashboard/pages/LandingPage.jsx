@@ -96,6 +96,7 @@ const LandingPage = ({ handleCreateArticle, handleUpdateArticle }) => {
         ShowFestivalList={() => navigate('/festival-list')}
         ShowTeam={() => navigate('/team')}
         ShowUpdates={() => navigate('/updates')}
+        showVideos={()=>navigate('/videos')}
       />
       <div className="mainContent">
         <IndividualIntervalsExample 
