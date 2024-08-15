@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './Sidebar.css';
-import VideoGallery from '../components/VideoGallery';
+
 
 import { useNavigate } from 'react-router-dom';
 import { useUser } from '../contexts/UserContext';
@@ -15,11 +15,7 @@ const Navbar = ({ ShowUpdates, ShowTeam }) => {
   const handleVideosClick = () => {
     setShowVideos(!showVideos);
   };
-  const videos = [
-    { src: 'https://your-cloud-storage.com/video1.mp4', description: 'Video 1' },
-    { src: 'https://your-cloud-storage.com/video2.mp4', description: 'Video 2' },
-    // Add more video URLs and descriptions as needed
-  ];
+
   const toggleDropdown = (dropdownName) => {
     setDropdownVisible(prev => (prev === dropdownName ? '' : dropdownName));
   };
@@ -85,7 +81,7 @@ const Navbar = ({ ShowUpdates, ShowTeam }) => {
         <a href="#" onClick={ShowUpdates}>Updates</a>
       </div>
       <div id="videos" className="latest-videos">
-        <a href="#" onClick={handleVideosClick}>Videos</a>
+        <a href="#" onClick={() => navigate('/videos')}>Videos</a>
       </div>
       <div id='team' className="navbar-item">
         <a href="#" onClick={ShowTeam}>Team Members</a>
