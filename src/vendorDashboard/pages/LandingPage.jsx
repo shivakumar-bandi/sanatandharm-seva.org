@@ -79,7 +79,7 @@ const LandingPage = ({ handleCreateArticle, handleUpdateArticle }) => {
       description: 'Description for Vedas & Vedic',
     },
   ];
-
+  
 
   const videos = [
     { id: '9AQM6vOBpoc', description: 'Video 1 Description' },
