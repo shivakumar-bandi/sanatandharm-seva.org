@@ -1,0 +1,25 @@
+.video-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+    background: black; /* Black background for gallery */
+  }
+  
+  .video-card {
+    margin: 10px;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #000; /* Video card background */
+  }
+  
+  iframe {
+    border-radius: 8px; /* Rounded corners for iframe */
+  }
+  
+  .video-description {
+    text-align: center;
+    color: #fff; /* White text color for description */
+    padding: 10px;
+  }
+  
