@@ -73,7 +73,9 @@ const Navbar = ({ ShowUpdates, ShowTeam }) => {
       <div id='updates' className="navbar-item">
         <a href="#" onClick={ShowUpdates}>Updates</a>
       </div>
-      
+      <div id="videos" className="latest-videos">
+        <a href="#">Videos</a>
+      </div>
       <div id='team' className="navbar-item">
         <a href="#" onClick={ShowTeam}>Team Members</a>
       </div>
