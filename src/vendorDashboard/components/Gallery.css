@@ -1,25 +1,28 @@
-.video-gallery {
+/* VideosPage.css */
+.videos-page {
+    background: black;
+    background: radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 50%, rgba(255,0,0,0) 100%);
+    background: url('path/to/3d-animation.gif') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
     display: flex;
-    flex-wrap: wrap;
+    align-items: center;
     justify-content: center;
-    padding: 20px;
-    background: black; /* Black background for gallery */
+  }
+  
+  .videos-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   
   .video-card {
     margin: 10px;
-    border-radius: 8px;
-    overflow: hidden;
-    background: #000; /* Video card background */
   }
   
-  iframe {
-    border-radius: 8px; /* Rounded corners for iframe */
-  }
-  
-  .video-description {
-    text-align: center;
-    color: #fff; /* White text color for description */
-    padding: 10px;
+  .video-card iframe {
+    width: 560px; /* Adjust size as needed */
+    height: 315px; /* Adjust size as needed */
+    border: none;
   }
   

@@ -24,7 +24,7 @@ const EventHeader = lazy(() => import('./vendorDashboard/components/EventHeader'
 const FestivalHeader = lazy(() => import('./vendorDashboard/components/FestivalHeader'));
 const { UserProvider } = lazy(() => import('./vendorDashboard/contexts/UserContext'));
 import { API_URL } from './vendorDashboard/data/apiPath';
-
+const VideosPage = lazy(() => import('./vendorDashboard/components/VideoGallery'));
 const App = () => {
     const navigate = useNavigate();
 
@@ -90,6 +90,13 @@ const App = () => {
         console.log('Edit mode set to:', mode);
     };
 
+   
+        const videoIds = [
+          '9AQM6vOBpoc',
+          'VIDEO_ID2',
+          'VIDEO_ID3', // Add your YouTube video IDs here
+        ];
+
     return (
         <Suspense fallback={<div className="loading-spinner">Loading...</div>}>
             <Routes>
@@ -108,6 +115,7 @@ const App = () => {
                 <Route path="/donation" element={<Donation />} />
                 <Route path="/team" element={<Team />} />
                 <Route path="/updates" element={<Updates />} />
+                <Route path="/videos" element={<VideosPage />} />
             </Routes>
         </Suspense>
     );

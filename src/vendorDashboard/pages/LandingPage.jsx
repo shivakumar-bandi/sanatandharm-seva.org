@@ -13,7 +13,6 @@ import Footer from '../components/Footer';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import Footer2 from '../components/Footer2';
 import TestToast from '../components/Simple';
-import VideoGallery from '../components/VideoGallery';
 
 const LandingPage = ({ handleCreateArticle, handleUpdateArticle }) => {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -79,13 +78,6 @@ const LandingPage = ({ handleCreateArticle, handleUpdateArticle }) => {
       description: 'Description for Vedas & Vedic',
     },
   ];
-  
-
-  const videos = [
-    { id: '9AQM6vOBpoc', description: 'Video 1 Description' },
-    { id: 'dQw4w9WgXcQ', description: 'Video 2 Description' },
-    // Add more video objects here
-  ];
 
   return (
     <div className={`landingSection ${isDarkMode ? 'dark' : 'light'}`}>
@@ -104,7 +96,6 @@ const LandingPage = ({ handleCreateArticle, handleUpdateArticle }) => {
         ShowFestivalList={() => navigate('/festival-list')}
         ShowTeam={() => navigate('/team')}
         ShowUpdates={() => navigate('/updates')}
-        handleVideosClick={()=>navigate('/videos')}
       />
       <div className="mainContent">
         <IndividualIntervalsExample 
@@ -122,9 +113,6 @@ const LandingPage = ({ handleCreateArticle, handleUpdateArticle }) => {
         </div>
         <div>
           <CardContainer cards={cards} />
-        </div>
-        <div>
-          <VideoGallery videos={videos} /> {/* Add VideoGallery component */}
         </div>
         <Footer showDonation={() => navigate('/donation')} />
         <Footer2 />
