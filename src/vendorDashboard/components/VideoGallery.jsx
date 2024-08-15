@@ -1,7 +1,7 @@
 // VideoPlayer.js
 import React from 'react';
 import './Gallery.css'
-const VideoPlayer = ({ videoSrcs }) => {
+const VideoPage = ({ videoSrcs }) => {
   return (
     <div>
       {videoSrcs.map((src, index) => (
@@ -14,4 +14,4 @@ const VideoPlayer = ({ videoSrcs }) => {
   );
 };
 
-export default VideoPlayer;
+export default VideoPage;
