@@ -92,11 +92,15 @@ const App = () => {
     };
 
    
-        const videoIds = [
-          '9AQM6vOBpoc',
-          'VIDEO_ID2',
-          'VIDEO_ID3', // Add your YouTube video IDs here
-        ];
+    const videoSrcs = [
+        '/video1.mp4',
+        '/video2.mp4',
+        '/video3.mp4', 
+        '/video4.mp4', 
+        '/video5.mp4', 
+        '/video6.mp4', 
+        '/video7.mp4', 
+      ];
 
     return (
         <Suspense fallback={<div className="loading-spinner">Loading...</div>}>
@@ -116,7 +120,7 @@ const App = () => {
                 <Route path="/donation" element={<Donation />} />
                 <Route path="/team" element={<Team />} />
                 <Route path="/updates" element={<Updates />} />
-               <Route path='/videos' element={<VideosPage videoIds={videoIds}/>}/>
+                <Route path='/videos' element={<VideosPage videoSrcs={videoSrcs}/>}/>
             </Routes>
         </Suspense>
     );

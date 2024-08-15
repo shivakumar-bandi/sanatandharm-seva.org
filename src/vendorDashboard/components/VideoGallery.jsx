@@ -1,37 +1,40 @@
 import React, { useEffect, useRef } from 'react';
-import './Gallery.css';
+import './VideosPage.css';
 
-const VideosPage = ({ videoIds = [] }) => {
+const VideosPage = ({ videoSrcs = [] }) => {
   const videoRefs = useRef([]);
 
   useEffect(() => {
-    if (videoRefs.current.length > 0) {
-      videoRefs.current.forEach((iframe, index) => {
-        iframe.addEventListener('ended', () => {
-          const nextVideo = videoRefs.current[index + 1];
-          if (nextVideo) {
-            nextVideo.src += "&autoplay=1";
-          }
-        });
+    videoRefs.current.forEach((video, index) => {
+      if (index === 0) {
+        video.play();
+      }
+
+      video.addEventListener('ended', () => {
+        const nextVideo = videoRefs.current[index + 1];
+        if (nextVideo) {
+          nextVideo.play();
+        }
       });
-    }
-  }, [videoIds]);
+    });
+  }, [videoSrcs]);
 
   return (
     <div className="videos-page">
       <div className="videos-container">
-        {videoIds.length > 0 ? (
-          videoIds.map((id, index) => (
+        {videoSrcs.length > 0 ? (
+          videoSrcs.map((src, index) => (
             <div key={index} className="video-card">
-              <iframe
+              <video
                 ref={(el) => (videoRefs.current[index] = el)}
-                src={`https://www.youtube.com/embed/${id}?autoplay=1&controls=0&showinfo=0&rel=0&modestbranding=1&loop=1`}
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                title={`Video ${index + 1}`}
+                src={src}
                 className="video-frame"
-              ></iframe>
+                muted
+                autoPlay
+                playsInline
+                loop
+              ></video>
+              <h2 className="video-title">Bhagwat Geeta in 1 min</h2> {/* Your Title */}
             </div>
           ))
         ) : (
