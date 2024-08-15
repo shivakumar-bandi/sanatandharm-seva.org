@@ -24,7 +24,8 @@ const EventHeader = lazy(() => import('./vendorDashboard/components/EventHeader'
 const FestivalHeader = lazy(() => import('./vendorDashboard/components/FestivalHeader'));
 const { UserProvider } = lazy(() => import('./vendorDashboard/contexts/UserContext'));
 import { API_URL } from './vendorDashboard/data/apiPath';
-const VideosPage = lazy(() => import('./vendorDashboard/components/VideoGallery'));
+ const VideosPage =lazy(()=>import( './vendorDashboard/components/VideoGallery'));
+
 const App = () => {
     const navigate = useNavigate();
 
@@ -115,7 +116,7 @@ const App = () => {
                 <Route path="/donation" element={<Donation />} />
                 <Route path="/team" element={<Team />} />
                 <Route path="/updates" element={<Updates />} />
-                <Route path="/videos" element={<VideosPage />} />
+               <Route path='/videos' element={<VideosPage/>}/>
             </Routes>
         </Suspense>
     );
