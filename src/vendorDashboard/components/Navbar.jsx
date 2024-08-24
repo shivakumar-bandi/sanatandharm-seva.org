@@ -1,7 +1,7 @@
 // src/components/Navbar.js
 import React from 'react';
 import './Navbar.css';
-import { FaSignInAlt, FaUserPlus, FaHome, FaMoon, FaSun, FaSignOutAlt } from 'react-icons/fa'; // Import icons
+import { FaSignInAlt, FaUserPlus, FaMoon, FaSun, FaSignOutAlt } from 'react-icons/fa'; // Import icons
 import { useUser } from '../contexts/UserContext';
 
 const Navbar = ({ ShowLoginHandler, ShowRegister, isDarkMode, toggleDarkMode }) => {
@@ -9,9 +9,7 @@ const Navbar = ({ ShowLoginHandler, ShowRegister, isDarkMode, toggleDarkMode }) 
 
   return (
     <div className={`navSection ${isDarkMode ? 'dark' : 'light'}`}>
-      <div className="dashboardIcon">
-        <FaHome className="dashboardIconImage" /> 
-      </div>
+      
       <div className="logo">
         <img src="./WhatsApp.jpg" alt="Sanatana Dharm Logo" />
         <h1 className="animated-text">సనాతన ధర్మ్ సేవా సమితి</h1>
