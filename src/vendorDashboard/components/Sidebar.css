@@ -71,7 +71,7 @@
 .dropdown-menu a {
   display: block;
   padding: 10px;
-  color: #333; /* Darker text color for readability */
+  color: white; /* Darker text color for readability */
   text-decoration: none;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
