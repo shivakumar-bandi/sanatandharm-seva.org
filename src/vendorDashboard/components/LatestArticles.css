@@ -20,7 +20,7 @@
   flex-direction: column;
   align-items: center;
   margin: 0; /* Removed margin */
-  background-image: url('./axios/bhagavad-gita.jpg');
+  background-image: url('../../../public/axios/bhagavad-gita.jpg');
   background-size: cover;
   background-position: center;
   padding: 8px;
