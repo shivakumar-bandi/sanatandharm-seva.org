@@ -1,0 +1,85 @@
+/* BubbleBackground.css */
+
+/* Bubble container */
+.bubble-container {
+    position: fixed; /* Fixed positioning to cover entire viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none; /* Prevent interaction with bubbles */
+    background-color: rgba(100, 149, 237, 0.2); /* Light cornflower blue background */
+}
+
+/* Bubble styles and animation */
+.bubble {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0;
+    animation: rise 10s infinite ease-in;
+}
+
+/* Keyframes for bubble rise animation */
+@keyframes rise {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100vh);
+        opacity: 0;
+    }
+}
+
+/* Decreased bubble sizes */
+.bubble {
+    width: 20px; /* Smaller size */
+    height: 20px; /* Smaller size */
+}
+
+/* Randomize bubble sizes, colors, and animation duration */
+.bubble:nth-child(odd) {
+    width: 15px; /* Smaller size */
+    height: 15px; /* Smaller size */
+    animation-duration: 12s;
+    background-color: rgba(255, 105, 180, 0.5); /* Pink color */
+}
+
+.bubble:nth-child(even) {
+    width: 25px; /* Slightly larger size */
+    height: 25px; /* Slightly larger size */
+    animation-duration: 8s;
+    background-color: rgba(100, 149, 237, 0.5); /* Cornflower blue color */
+}
+
+/* Add multiple bubbles with random positions */
+.bubble:nth-child(1) {
+    left: 10%;
+    top: 20%;
+    animation-delay: 0s;
+}
+
+.bubble:nth-child(2) {
+    left: 30%;
+    top: 40%;
+    animation-delay: 2s;
+}
+
+.bubble:nth-child(3) {
+    left: 50%;
+    top: 60%;
+    animation-delay: 4s;
+}
+
+.bubble:nth-child(4) {
+    left: 70%;
+    top: 30%;
+    animation-delay: 6s;
+}
+
+.bubble:nth-child(5) {
+    left: 90%;
+    top: 50%;
+    animation-delay: 8s;
+}

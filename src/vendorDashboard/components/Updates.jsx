@@ -4,7 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import './Updates.css';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
-import { MdPhone, MdHome } from 'react-icons/md';
+import { MdHome } from 'react-icons/md';
+import BubbleBackground from './BubbleBackground'; // Import BubbleBackground
 
 const updates = [
   {
@@ -72,10 +73,11 @@ const Updates = () => {
 
   return (
     <div className="updates-container">
-       <button className="go-home-button" onClick={goHome}>
+      <BubbleBackground /> {/* Add the BubbleBackground component */}
+      <button className="go-home-button" onClick={goHome}>
         <MdHome className="home-icon" />
         Go Back Home
-      </button>
+      </button><br />
       <h2 className="updates-title">Updates on Sanatan Dharm</h2>
       <Slider {...settings}>
         {updates.map((update, index) => (

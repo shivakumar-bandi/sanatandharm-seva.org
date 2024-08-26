@@ -1,7 +1,6 @@
 .yogas-card {
   background-color: #f3e5f5;
   border: 1px solid #ce93d8;
-  
   padding: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
@@ -9,15 +8,21 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  margin: 0; /* Remove any margin */
+  width: 100%;
+  max-width: 49%; /* Adjust the max width to fit two cards side by side */
+  box-sizing: border-box;
 }
 
 .yogas-card img {
   width: 100%;
   height: 400px;
+  object-fit: cover;
   border-radius: 8px 8px 0 0;
   filter: drop-shadow(5px 5px 5px rgba(35, 35, 35, 0.6));
 }
 
 .yogas-card h3 {
   margin-top: 10px;
+  color: blue;
 }

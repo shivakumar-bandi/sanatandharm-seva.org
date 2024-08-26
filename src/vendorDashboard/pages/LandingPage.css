@@ -25,31 +25,9 @@ html, body {
 /* Content section styling */
 .contentSection {
   display: flex;
-  justify-content: space-between;
   flex-wrap: wrap;
   margin: 0; /* Remove any default margin */
   padding: 0; /* Remove any default padding */
-}
-
-/* Veda-yoga section styling */
-.veda-yoga {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  margin: 0; /* Remove any default margin */
-  padding: 0; /* Remove any default padding */
-}
-
-/* Card styling */
-.veda-yoga .vedhas-card,
-.veda-yoga .yogas-card {
-  width: 48%; /* Ensure cards fit within the container */
-  height: auto; /* Adjust height based on content */
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: stretch;
 }
 
 /* Carousel container styles */
@@ -139,26 +117,6 @@ html, body {
     flex-direction: column;
   }
 
-  .contentSection {
-    flex-direction: column;
-    margin: 0; /* Remove any default margin */
-  }
-
-  .contentSection > * {
-    margin-bottom: 20px;
-  }
-
-  .veda-yoga {
-    flex-direction: column;
-    margin: 0; /* Remove any default margin */
-  }
-
-  .veda-yoga .vedhas-card,
-  .veda-yoga .yogas-card {
-    width: 100%;
-    margin-bottom: 20px;
-  }
-
   .custom-carousel .carousel-caption {
     padding: 5px;
     max-width: 95%; /* Ensure caption does not overflow */
@@ -187,4 +145,3 @@ html, body {
   color: #000;
 }
 
-/* Add other styles as needed */

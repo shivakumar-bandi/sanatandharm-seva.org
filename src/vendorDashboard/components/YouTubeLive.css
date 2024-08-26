@@ -10,12 +10,10 @@ html, body {
   width: 100%;
   max-width: 100vw;
   overflow-x: hidden;
-  padding: 20px; /* Add padding as needed */
 }
 
 /* Below content styling */
 .below-content {
-  padding: 20px;
   background-color: #f8f9fa; /* Example background color */
   margin-top: 20px; /* Add margin to separate from the carousel */
   width: 100%;
@@ -25,17 +23,17 @@ html, body {
 /* Responsive styling for the YouTube live stream */
 .youtube-live {
   background-color: #fff;
-  padding: 20px;
-  border-radius: 8px;
+  padding: 0; /* Removed padding */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   flex: 1;
-  margin: 10px; /* Changed to margin to allow space around the component */
+  margin: 0; /* Removed margin */
   text-align: center;
   box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
+  border-radius: 0; /* Removed border-radius */
 }
 
 .youtube-live h2 {
-  margin-bottom: 15px;
+  margin-bottom: 0; /* Removed bottom margin */
   background-color: rgb(192, 236, 126);
   color: red;
 }
@@ -44,14 +42,13 @@ html, body {
   width: 100%;
   height: 360px; /* Default height */
   border: none;
-  
 }
 
 /* Responsive styles */
 @media (max-width: 768px) {
   .youtube-live {
-    padding: 10px; /* Adjust padding for smaller screens */
-    margin: 5px; /* Adjust margin for smaller screens */
+    padding: 0; /* Removed padding for smaller screens */
+    margin: 0; /* Removed margin for smaller screens */
   }
 
   .youtube-live iframe {

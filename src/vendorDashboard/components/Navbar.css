@@ -1,93 +1,60 @@
-/* Ensure the body and html do not overflow */
-html, body {
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden; /* Prevent horizontal overflow */
-}
-
-/* Navbar section styling */
+/* Default Navbar section styling for large screens */
 .navSection {
-  height: 80px;
+  height: 70px;
   display: flex;
   justify-content: space-between;
-  background-color: rgb(116, 79, 217); /* Default background color */
   align-items: center;
   color: white;
   padding: 0 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  transition: background-color 0.3s ease, color 0.3s ease; 
+  background-color: gray;
 }
 
+.navSection.light .authItem {
+  color: #333; /* Dark color for text */
+}
+
+.navSection.light .authItem:hover {
+  color: #ff9933; /* Saffron hover effect */
+}
+
+/* Dark mode styles */
 .navSection.dark {
-  background-color: #333;
-  color: #fff;
+  background-color: #222; /* Dark background */
+  color: #f5f5f5; /* Light text color */
 }
 
-.navSection.light {
-  background-color: rgb(116, 79, 217);
-  color: #fff;
-}
-
-.dashboardIcon {
+/* Logo and title styling for large screens */
+.logo {
   display: flex;
   align-items: center;
 }
 
-.dashboardIconImage {
-  font-size: 24px;
-  color: white;
-  cursor: pointer;
-  transition: color 0.3s;
+.navSection.dark .authItem {
+  color: #f5f5f5; /* Light color for text */
 }
 
-.dashboardIconImage:hover {
-  color: #ff9933; /* Hover effect color */
+.navSection.dark .authItem:hover {
+  color: #ff9933; /* Saffron hover effect */
 }
-
-.logo {
-  display: flex;
-  align-items: center; /* Align items vertically */
-}
-
 .logo img {
-  height: 50px;
+  height: 40px;
   margin-right: 10px;
-  border-radius: 50px;
+  border-radius: 50%;
   background-color: #ff9933; /* Saffron color */
-  display: inline-block;
 }
 
 .logo h1 {
   font-family: 'Arial', sans-serif;
   font-size: 24px;
-  margin-top: 10px;
   text-transform: uppercase;
   background: linear-gradient(to right, #ff9933, #ffffff, #138808); /* Indian flag tricolor for text */
   -webkit-background-clip: text; /* Gradient text */
-  -webkit-text-fill-color: transparent; /* Text color */
+  -webkit-text-fill-color: transparent; /* Transparent text fill */
 }
 
-.animated-text {
-  font-family: 'Arial', sans-serif;
-  font-size: 24px;
-  margin-top: 10px;
-  text-transform: uppercase;
-  animation: revealText 5s forwards; /* Animation */
-  animation-delay: 1s; /* Delay before animation starts */
-  opacity: 0; /* Initial opacity */
-  white-space: nowrap; /* Prevent text from wrapping */
-}
-
-@keyframes revealText {
-  0% {
-    opacity: 0;
-    transform: translateX(-100%);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0%);
-  }
-}
-
+/* User authentication and dark mode styling for large screens */
 .userAuth {
   display: flex;
   align-items: center;
@@ -99,8 +66,9 @@ html, body {
   cursor: pointer;
   display: flex;
   align-items: center;
-  color: white;
+  color: black;
   text-decoration: none;
+  transition: color 0.3s ease-in-out; /* Smooth color transition */
 }
 
 .authItem:hover {
@@ -108,45 +76,81 @@ html, body {
 }
 
 .authIcon {
-  margin-right: 5px; /* Space between icon and text */
+  margin-right: 5px;
 }
 
-/* Responsive styles */
+/* Advanced animation for logo text */
+.animated-text {
+  font-size: 1.5rem;
+  font-weight: bold;
+  animation: fadeIn 3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Responsive styles for small screens */
 @media (max-width: 768px) {
   .navSection {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 10px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
     height: auto; /* Allow height to adjust based on content */
   }
 
-  .dashboardIcon, .logo, .userAuth {
-    width: 100%;
-    justify-content: center;
-    margin-bottom: 10px;
+  .logo {
+    display: flex;
+    justify-content: flex-start;
+    width: auto;
+    margin-bottom: 0;
   }
 
-  .logo {
-    justify-content: center;
+  .logo h1 {
+    font-size: 20px; /* Adjust font size for smaller screens */
+    margin: 0;
   }
 
   .userAuth {
-    flex-direction: column;
-    align-items: flex-start;
+    display: flex;
+    justify-content: flex-end;
+    width: auto;
+    margin-top: 0;
   }
 
   .authItem {
-    margin-left: 0;
-    margin-bottom: 10px;
+    margin-left: 15px;
+    font-size: 14px; /* Adjust font size for smaller screens */
+  }
+
+  .logo img {
+    height: 35px;
+    margin-right: 8px; /* Adjust spacing between logo and title */
   }
 }
 
 @media (max-width: 480px) {
+  .navSection {
+    padding: 5px 10px;
+  }
+
   .logo h1 {
-    font-size: 18px; /* Adjust font size for smaller screens */
+    font-size: 18px; /* Adjust font size for even smaller screens */
   }
 
   .authItem {
-    font-size: 14px; /* Adjust font size for smaller screens */
+    font-size: 12px; /* Adjust font size for even smaller screens */
+    margin-left: 10px;
+  }
+
+  .logo, .userAuth {
+    width: auto;
+    align-items: center;
   }
 }

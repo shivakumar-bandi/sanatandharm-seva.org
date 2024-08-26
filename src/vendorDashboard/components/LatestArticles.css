@@ -1,73 +1,77 @@
-/* Styling for the latest articles section */
 .latest-articles {
   background-color: #fff;
-  padding: 20px;
-  border-radius: 8px;
+  padding: 15px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   flex: 1;
-  margin-left: 10px;
+  margin: 0; /* Removed margin */
   text-align: center;
-  color: #333; /* Darker text color for better contrast */
-  box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
+  color: #333;
+  box-sizing: border-box;
 }
 
-/* Headline styles */
 .latest-articles h2 {
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   background-color: rgb(192, 236, 126);
   color: red;
 }
 
-/* Article container styles */
 .article {
   display: flex;
-  flex-direction: column; /* Stack items vertically for better mobile view */
-  align-items: center; /* Center items horizontally */
-  margin-bottom: 10px;
-  background-color: #f9f9f9; /* Light background for text container */
-  padding: 10px;
-  border-radius: 5px;
+  flex-direction: column;
+  align-items: center;
+  margin: 0; /* Removed margin */
+  background-image: url('./axios/bhagavad-gita.jpg');
+  background-size: cover;
+  background-position: center;
+  padding: 8px;
+  border-radius: 0; /* Removed border-radius */
+  position: relative;
+  height: 300px;
+  overflow: hidden;
 }
 
-/* Article image styles */
-.article img {
-  border: 2px solid gray;
-  width: 100%; /* Adjust image to fit container width */
-  max-width: 70px; /* Max width for image */
-  height: auto; /* Maintain aspect ratio */
-  margin-bottom: 10px; /* Space between image and text */
+.scroll-text {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  animation: scroll-up 30s linear infinite;
 }
 
-/* Article text styles */
-.article p {
+.scroll-text p {
   margin: 0;
-  color: #333; /* Ensure the paragraph text is visible */
+  padding: 0 10px;
+  color: #4b0082;
+  background-color: rgba(255, 255, 255, 0.8);
+  width: 100%;
 }
 
-.article a {
-  color: blue; /* Make the link color blue */
-  text-decoration: none; /* Remove underline from link */
+.scroll-text a {
+  color: #4682b4;
+  text-decoration: none;
+  display: inline-block;
 }
 
-.article a:hover {
-  text-decoration: underline; /* Underline on hover for better visibility */
+.scroll-text a:hover {
+  color: #20b2aa;
+  text-decoration: underline;
 }
 
-/* Responsive styles */
+@keyframes scroll-up {
+  0% {
+    bottom: -100%;
+  }
+  100% {
+    bottom: 100%;
+  }
+}
+
 @media (max-width: 768px) {
   .latest-articles {
-    padding: 10px; /* Adjust padding for smaller screens */
-    margin-left: 0; /* Remove margin for smaller screens */
-  }
-
-  .article {
-    flex-direction: column; /* Stack items vertically for mobile view */
-    align-items: center; /* Center items horizontally */
-    margin-bottom: 10px; /* Space between articles */
+    padding: 8px;
+    margin: 0; /* Removed margin */
   }
 
   .article img {
-    max-width: 50px; /* Adjust image size for smaller screens */
-    height: auto; /* Maintain aspect ratio */
+    max-width: 60px;
   }
 }

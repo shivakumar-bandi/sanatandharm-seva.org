@@ -3,6 +3,8 @@ import { Routes, Route, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+import 'slick-carousel/slick/slick.css'; // Corrected import
+import 'slick-carousel/slick/slick-theme.css'; // Corrected import
 
 const LandingPage = lazy(() => import('./vendorDashboard/pages/LandingPage'));
 const Login = lazy(() => import('./vendorDashboard/components/forms/Login'));
@@ -23,8 +25,7 @@ const ArticleHead = lazy(() => import('./vendorDashboard/components/ArticleHead'
 const EventHeader = lazy(() => import('./vendorDashboard/components/EventHeader'));
 const FestivalHeader = lazy(() => import('./vendorDashboard/components/FestivalHeader'));
 const { UserProvider } = lazy(() => import('./vendorDashboard/contexts/UserContext'));
-import { API_URL } from './vendorDashboard/data/apiPath';
- const VideosPage =lazy(()=>import( './vendorDashboard/components/VideoGallery'));
+const VideosPage = lazy(() => import('./vendorDashboard/components/VideoGallery'));
 
 const App = () => {
     const navigate = useNavigate();
@@ -40,7 +41,7 @@ const App = () => {
 
     const handleCreateArticle = async (formData) => {
         try {
-            const response = await axios.post(`${API_URL}/api/articles`, formData,{ headers: { 'Content-Type': 'multipart/form-data' } });
+            const response = await axios.post(`${API_URL}/api/articles`, formData, { headers: { 'Content-Type': 'multipart/form-data' } });
             if (response.status === 200 || response.status === 201) {
                 navigate('/article-list');
             } else {
@@ -53,7 +54,7 @@ const App = () => {
 
     const handleUpdateArticle = async (id, formData) => {
         try {
-            const response = await axios.put(`${API_URL}/api/articles/${id}`, formData,{ headers: { 'Content-Type': 'multipart/form-data' } });
+            const response = await axios.put(`${API_URL}/api/articles/${id}`, formData, { headers: { 'Content-Type': 'multipart/form-data' } });
             if (response.status === 200) {
                 navigate('/article-list');
             } else {
@@ -91,7 +92,6 @@ const App = () => {
         console.log('Edit mode set to:', mode);
     };
 
-   
     const videoSrcs = [
         '/video1.mp4',
         '/video2.mp4',
@@ -100,7 +100,7 @@ const App = () => {
         '/video5.mp4', 
         '/video6.mp4', 
         '/video7.mp4', 
-      ];
+    ];
 
     return (
         <Suspense fallback={<div className="loading-spinner">Loading...</div>}>
@@ -120,7 +120,7 @@ const App = () => {
                 <Route path="/donation" element={<Donation />} />
                 <Route path="/team" element={<Team />} />
                 <Route path="/updates" element={<Updates />} />
-                <Route path='/videos' element={<VideosPage videoSrcs={videoSrcs}/>}/>
+                <Route path='/videos' element={<VideosPage videoSrcs={videoSrcs} />} />
             </Routes>
         </Suspense>
     );

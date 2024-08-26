@@ -16,6 +16,8 @@ import TestToast from '../components/Simple';
 
 const LandingPage = ({ handleCreateArticle, handleUpdateArticle }) => {
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
+
   const navigate = useNavigate();
 
   const toggleDarkMode = () => {
@@ -78,14 +80,29 @@ const LandingPage = ({ handleCreateArticle, handleUpdateArticle }) => {
       description: 'Description for Vedas & Vedic',
     },
   ];
+  const [filteredCards, setFilteredCards] = useState(cards);
 
+  
+  const handleSearch = () => {
+    const lowerCaseQuery = searchQuery.toLowerCase();
+    const filtered = cards.filter((card) =>
+      card.title.toLowerCase().includes(lowerCaseQuery) || card.description.toLowerCase().includes(lowerCaseQuery)
+    );
+    setFilteredCards(filtered);
+  };
   return (
-    <div className={`landingSection ${isDarkMode ? 'dark' : 'light'}`}>
+   
+      <div className="mainContent">
+         <div className={`landingSection ${isDarkMode ? 'dark' : 'light'}`}>
       <Navbar 
         ShowLoginHandler={() => navigate('/login')} 
         ShowRegister={() => navigate('/register')} 
         isDarkMode={isDarkMode}
         toggleDarkMode={toggleDarkMode}
+        searchQuery={searchQuery}
+        setSearchQuery={setSearchQuery}
+        handleSearch={handleSearch}
+
       />
       <Sidebar 
         ShowArticle={() => navigate('/add-article')} 
@@ -98,7 +115,6 @@ const LandingPage = ({ handleCreateArticle, handleUpdateArticle }) => {
         ShowUpdates={() => navigate('/updates')}
         showVideos={()=>navigate('/videos')}
       />
-      <div className="mainContent">
         <IndividualIntervalsExample 
           navigateToArticle={navigateToArticle}
           navigateToEvent={navigateToEvent}
@@ -108,7 +124,7 @@ const LandingPage = ({ handleCreateArticle, handleUpdateArticle }) => {
           <YouTubeLive />
           <LatestArticles />
         </div>
-        <div className="contentSection veda-yoga">
+        <div className="contentSection ">
           <VedhasCard />
           <YogasCard />
         </div>

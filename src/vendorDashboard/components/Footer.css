@@ -1,55 +1,77 @@
-/* General footer styling */
 .footer {
+  background-color: #4b0be0; /* Purple Background */
+  color: white;
+  text-align: center;
+  padding: 20px 10px; /* Reduced padding */
+}
+
+.footer-subscribe h1 {
+  color: yellow;
+  font-size: 2em; /* Slightly smaller font */
+  margin-bottom: 10px; /* Reduced margin */
+}
+
+.subscribe-input {
+  padding: 8px;
+  margin-right: 5px;
+  width: 200px; /* Reduced width */
+  border: none;
+}
+
+.subscribe-button {
+  padding: 8px 15px; /* Reduced padding */
+  background-color: black;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.footer-subscribe p {
+  margin-top: 5px; /* Reduced margin */
+  color: white;
+}
+
+.footer-main {
   display: flex;
-  flex-wrap: wrap; /* Allow wrapping for mobile view */
-  justify-content: space-between; /* Space out the sections evenly */
-  padding: 20px;
-  background-color: #f9f9f9;
+  justify-content: space-around;
+  margin-top: 20px; /* Reduced margin */
+  flex-wrap: wrap;
 }
 
-/* Footer section styling */
 .footer-section {
-  flex: 1 1 30%; /* Allow sections to grow and shrink, with a base width of 30% */
-  padding: 10px;
-  box-sizing: border-box; /* Include padding in the element's total width */
+  flex: 1;
+  margin: 10px; /* Reduced margin */
 }
 
-/* Footer section headers */
 .footer-section h4 {
-  margin-bottom: 10px;
+  font-size: 1.2em; /* Smaller font */
+  margin-bottom: 10px; /* Reduced margin */
 }
 
-/* List styling */
 .footer-section ul {
   list-style-type: none;
   padding: 0;
-  margin: 0;
 }
 
-/* List items styling */
-.footer-section ul li {
-  margin-bottom: 5px;
-}
-
-/* Link styling */
 .footer-section ul li a {
   text-decoration: none;
-  color: #333;
+  color: white;
 }
 
-/* QR code image styling */
+.footer-section ul li {
+  margin-bottom: 5px; /* Reduced margin */
+}
+
 .qr-code {
-  width: 100%; /* Full width on smaller screens */
-  max-width: 150px; /* Maximum width on larger screens */
+  width: 120px; /* Smaller QR code */
   height: auto;
-  margin-bottom: 10px;
+  margin-bottom: 10px; /* Reduced margin */
 }
 
-/* Donate button styling */
 .donate-button {
   background-color: #ff6347;
-  color: #fff;
-  padding: 10px 20px;
+  color: white;
+  padding: 8px 15px; /* Reduced padding */
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -59,48 +81,24 @@
   background-color: #ff4500;
 }
 
-/* Social icons styling */
 .social-icons a {
+  color: white;
+  font-size: 1.8em; /* Slightly smaller icons */
   margin-right: 10px;
-  color: #333;
-  font-size: 1.5em;
 }
 
 .social-icons a:hover {
-  color: #ff4500;
+  color: yellow;
 }
 
-/* Paragraph styling */
-.footer-section p {
-  margin: 10px 0;
-  color: #333;
-}
-
-/* Responsive styles for mobile devices */
+/* Responsive */
 @media (max-width: 768px) {
-  .footer {
-    flex-direction: column; /* Stack sections vertically on smaller screens */
-    align-items: center; /* Center items horizontally */
+  .footer-main {
+    flex-direction: column;
+    align-items: center;
   }
 
   .footer-section {
-    width: 100%; /* Full width on smaller screens */
-    margin-bottom: 20px; /* Space between sections */
-  }
-
-  .qr-code {
-    max-width: 100%; /* Ensure QR code fits within the container */
-  }
-}
-
-/* Styles for larger screens */
-@media (min-width: 769px) {
-  .footer {
-    flex-direction: row; /* Arrange sections in a row */
-  }
-
-  .footer-section {
-    width: auto; /* Allow sections to take up as much space as needed */
-    margin-bottom: 0; /* Remove margin on the bottom */
+    width: 100%;
   }
 }
